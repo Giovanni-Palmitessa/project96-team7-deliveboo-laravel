@@ -16,6 +16,9 @@ return [
     "photos_carousel_image_5" => "https://res.cloudinary.com/tf-lab/image/upload/restaurant/00e175e9-bb69-4e6b-9545-8bab6f588e41/19ae2722-e16b-4c04-b663-73febf963fa5.jpg",
     "rating_value" => 9,
     "review_count" => 150,
+    "category_ID" => null,
+    "owner_ID" => null,
+    "order_ID" => null,
 ],
 
 ];
