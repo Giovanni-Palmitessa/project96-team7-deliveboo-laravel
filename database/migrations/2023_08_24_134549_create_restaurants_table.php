@@ -24,18 +24,11 @@ return new class extends Migration
             $table->smallInteger('priceRange')->nullable();
             $table->tinyInteger('rating_value')->nullable();
             $table->smallInteger('review_count')->nullable();
-
-            // creare la colonna della chiave esterna
-            // $table->unsignedBigInteger('product_ID')->after('id');
-            // $table->unsignedBigInteger('user_ID');
-            // $table->unsignedBigInteger('order_ID');
-
-            // definire la colonna come chiave esterna
-            // $table->foreign('product_ID')->references('id')->on('products');
-            // $table->foreign('user_ID')->references('id')->on('users');
-            // $table->foreign('order_ID')->references('id')->on('orders');
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->unsignedBigInteger('order_id')->nullable();
         });
     }
+
 
     /**
      * Reverse the migrations.
