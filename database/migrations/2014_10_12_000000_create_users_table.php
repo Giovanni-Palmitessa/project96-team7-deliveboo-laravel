@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('token', 64)->unique();
             $table->text('abilities')->nullable();
 
-            $table->unsignedBigInteger('restaurant_id');
-            $table->foreign('restaurant_id')->references('id')->on('restaurants');
+            // $table->unsignedBigInteger('restaurant_id');
+            // $table->foreign('restaurant_id')->references('id')->on('restaurants');
 
             $table->timestamp('last_used_at')->nullable();
             $table->timestamps();
@@ -38,16 +38,16 @@ return new class extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('personal_access_tokens');
+        Schema::dropIfExists('personal_access_tokens');
 
-        Schema::table('restaurants', function (Blueprint $table) {
-            // elimino la chiave esterna
+        // Schema::table('restaurants', function (Blueprint $table) {
+        //     elimino la chiave esterna
 
-            $table->dropForeign('restaurants_user_id_foreign');
+        //     $table->dropForeign('restaurants_user_id_foreign');
 
-            // elimino la colonna
+        //     elimino la colonna
 
-            $table->dropColumn('restaurant_id');
-        });
+        //     $table->dropColumn('restaurant_id');
+        // });
     }
 };
