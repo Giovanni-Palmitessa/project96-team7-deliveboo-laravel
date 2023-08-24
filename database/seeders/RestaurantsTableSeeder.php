@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Restaurant;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class RestaurantsTableSeeder extends Seeder
 {
@@ -14,6 +15,8 @@ class RestaurantsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        foreach (config('deliveboo') as $restaurant) {
+            Restaurant::create($restaurant);
+        }
     }
 }
