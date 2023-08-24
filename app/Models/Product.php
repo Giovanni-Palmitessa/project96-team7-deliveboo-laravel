@@ -14,4 +14,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Order::class);
     }
+
+    public function restaurant() 
+    {
+        return $this->hasMany(Restaurant::class);
+    }
 }
