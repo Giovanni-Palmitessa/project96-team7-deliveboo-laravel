@@ -21,7 +21,8 @@ class RestaurantsTableSeeder extends Seeder
 
             $restaurant = Restaurant::create($restaurantData); // Crea il ristorante
 
-            $restaurant->categories()->attach($category_ids); // Associa le categorie al ristorante
+            // $restaurant->categories()->attach($category_ids); // Associa le categorie al ristorante
+            $restaurant->categories()->sync($category_ids);
         }
     }
 }
