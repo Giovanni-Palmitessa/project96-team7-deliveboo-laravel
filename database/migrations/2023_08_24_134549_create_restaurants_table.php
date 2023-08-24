@@ -26,14 +26,14 @@ return new class extends Migration
             $table->smallInteger('review_count')->nullable();
 
             // creare la colonna della chiave esterna
-            $table->unsignedBigInteger('product_ID')->after('id');
-            $table->unsignedBigInteger('user_ID')->after('product_ID');
-            $table->unsignedBigInteger('order_ID')->after('user_ID');
+            // $table->unsignedBigInteger('product_ID')->after('id');
+            // $table->unsignedBigInteger('user_ID');
+            // $table->unsignedBigInteger('order_ID');
 
             // definire la colonna come chiave esterna
-            $table->foreign('product_ID')->references('id')->on('products');
-            $table->foreign('user_ID')->references('id')->on('users');
-            $table->foreign('order_ID')->references('id')->on('orders');
+            // $table->foreign('product_ID')->references('id')->on('products');
+            // $table->foreign('user_ID')->references('id')->on('users');
+            // $table->foreign('order_ID')->references('id')->on('orders');
         });
     }
 
@@ -44,16 +44,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('restaurants' , function (Blueprint $table) {
-            // eliminare la chiave esterna
-            $table->dropForeign('restaurants_product_id_foreign');
-            $table->dropForeign('restaurants_user_id_foreign');
-            $table->dropForeign('restaurants_order_id_foreign');
-
-            // eliminare la colonna
-            $table->dropColumn('product_ID');
-            $table->dropColumn('user_ID');
-            $table->dropColumn('order_ID');
-        });
+        Schema::dropIfExists('restaurants');
     }
 };
