@@ -15,19 +15,27 @@ class Restaurant extends Model
 
     public $timestamps = false;
 
-    public function user() {
+    protected $fillable = [
+        'name', 'description', 'city', 'address', 'vat', 'url_image', 'priceRange', 'rating_value', 'review_count', 'product_ID', 'user_ID', 'order_ID'
+    ];
+
+    public function user()
+    {
         return $this->hasOne(User::class);
     }
 
-    public function products() {
-        return $this->belongsTo(Product::class);
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 
-    public function orders() {
-        return $this->belongsTo(Order::class);
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 
-    public function categories() {
+    public function categories()
+    {
         return $this->belongsToMany(Category::class);
     }
 }

@@ -17,14 +17,14 @@ class DatabaseSeeder extends Seeder
     {
 
 
-      
-            
+
+
 
         $this->call([
             UsersTableSeeder::class,
             CategoriesTableSeeder::class,
-            ProductsTableSeeder::class,
             RestaurantsTableSeeder::class,
+            ProductsTableSeeder::class,
 
         ]);
         // \App\Models\User::factory(10)->create();

@@ -17,8 +17,8 @@ class Product extends Model
         return $this->belongsToMany(Order::class);
     }
 
-    public function restaurant() 
+    public function restaurant()
     {
-        return $this->hasMany(Restaurant::class);
+        return $this->belongsTo(Restaurant::class);
     }
 }
