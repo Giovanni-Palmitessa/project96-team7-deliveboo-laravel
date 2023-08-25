@@ -3,7 +3,6 @@
 return [
     [
         "category_id" => [2],
-
         "name" => "Haruka Sushi",
         "description" => "Esperienza culinaria incantata: Il nostro ristorante trasforma ingredienti ordinari in opere d'arte gustative, incantando i palati con un connubio magico di sapori e presentazioni uniche.",
         "city" => "Milano",
@@ -13,13 +12,9 @@ return [
         "priceRange" => 35,
         "rating_value" => 9,
         "review_count" => 150,
-        "product_id" => null,
-        // "user_ID" => null,
-        "order_id" => null,
     ],
     [
         "category_id" => [1, 4],
-
         "name" => "Slice",
         "description" => "Gusto del Futuro: Benvenuti nel ristorante dove la cucina innovativa abbraccia la tradizione, creando un viaggio gastronomico senza confini.",
         "city" => "Milano",
@@ -29,13 +24,9 @@ return [
         "priceRange" => 25,
         "rating_value" => 8,
         "review_count" => 267,
-        "product_id" => null,
-        // "user_ID" => null,
-        "order_id" => null,
     ],
     [
         "category_id" => [1, 4],
-
         "name" => "Il Fiore all'Occhiello",
         "description" => "Sapore Avventuroso, Destinazione Gustosa: Esplora i confini culinari mentre il nostro ristorante ti guida attraverso un mondo di sapori inaspettati e delizie straordinarie.",
         "city" => "Roma",
@@ -45,13 +36,9 @@ return [
         "priceRange" => 28,
         "rating_value" => 9,
         "review_count" => 7337,
-        "product_id" => null,
-        // "user_ID" => null,
-        "order_id" => null,
     ],
     [
         "category_id" => [1, 3],
-
         "name" => "Quarantuno Restaurant",
         "description" => "Ristorante Etereo: Dove i desideri gastronomici prendono vita, con piatti che sembrano provenire da un mondo incantato e profumi che raccontano storie dimenticate.",
         "city" => "Roma",
@@ -61,13 +48,9 @@ return [
         "priceRange" => 25,
         "rating_value" => 8,
         "review_count" => 592,
-        "product_id" => null,
-        // "user_ID" => null,
-        "order_id" => null,
     ],
     [
         "category_id" => [1, 3, 4],
-
         "name" => "San Paolino",
         "description" => "Gastronomia in 4D: Nel nostro ristorante, i piatti non sono solo da gustare ma da vivere, con un'esperienza multisensoriale che sorprende e incanta.",
         "city" => "Firenze",
@@ -77,9 +60,6 @@ return [
         "priceRange" => 35,
         "rating_value" => 9,
         "review_count" => 352,
-        "product_id" => null,
-        // "user_ID" => null,
-        "order_id" => null,
     ],
     [
         "category_id" => [1, 4],
@@ -92,14 +72,9 @@ return [
         "priceRange" => 32,
         "rating_value" => 4,
         "review_count" => 193,
-        "product_id" => null,
-        // "user_ID" => null,
-        "order_id" => null,
-
     ],
     [
         "category_id" => [1, 3, 4],
-
         "name" => "Casa Merlò",
         "description" => "Sinfonia di Sapori: Il nostro ristorante è un palcoscenico dove i gusti si fondono in un'armonia perfetta, creando una sinfonia di sapori indimenticabile.",
         "city" => "Bologna",
@@ -109,14 +84,9 @@ return [
         "priceRange" => 30,
         "rating_value" => 5,
         "review_count" => 63,
-        "product_id" => null,
-        // "user_ID" => null,
-        "order_id" => null,
-
     ],
     [
         "category_id" => [1, 2, 4],
-
         "name" => "Capriccio",
         "description" => "Rivoluzione del Gusto: Entra nel futuro della cucina, dove la scienza e l'arte si fondono per creare piatti rivoluzionari che sfidano ogni aspettativa.",
         "city" => "Bologna",
@@ -126,14 +96,9 @@ return [
         "priceRange" => 35,
         "rating_value" => 6,
         "review_count" => 114,
-        "product_id" => null,
-        // "user_ID" => null,
-        "order_id" => null,
-
     ],
     [
         "category_id" => [1, 4],
-
         "name" => "Terrazza Merliani 2.0",
         "description" => "Ristorante Spezzato dal Tempo: Un luogo dove passato, presente e futuro si incontrano nel piatto, creando un'esperienza senza tempo che delizia i sensi.",
         "city" => "Napoli",
@@ -143,14 +108,9 @@ return [
         "priceRange" => 15,
         "rating_value" => 9,
         "review_count" => 415,
-        "product_id" => null,
-        // "user_ID" => null,
-        "order_id" => null,
-
     ],
     [
         "category_id" => [4],
-
         "name" => "Nam 43",
         "description" => "Sapori Nascosti: Scopri il lato segreto della cucina, dove ingredienti insoliti si rivelano in piatti straordinari che stupiscono anche i palati più esperti.",
         "city" => "Napoli",
@@ -160,14 +120,9 @@ return [
         "priceRange" => 15,
         "rating_value" => 7,
         "review_count" => 431,
-        "product_id" => null,
-        // "user_ID" => null,
-        "order_id" => null,
-
     ],
     [
         "category_id" => [1, 3, 4],
-
         "name" => "Locanda dei Buoni e Cattivi",
         "description" => "Caleidoscopio Culinario: Il nostro ristorante è un viaggio attraverso colori, forme e gusti in continua evoluzione, offrendo un'esperienza visiva e gustativa unica.",
         "city" => "Cagliari",
@@ -177,13 +132,9 @@ return [
         "priceRange" => 25,
         "rating_value" => 4,
         "review_count" => 480,
-        "product_id" => null,
-        // "user_ID" => null,
-        "order_id" => null,
     ],
     [
         "category_id" => [1, 4],
-
         "name" => "Obicà  Mozzarella Bar",
         "description" => "Ristorante degli Inganni: Nulla è come sembra in questo mondo di illusioni gastronomiche, dove i piatti sfidano la percezione e stupiscono ogni ospite.",
         "city" => "Cagliari",
@@ -193,8 +144,5 @@ return [
         "priceRange" => 24,
         "rating_value" => 9,
         "review_count" => 101,
-        "product_id" => null,
-        // "user_ID" => null,
-        "order_id" => null,
     ],
 ];
