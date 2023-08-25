@@ -12,7 +12,20 @@ class ProductsTableSeeder extends Seeder
     {
         $products = config('products');
         foreach ($products as $product) {
-            Product::create($product);
+
+            $slug = Product::slugger($objProduct['name']);
+
+            $product = Product::create([
+                'restaurant_id'  => $objProduct['restaurant_id'],
+                'name'           => $objProduct['name'],
+                'slug'           => $slug,
+                'ingredients'    => $objProduct['ingredients'],
+                'price'          => $objProduct['price'],
+                'description'    => $objProduct['description'],
+                'url_image'      => $objProduct['url_image'],
+            ]);
+
+            $product->orders()->sync($objProduct['orders']);
         }
     }
 }

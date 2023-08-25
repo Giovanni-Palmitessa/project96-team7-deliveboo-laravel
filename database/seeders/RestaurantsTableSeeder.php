@@ -15,14 +15,26 @@ class RestaurantsTableSeeder extends Seeder
      */
     public function run()
     {
-        foreach (config('deliveboo') as $restaurantData) {
-            $category_ids = $restaurantData['category_id']; // Salviamo gli ID delle categorie
-            unset($restaurantData['category_id']); // Rimuoviamo 'category_id' dai dati prima di inserirli
+        foreach (config('deliveboo') as $objRestaurant) {
 
-            $restaurant = Restaurant::create($restaurantData); // Crea il ristorante
+            $slug = Restaurant::slugger($objRestaurant['name']);
 
-            // $restaurant->categories()->attach($category_ids); // Associa le categorie al ristorante
-            $restaurant->categories()->sync($category_ids);
+            $restaurant = Restaurant::create([
+                'name'                  => $objRestaurant['name'],
+                'slug'                  => $slug,
+                'description'           => $objRestaurant['description'],
+                'city'                  => $objRestaurant['city'],
+                'address'               => $objRestaurant['address'],
+                'vat'                   => $objRestaurant['vat'],
+                'url_image'             => $objRestaurant['url_image'],
+                'priceRange'             => $objRestaurant['priceRange'],
+                'rating_value'          => $objRestaurant['rating_value'],
+                'review_count'          => $objRestaurant['review_count'],
+            ]);
+
+            // Associa le categorie al ristorante
+            $restaurant->categories()->sync($objRestaurant['categories']);
+            
         }
     }
 }
