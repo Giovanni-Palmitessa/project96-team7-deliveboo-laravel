@@ -85,15 +85,16 @@ class RestaurantController extends Controller
         // salvare i dati nel db se validi
         $newRestaurant = new Restaurant();
         $newRestaurant->name = $data['name'];
+        $newRestaurant->slug = Restaurant::slugger($data['name']);
         $newRestaurant->description = $data['description'];
         $newRestaurant->city = $data['city'];
         $newRestaurant->address = $data['address'];
         // $newRestaurant->image = $imagePath;
         $newRestaurant->vat = $data['vat'];
         $newRestaurant->url_image = $data['url_image'];
-        $newRestaurant->priceRange = $data['description'];
-        $newRestaurant->rating_value = $data['rating_value'];
-        $newRestaurant->review_count = $data['review_count'];
+        $newRestaurant->priceRange = $data['priceRange'];
+        // $newRestaurant->rating_value = $data['rating_value'];
+        // $newRestaurant->review_count = $data['review_count'];
 
         $newRestaurant->save();
 
@@ -168,7 +169,7 @@ class RestaurantController extends Controller
         $restaurant->address = $data['address'];
         $restaurant->vat = $data['vat'];
         $restaurant->url_image = $data['url_image'];
-        $restaurant->priceRange = $data['description'];
+        $restaurant->priceRange = $data['priceRange'];
         $restaurant->rating_value = $data['rating_value'];
         $restaurant->review_count = $data['review_count'];
 
