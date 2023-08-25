@@ -11,7 +11,7 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         $products = config('products');
-        foreach ($products as $product) {
+        foreach ($products as $objProduct) {
 
             $slug = Product::slugger($objProduct['name']);
 
@@ -25,7 +25,6 @@ class ProductsTableSeeder extends Seeder
                 'url_image'      => $objProduct['url_image'],
             ]);
 
-            $product->orders()->sync($objProduct['orders']);
         }
     }
 }
