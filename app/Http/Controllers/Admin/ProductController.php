@@ -14,9 +14,10 @@ class ProductController extends Controller
     private $validations = [
         'name' => 'required|string|min:2|max:50',
         'ingredients' => 'required|string',
-        'price' => 'required|string|integer',
+        'price' => 'required|integer',
         'description' => 'required|string',
         'url_image' => 'required|string',
+        'restaurant_id' => 'required|integer'
     ];
 
     private $validation_messages = [
@@ -30,6 +31,8 @@ class ProductController extends Controller
         'url_image.required' => 'Il campo Url Immagine è obbligatorio',
         // price
         'price.integer' => 'Il prezzo deve essere un\' intero',
+        // restaurant_id
+        'restaurant_id' => 'Il restaurant ID è obbligatorio'
     ];
 
     public function index()
@@ -56,18 +59,19 @@ class ProductController extends Controller
         $newProduct->price = $data['price'];
         $newProduct->description = $data['description'];
         $newProduct->url_image = $data['url_image'];
+        $newProduct->restaurant_id = $data['restaurant_id'];
 
         // salvo il nuovo Prodotto
         $newProduct->save();
 
         // redirect
-        return to_route('admin.product.show', ['product' => $newProduct]);
+        return to_route('admin.products.show', ['product' => $newProduct]);
     }
 
     public function show($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
-        return view('admin.product.show', compact('product'));
+        return view('admin.products.show', compact('product'));
     }
 
     public function edit(Product $product)

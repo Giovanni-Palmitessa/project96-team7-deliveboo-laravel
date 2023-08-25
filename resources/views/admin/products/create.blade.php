@@ -70,5 +70,18 @@ novalidate>
         </div>
     </div>
 
+    <div class="mb-3">
+        <label for="restaurant_id" class="form-label">Restaurant ID</label>
+        <textarea class="form-control @error ('restaurant_id') is-invalid @enderror" 
+        name="restaurant_id" 
+        id="restaurant_id"
+        rows="3">{{ old('restaurant_id') }}</textarea>
+        <div class="invalid-feedback">
+            @error('restaurant_id')
+            {{ $message }}
+            @enderror
+        </div>
+    </div>
+
     <button class="btn btn-primary">Save</button>
 </form>
