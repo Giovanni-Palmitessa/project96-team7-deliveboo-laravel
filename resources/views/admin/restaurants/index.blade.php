@@ -24,13 +24,13 @@
                         {{$restaurant->name}}
                     </th>
                     <td class="px-6 py-4">
-                        Silver
+                        {{$restaurant->city}}
                     </td>
                     <td class="px-6 py-4">
-                        Laptop
+                        {{$restaurant->address}}
                     </td>
                     <td class="px-6 py-4">
-                        $2999
+                        {{$restaurant->priceRange}}
                     </td>
                 </tr>
             @endforeach    

@@ -15,9 +15,9 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurant = Restaurant::all();
+        $restaurants = Restaurant::all();
 
-        return view('admin.restaurants.index', compact('restaurant'));
+        return view('admin.restaurants.index', compact('restaurants'));
     }
 
     /**
@@ -40,7 +40,42 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validare i dati del form
+        $request->validate($this->validations, $this->validations_messages);
+
+        $data = $request->all();
+
+        // salvare l'immagine nella cartella degli uploads
+        // prendere il percorso dell'immagine appena salvata
+        // $imagePath = null;
+
+        // if (isset($data['image'])) {
+        //     $imagePath = Storage::put('uploads', $data['image']);
+        // }
+
+        // if ($request->has('image')) {
+        //     $imagePath = Storage::disk('public')->put('uploads', $data['image']);
+        // }
+
+        // salvare i dati nel db se validi
+        $newRestaurant = new Restaurant();
+        $newRestaurant->name = $data['name'];
+        $newRestaurant->description = $data['description'];
+        $newRestaurant->type_id = $data['type_id'];
+        $newRestaurant->url_image = $data['url_image'];
+        $newRestaurant->image = $imagePath;
+        $newRestaurant->pickup_date = $data['pickup_date'];
+        $newRestaurant->deploy_date = $data['deploy_date'];
+        $newRestaurant->description = $data['description'];
+
+        $newRestaurant->save();
+
+        // associare i tag
+        $newPortfolio->technologies()->sync($data['technologies'] ?? []);
+
+        // reindirizzare su una rotta di tipo get
+
+        return to_route('admin.portfolios.show', ['portfolio' => $newPortfolio]);
     }
 
     /**
