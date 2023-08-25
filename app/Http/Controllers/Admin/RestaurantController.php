@@ -194,6 +194,11 @@ class RestaurantController extends Controller
         //     Storage::delete($restaurant->image);
         // }
 
-        
+        //dissociare tutti le technology dal post
+        $restaurant->categories()->detach();
+
+        // elimino il post
+        $restaurant->delete();
+        return to_route('admin.restaurants.index')->with('delete_success', $restaurant);
     }
 }
