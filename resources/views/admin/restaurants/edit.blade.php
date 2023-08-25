@@ -1,7 +1,8 @@
 <h1>sono l'edit</h1>
 
-<form method="POST" action="{{ route('admin.restaurants.update') }}" enctype="multipart/form-data" novalidate>
+<form method="POST" action="{{ route('admin.restaurants.update', ['restaurant' => $restaurant]) }}" enctype="multipart/form-data">
     @csrf
+    @method('put')
 
     <div class="mb-6">
       <label for="name" @error('name') is-invalid @enderror class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
