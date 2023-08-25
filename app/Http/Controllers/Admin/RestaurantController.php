@@ -27,7 +27,9 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        $products = Product::all();
+        $categories = Category::all();
+        return view('admin.restaurants.create', compact('products', 'categories'));
     }
 
     /**
