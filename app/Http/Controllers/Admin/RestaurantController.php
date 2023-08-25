@@ -68,7 +68,7 @@ class RestaurantController extends Controller
 
         $data = $request->all();
 
-        // salvare l'immagine nella cartella degli uploads
+        // salvare l'immagine nella cartella degli uploads DA SCOMMENTARE QUANDO SI IMPLEMENTA LO STORAGE
         // prendere il percorso dell'immagine appena salvata
         // $imagePath = null;
 
@@ -146,6 +146,39 @@ class RestaurantController extends Controller
         $request->validate($this->validations, $this->validations_messages);
 
         $data = $request->all();
+
+        // immagine caricata dall'utente DA SCOMMENTARE QUANDO SI IMPLEMENTA LO STORAGE
+        // if (isset($data['image'])) {
+
+        //     $imagePath = Storage::put('uploads', $data['image']);
+
+        //     if ($restaurant->image) {
+        //         Storage::delete($restaurant->image);
+        //     }
+
+        //     $restaurant->image = $imagePath;
+        // }
+
+        // aggiornare i dati nel db se validi
+        $restaurant->name = $data['name'];
+        $restaurant->description = $data['description'];
+        $restaurant->city = $data['city'];
+        $restaurant->address = $data['address'];
+        $restaurant->vat = $data['vat'];
+        $restaurant->url_image = $data['url_image'];
+        $restaurant->priceRange = $data['description'];
+        $restaurant->rating_value = $data['rating_value'];
+        $restaurant->review_count = $data['review_count'];
+
+        $restaurant->update();
+
+        // associare i tag
+        $restaurant->categories()->sync($data['categories'] ?? []);
+
+        // reindirizzare su una rotta di tipo get
+
+        return to_route('admin.restaurants.show', ['restaurant' => $restaurant]);
+
     }
 
     /**
@@ -156,6 +189,11 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        //
+        // DA SCOMMENTARE QUANDO SI IMPLEMENTA IL CARICAMENTO DELLE IMMAGINI
+        // if ($restaurant->image) {
+        //     Storage::delete($restaurant->image);
+        // }
+
+        
     }
 }
