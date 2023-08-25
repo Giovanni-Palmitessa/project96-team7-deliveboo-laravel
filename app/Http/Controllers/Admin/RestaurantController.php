@@ -170,8 +170,8 @@ class RestaurantController extends Controller
         $restaurant->vat = $data['vat'];
         $restaurant->url_image = $data['url_image'];
         $restaurant->priceRange = $data['priceRange'];
-        $restaurant->rating_value = $data['rating_value'];
-        $restaurant->review_count = $data['review_count'];
+        // $restaurant->rating_value = $data['rating_value'];
+        // $restaurant->review_count = $data['review_count'];
 
         $restaurant->update();
 

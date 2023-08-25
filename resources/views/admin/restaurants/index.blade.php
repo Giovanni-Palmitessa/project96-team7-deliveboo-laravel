@@ -15,6 +15,9 @@
                 <th scope="col" class="px-6 py-3">
                     Prezzo medio
                 </th>
+                <th scope="col" class="px-6 py-3">
+                    Azioni
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +34,10 @@
                     </td>
                     <td class="px-6 py-4">
                         {{$restaurant->priceRange}}
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="{{ route('admin.restaurants.show', ['restaurant' => $restaurant]) }}">View</a>
+                        <a href="{{ route('admin.restaurants.edit', ['restaurant' => $restaurant]) }}">Edit</a>
                     </td>
                 </tr>
             @endforeach    
