@@ -7,12 +7,12 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RestaurantController;
 
+Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->prefix('admin')
     ->group(function () {
-        Route::get('/', [PageController::class, 'dashboard'])->name('dashboard');
         Route::resource('restaurants', RestaurantController::class);
         Route::resource('products', ProductController::class);
         Route::resource('categories', CategoryController::class);
