@@ -128,7 +128,7 @@ class RestaurantController extends Controller
 
         $products = Product::all();
         $categories = Category::all();
-        
+
         return view('admin.restaurants.edit', compact('restaurant', 'products', 'categories'));
     }
 
@@ -139,9 +139,13 @@ class RestaurantController extends Controller
      * @param  \App\Models\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Restaurant $restaurant)
+    public function update(Request $request, $slug)
     {
-        //
+        $restaurant = Restaurant::where('slug', $slug)->firstOrFail();
+
+        $request->validate($this->validations, $this->validations_messages);
+
+        $data = $request->all();
     }
 
     /**
