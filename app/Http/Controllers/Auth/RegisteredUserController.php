@@ -42,11 +42,7 @@ class RegisteredUserController extends Controller
             'description'     => ['required', 'string', 'max:1000'],
             'city'            => ['required', 'string', 'max:50'],
             'address'         => ['required', 'string', 'max:150'],
-            'vat'             => ['required', 'numeric', 'max:10'],
-            'url_image'       => ['required', 'string', 'max:500'],
-            'priceRange'      => ['required', 'numeric', 'max:200'],
-            'rating_value'    => ['required', 'numeric', 'max:250'],
-            'review_count'    => ['required', 'numeric', 'max:250'],
+            'vat'             => ['required', 'string', 'min:10', 'max:10'],
         ]);
 
         $restaurant = Restaurant::create([
@@ -56,11 +52,6 @@ class RegisteredUserController extends Controller
             'city'              =>  $request->city,
             'address'           =>  $request->address,
             'vat'               =>  $request->vat,
-            'url_image'         =>  $request->url_image,
-            'priceRange'        =>  $request->priceRange,
-            'rating_value'      =>  $request->rating_value,
-            'review_count'      =>  $request->review_count,
-
         ]);
         $restaurant->categories()->sync($request['categories'] ?? []);
 
