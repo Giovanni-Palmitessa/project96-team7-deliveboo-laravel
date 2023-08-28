@@ -19,21 +19,6 @@ class ProductController extends Controller
         'url_image' => 'required|string',
     ];
 
-    // private $validation_messages = [
-    //     // name
-    //     'name.required' => 'Il campo Nome è obbligatorio',
-    //     'name.min' => 'Il campo Nome deve avere almeno :min caratteri',
-    //     'name.max' => 'Il campo Nome deve avere massimo :max caratteri',
-    //     // ingredients
-    //     'ingredients.required' => 'Il campo ingredienti è obbligatorio',
-    //     // description
-    //     'description.required' => 'Il campo Descrizione è obbligatorio',
-    //     // url_image
-    //     'url_image.required' => 'Il campo Url Immagine è obbligatorio',
-    //     // price
-    //     'price.integer' => 'Il prezzo deve essere un\' intero',
-    // ];
-
     public function index()
     {
         $products = Product::paginate(5);
@@ -94,7 +79,7 @@ class ProductController extends Controller
         $product->price = $data['price'];
         $product->description = $data['description'];
         $product->url_image = $data['url_image'];
-        $product->restaurant_id = $data['restaurant_id'];
+        // $product->restaurant_id = $data['restaurant_id'];
         // update
         $product->update();
 

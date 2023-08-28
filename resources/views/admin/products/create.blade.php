@@ -15,7 +15,7 @@ novalidate>
         name="name" 
         value="{{old('name')}}">
     </div>
-    <div class="mb-2 text-sm" id="ProductNameError"></div>
+    <div class="mb-2 error text-sm" id="ProductNameError"></div>
 
     <div class="mb-3">
         <label for="ingredients" class="form-label">Ingredienti</label>
@@ -24,7 +24,7 @@ novalidate>
         name="ingredients" 
         value="{{old('ingredients')}}">
     </div>
-    <div class="mb-2 text-sm" id="ProductIngredientsError"></div>
+    <div class="mb-2 error text-sm" id="ProductIngredientsError"></div>
 
     <div class="mb-3">
         <label for="price" class="form-label">Prezzo</label>
@@ -33,7 +33,7 @@ novalidate>
         name="price" 
         value="{{old('price')}}">
     </div>
-    <div class="mb-2 text-sm" id="ProductPriceError"></div>
+    <div class="mb-2 error text-sm" id="ProductPriceError"></div>
 
     <div class="mb-3">
         <label for="description" class="form-label">Descrizione</label>
@@ -42,7 +42,7 @@ novalidate>
         id="product_description_create"
         rows="3">{{ old('description') }}</textarea>
     </div>
-    <div class="mb-2 text-sm" id="ProductDescriptionError"></div>
+    <div class="mb-2 error text-sm" id="ProductDescriptionError"></div>
 
     <div class="mb-3">
         <label for="url_image" class="form-label">Url Immagine</label>
@@ -51,7 +51,7 @@ novalidate>
         id="product_url_image_create"
         rows="3">{{ old('url_image') }}</textarea>
     </div>
-    <div class="mb-2 text-sm" id="ProductUrlImageError"></div>
+    <div class="mb-2 error text-sm" id="ProductUrlImageError"></div>
 
     <button class="btn btn-primary">Save</button>
 </form>
