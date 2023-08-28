@@ -1,16 +1,17 @@
-const productCreateForm = document.getElementById("product_create_form"); // Seleziona il form
-
-if (productCreateForm) {
-    productCreateForm.addEventListener("submit", function (event) {
+// Seleziono il form
+const productEditForm = document.getElementById("product_edit_form");
+// Istruzione condizionale
+if (productEditForm) {
+    productEditForm.addEventListener("submit", function (event) {
         // Impedisci il comportamento di default (ricaricare la pagina)
         event.preventDefault();
 
         // Ottieni i valori dai campi di input
-        const name = document.getElementById("product_name_create").value;
-        const ingredients = document.getElementById("product_ingredients_create").value;
-        const price = document.getElementById("product_price_create").value;
-        const description = document.getElementById("product_description_create").value;
-        const url_image = document.getElementById("product_url_image_create").value;
+        const name = document.getElementById("product_name_edit").value;
+        const ingredients = document.getElementById("product_ingredients_edit").value;
+        const price = document.getElementById("product_price_edit").value;
+        const description = document.getElementById("product_description_edit").value;
+        const url_image = document.getElementById("product_url_image_edit").value;
 
         // Ottieni le aree in cui verranno mostrati i messaggi di errore
         const nameError = document.querySelector("#ProductNameError");
@@ -60,7 +61,7 @@ if (productCreateForm) {
             descriptionError.textContent = "Il campo descrizione è obbligatoriooo";
             isValid = false;
         } else if (description.length < 10) {
-            descriptionError.textContent = "Il campo descrizione deve contenere almeno 10 caratteri"
+            descriptionError.textContent = "Il campo descrizione deve contenere almeno 10 caratteri";
             isValid = false;
         }
 
@@ -74,7 +75,7 @@ if (productCreateForm) {
 
         // Se tutto è valido, sottometti il form
         if (isValid) {
-            productCreateForm.submit();
+            productEditForm.submit();
         }
-    });
+    })
 }
