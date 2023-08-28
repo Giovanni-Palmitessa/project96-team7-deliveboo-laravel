@@ -1,7 +1,11 @@
 @extends('admin.layouts.base')
 
 @section('contents')
-<form method="POST" action="{{ route('admin.restaurants.update', ['restaurant' => $restaurant]) }}" enctype="multipart/form-data">
+<form method="POST" 
+action="{{ route('admin.restaurants.update', ['restaurant' => $restaurant]) }}" 
+enctype="multipart/form-data"
+id="form-edit"
+>
     @csrf
     @method('put')
 
