@@ -44,7 +44,9 @@ if (productCreateForm) {
         }
 
         if (ingredients.trim() === "") {
-            ingredientsError.textContent = "Il campo ingredienti è obbligatorio ciao a tutti"
+            ingredientsError.textContent = "Il campo Ingredienti è obbligatorio ciao a tutti"
+        } else if (ingredients.length < 10) {
+            ingredientsError.textContent = "Il campo Ingredienti deve contenere almeno 10 caratteri"
         }
 
         if (price.trim() === "") {
