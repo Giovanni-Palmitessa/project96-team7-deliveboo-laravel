@@ -81,9 +81,26 @@ class ProductController extends Controller
         return view('admin.products.edit', compact('product'));
     }
 
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $slug)
     {
-        //
+        $product = Product::where('slug', $slug)->firstOrFail();
+
+        $request->validate($this->validations, $this->validation_messages);
+
+        $data = $request->all();
+
+        // aggiorno i dati nel database
+        $product->name = $data['name'];
+        $product->ingredients = $data['ingredients'];
+        $product->price = $data['price'];
+        $product->description = $data['description'];
+        $product->url_image = $data['url_image'];
+        $product->restaurant_id = $data['restaurant_id'];
+        // update
+        $product->update();
+
+        // redirect
+        return to_route('admin.products.show', ['product' => $product]);
     }
 
     public function destroy(Product $product)
