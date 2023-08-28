@@ -13,16 +13,17 @@ id="form-edit"
       <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
       <input type="text" 
       name="name" 
-      id="name" 
+      id="name-edit" 
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
       value="{{ old('name', $restaurant->name) }}"
       @error('name') is-invalid @enderror 
-      required>
+      >
       @error('name')
                 <div class="invalid-feedback">
                     {{ $message }} 
                 </div>
-            @enderror
+      @enderror
+      <div class="mb-2 text-sm text-red-600" id="nameErrorEdit"></div>
     </div>
 
     <div class="mb-6">
@@ -32,7 +33,7 @@ id="form-edit"
       id="description" 
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
       value="{{ old('description', $restaurant->description) }}"
-      required>
+      >
     </div>
 
     <div class="mb-6">
@@ -42,7 +43,7 @@ id="form-edit"
         id="city" 
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
         value="{{ old('city', $restaurant->city) }}"
-        required>
+        >
       </div>
 
       <div class="mb-6">
@@ -52,7 +53,7 @@ id="form-edit"
         id="address" 
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
         value="{{ old('address', $restaurant->address) }}"
-        required>
+        >
       </div>
 
       <div class="mb-6">
@@ -61,7 +62,7 @@ id="form-edit"
         name="vat" id="vat" 
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
         value="{{ old('vat', $restaurant->vat) }}"
-        required>
+        >
       </div>
 
       <div class="mb-6">

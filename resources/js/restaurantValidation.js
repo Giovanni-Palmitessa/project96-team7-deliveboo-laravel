@@ -98,4 +98,41 @@ if (formCreate) {
     });
 }
 
-// validation restaurants per create
+// validation restaurants per edit
+
+const formEdit = document.getElementById("form-edit"); // Seleziona il form
+const checkboxesEdit = document.querySelectorAll('input[type="checkbox"]'); //seleziona le checkbox
+
+if (formEdit) {
+    formEdit.addEventListener("submit", function (event) {
+        // Impedisci il comportamento di default (ricaricare la pagina)
+        event.preventDefault();
+
+        // Ottieni i valori dai campi di input
+        const nameEdit = document.getElementById("name-edit").value;
+
+        // Ottieni le aree in cui verranno mostrati i messaggi di errore
+        const nameErrorEdit = document.getElementById("nameErrorEdit");
+
+        // Resetta i messaggi di errore
+        nameErrorEdit.textContent = "";
+
+        // Esegui le validazioni
+        let isValidEdit = true;
+
+        if (nameEdit.trim() === "") {
+            nameErrorEdit.textContent =
+                "Il campo Nome è obbligatorio ciao ciao.";
+            isValidEdit = false;
+        } else if (nameEdit.length > 50) {
+            nameErrorEdit.textContent =
+                "Il campo Nome non può contenere più di 50 caratteri.";
+            isValidEdit = false;
+        }
+
+        // Se tutto è valido, sottometti il form
+        if (isValidEdit) {
+            formEdit.submit();
+        }
+    });
+}
