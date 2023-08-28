@@ -28,4 +28,17 @@ class Product extends Model
     {
         return $this->belongsTo(Restaurant::class);
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($product) {
+            $user = auth()->user(); // Ottieni l'utente autenticato corrente
+            if (!$product->restaurant_id && $user) {
+                $product->restaurant_id = $user->restaurant->id;
+            }
+        });
+    }
+    
 }

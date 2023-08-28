@@ -70,7 +70,7 @@ novalidate>
         </div>
     </div>
 
-    <div class="mb-3">
+    {{-- <div class="mb-3">
         <label for="restaurant_id" class="form-label">Restaurant ID</label>
         <textarea class="form-control @error ('restaurant_id') is-invalid @enderror" 
         name="restaurant_id" 
@@ -81,7 +81,7 @@ novalidate>
             {{ $message }}
             @enderror
         </div>
-    </div>
+    </div> --}}
 
     <button class="btn btn-primary">Save</button>
 </form>
