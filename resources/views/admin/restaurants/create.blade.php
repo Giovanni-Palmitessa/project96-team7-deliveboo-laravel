@@ -1,13 +1,19 @@
 @extends('admin.layouts.base')
 
 @section('contents')
-<form method="POST" action="{{ route('admin.restaurants.store') }}" enctype="multipart/form-data" novalidate>
-    @csrf
+<form method="POST" 
+action="{{ route('admin.restaurants.store') }}" 
+enctype="multipart/form-data" 
+id="form-create"
+novalidate 
+>
+
+@csrf
 
     <div class="mb-6">
       <label for="name"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
       <input type="text" 
-      id="name" 
+      id="name-create" 
       name="name" 
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       value="{{old('name')}}" 
@@ -18,23 +24,25 @@
                     {{ $message }} 
                 </div>
       @enderror
-      {{-- <div class="mb-2 text-sm text-red-600" id="nameError"></div> --}}
+      <div class="mb-2 text-sm text-red-600" id="nameError"></div>
     </div>
 
     <div class="mb-6">
       <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descrizione</label>
       <input type="text" 
       name="description" 
-      id="description" 
+      id="description-create" 
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
       value="{{old('description')}}" 
+      @error('name') is-invalid @enderror
       required>
+      <div class="mb-2 text-sm text-red-600" id="nameError"></div>
     </div>
 
     <div class="mb-6">
         <label for="city"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Città</label>
         <input type="text" 
-        name="city" 
+        name="city-create" 
         id="city" 
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
         value="{{old('city')}}" 
@@ -45,7 +53,7 @@
         <label for="address"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Indirizzo</label>
         <input type="text" 
         name="address" 
-        id="address" 
+        id="address-create" 
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
         value="{{old('address')}}"
         required>
@@ -55,7 +63,7 @@
         <label for="vat"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">P. IVA</label>
         <input type="text" 
         name="vat" 
-        id="vat" 
+        id="vat-create" 
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
         value="{{old('vat')}}"
         required>
@@ -65,7 +73,7 @@
         <label for="url_image"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Immagine</label>
         <input type="text" 
         name="url_image" 
-        id="url_image" 
+        id="url_image-create" 
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         value="{{old('url_image')}}"
         >
@@ -75,7 +83,7 @@
         <label for="priceRange" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prezzo medio</label>
         <input type="number" 
         name="priceRange" 
-        id="priceRange" 
+        id="priceRange-create" 
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         value="{{old('priceRange')}}"
         >
