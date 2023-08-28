@@ -21,25 +21,25 @@ class UsersTableSeeder extends Seeder
                 "name"      => "Davide Farci",
                 "email"     => "davide.farci@gmail.com",
                 "password"  => Hash::make('davide96'),
-                // "restaurant_id" => "1",
+                "restaurant_id" => "1",
             ],
             [
                 "name"      => "Domenico Ferrari",
                 "email"     => "domenico.ferrari@gmail.com",
                 "password"  => Hash::make('domenico96'),
-                // "restaurant_id" => "2",
+                "restaurant_id" => "2",
             ],
             [
                 "name"      => "Loris Marzocchi",
                 "email"     => "loris.marzocchi@gmail.com",
                 "password"  => Hash::make('loris96'),
-                // "restaurant_id" => "3",
+                "restaurant_id" => "3",
             ],
             [
                 "name"      => "Giovanni Palmitessa",
                 "email"     => "giovanni.palmitessa@gmail.com",
                 "password"  => Hash::make('giovanni96'),
-                // "restaurant_id" => "4",
+                "restaurant_id" => "4",
             ],
         ];
 
