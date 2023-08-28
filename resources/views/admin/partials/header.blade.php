@@ -45,7 +45,7 @@
         id="navbar-sticky"
       >
         <ul
-          class="flex flex-col gap-4 lg:items-center text-center p-4 md:p-0 mt-4 font-medium border bg-primary border-secondary rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0"
+          class="flex flex-col lg:items-center text-center p-4 md:p-0 mt-4 font-medium border bg-primary border-secondary rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0"
         >
           <li>
             <a
@@ -56,18 +56,20 @@
             >
           </li>
           <li>
-            <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" type="button" class="hover:text-secondary">Product</button>
-            <!-- Dropdown menu -->
-            <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                  <li>
-                    <a href="{{ route('admin.products.index') }}" class="block px-4 py-2 hover:bg-gray-100">Products</a>
-                  </li>
-                  <li>
-                    <a href="{{ route('admin.products.create') }}" class="block px-4 py-2 hover:bg-gray-100">New Product</a>
-                  </li>
-                </ul>
-            </div>
+            <a
+              href="{{ route('admin.products.create') }}"
+              class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
+              aria-current="page"
+              >New Product</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ route('admin.products.index') }}"
+              class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
+              aria-current="page"
+              >Products</a
+            >
           </li>
           <li>
             <a
@@ -86,6 +88,21 @@
             >
           </li>
         </ul>
+      </div>
+      <div>
+        <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" type="button" class="hover:text-secondary">Product</button>
+            <!-- Dropdown menu -->
+            <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                    <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Edit profile</a></li>
+                    <li>
+                  <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button>Logout</button>
+
+                </form>
+                </ul>
+            </div>
       </div>
     </div>
     <!-- <div
