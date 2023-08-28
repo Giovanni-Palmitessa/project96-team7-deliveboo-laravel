@@ -15,6 +15,7 @@ if (formCreate) {
         const address = document.getElementById("address-create").value;
         const vat = document.getElementById("vat-create").value;
         const url_image = document.getElementById("url_image-create").value;
+        const priceRange = document.getElementById("priceRange-create").value;
 
         // Ottieni le aree in cui verranno mostrati i messaggi di errore
         const nameError = document.getElementById("nameError");
@@ -23,6 +24,7 @@ if (formCreate) {
         const addressError = document.getElementById("addressError");
         const vatError = document.getElementById("vatError");
         const url_imageError = document.getElementById("url_imageError");
+        const priceRangeError = document.getElementById("priceRangeError");
         const categoryError = document.getElementById("categoryError");
 
         // Resetta i messaggi di errore
@@ -32,6 +34,7 @@ if (formCreate) {
         addressError.textContent = "";
         vatError.textContent = "";
         url_imageError.textContent = "";
+        priceRangeError.textContent = "";
 
         // Esegui le validazioni
         let isValid = true;
@@ -87,6 +90,11 @@ if (formCreate) {
             isValid = false;
         } else if (!/^https?:\/\/\S+$/.test(url_image)) {
             url_imageError.textContent = "Inserisci un URL valido.";
+            isValid = false;
+        }
+
+        if (!/^\d+$/.test(priceRange)) {
+            priceRangeError.textContent = "Inserisci solo valori numerici.";
             isValid = false;
         }
 
