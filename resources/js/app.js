@@ -6,42 +6,40 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-
 // validation restaurants
 
-const form = document.querySelector("form"); // Seleziona il form
+// const form = document.querySelector("form"); // Seleziona il form
 
-form.addEventListener("submit", function (event) {
-    // Impedisci il comportamento di default (ricaricare la pagina)
-    event.preventDefault();
+// form.addEventListener("submit", function (event) {
+//     // Impedisci il comportamento di default (ricaricare la pagina)
+//     event.preventDefault();
 
-    // Ottieni i valori dai campi di input
-    const name = document.getElementById("name").value;
-    // Aggiungi qui gli altri campi...
+//     // Ottieni i valori dai campi di input
+//     const name = document.getElementById("name").value;
+//     // Aggiungi qui gli altri campi...
 
-    // Ottieni le aree in cui verranno mostrati i messaggi di errore
-    const nameError = document.getElementById("nameError");
-    // Aggiungi qui gli altri elementi per gli errori...
+//     // Ottieni le aree in cui verranno mostrati i messaggi di errore
+//     const nameError = document.getElementById("nameError");
+//     // Aggiungi qui gli altri elementi per gli errori...
 
-    // Resetta i messaggi di errore
-    nameError.textContent = "";
-    // Aggiungi qui il reset per gli altri messaggi...
+//     // Resetta i messaggi di errore
+//     nameError.textContent = "";
+//     // Aggiungi qui il reset per gli altri messaggi...
 
-    // Esegui le validazioni
-    let isValid = true;
+//     // Esegui le validazioni
+//     let isValid = true;
 
-    if (name.trim() === "") {
-        nameError.textContent = "Il campo Nome è obbligatorio ciao ciao.";
-        isValid = false;
-    }
-    // Aggiungi qui le altre validazioni...
+//     if (name.trim() === "") {
+//         nameError.textContent = "Il campo Nome è obbligatorio ciao ciao.";
+//         isValid = false;
+//     }
+//     // Aggiungi qui le altre validazioni...
 
-    // Se tutto è valido, sottometti il form
-    if (isValid) {
-        form.submit();
-    }
-});
+//     // Se tutto è valido, sottometti il form
+//     if (isValid) {
+//         form.submit();
+//     }
+// });
 
 import "./loginValidation";
-import "./registerValidation";
-
+// import "./registerValidation";

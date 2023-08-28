@@ -1,19 +1,35 @@
-const nome = document.getElementById("name");
-const passwordConferma = document.getElementById("password_confirmation");
+const nome = document.getElementById("reg_name");
+const email = document.getElementById("reg_email");
+const password = document.getElementById("reg_password");
+const passwordConferma = document.getElementById("reg_password_confirmation");
 
 const errorNome = creaElementoErrore();
+const errorEmail = creaElementoErrore();
+const errorPassword = creaElementoErrore();
 const errorPasswordConferma = creaElementoErrore();
 
-const nomeError = {
+const nomeErrori = {
     lunghezza: "Il nome deve contenere almeno 3 caratteri",
 };
 
-const passwordConfermaError = {
+const emailErrori = {
+    "@": "La email deve contenere una '@'",
+    ".suffisso": "La email deve contenere un prefisso '.com' o '.it'",
+    lunghezza: "Inserisci un'email valida",
+};
+
+const passwordErrori = {
+    lunghezza: "La password deve contenere almeno 8 caratteri",
+};
+
+const passwordConfermaErrori = {
     nonCorrispondente: "Le password non corrispondono",
 };
 
-// Aggiungo gli event listener
+// Aggiungi gli event listener
 nome.addEventListener("input", validaNome);
+email.addEventListener("input", validaEmail);
+password.addEventListener("input", validaPassword);
 passwordConferma.addEventListener("input", validaConfermaPassword);
 
 function creaElementoErrore() {
@@ -25,47 +41,54 @@ function creaElementoErrore() {
 
 function validaNome() {
     if (nome.value.length < 3) {
-        mostraErrore(nome, errorNome, nomeError["lunghezza"]);
+        mostraErrore(nome, errorNome, nomeErrori["lunghezza"]);
     } else {
         rimuoviErrore(nome, errorNome);
     }
 }
 
-// function validaEmail() {
-//     if (!email.value.includes("@")) {
-//         mostraErrore(email, errorEmail, emailError["@"]);
-//     } else if (!suffissoValido(email.value)) {
-//         mostraErrore(email, errorEmail, emailError[".suffisso"]);
-//     } else if (email.value.length <= 5) {
-//         mostraErrore(email, errorEmail, emailError["lunghezza"]);
-//     } else {
-//         rimuoviErrore(email, errorEmail);
-//     }
-// }
+function validaEmail() {
+    if (!email.value.includes("@")) {
+        mostraErrore(email, errorEmail, emailErrori["@"]);
+    } else if (!haSuffissoValido(email.value)) {
+        mostraErrore(email, errorEmail, emailErrori[".suffisso"]);
+    } else if (email.value.length <= 5) {
+        mostraErrore(email, errorEmail, emailErrori["lunghezza"]);
+    } else {
+        rimuoviErrore(email, errorEmail);
+    }
+}
 
-// function validaPassword() {
-//     if (password.value.length < 8) {
-//         mostraErrore(password, errorPassword, passwordError["lunghezza"]);
-//     } else {
-//         rimuoviErrore(password, errorPassword);
-//     }
-// }
+function validaPassword() {
+    if (password.value.length < 8) {
+        mostraErrore(password, errorPassword, passwordErrori["lunghezza"]);
+    } else {
+        rimuoviErrore(password, errorPassword);
+    }
+}
 
 function validaConfermaPassword() {
     if (passwordConferma.value !== password.value) {
         mostraErrore(
             passwordConferma,
             errorPasswordConferma,
-            passwordConfermaError["nonCorrispondente"]
+            passwordConfermaErrori["nonCorrispondente"]
         );
     } else {
         rimuoviErrore(passwordConferma, errorPasswordConferma);
     }
 }
 
+function haSuffissoValido(email) {
+    return email.includes(".com") || email.includes(".it");
+}
+
 function mostraErrore(elementoInput, elementoErrore, messaggio) {
     elementoErrore.innerText = messaggio;
-    elementoInput.after(elementoErrore);
+    elementoInput.parentNode.insertBefore(
+        elementoErrore,
+        elementoInput.nextSibling
+    );
     elementoInput.classList.add("is-invalid");
 }
 
