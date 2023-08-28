@@ -93,19 +93,34 @@ id="form-edit"
         <label for="url_image"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Immagine</label>
         <input type="text" 
         name="url_image" 
-        id="url_image" 
+        id="url_image-edit" 
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        value="{{ old('url_image', $restaurant->url_image) }}">
+        value="{{ old('url_image', $restaurant->url_image) }}"
+        @error('url_image') is-invalid @enderror
+        >
+        @error('url_image')
+                <div class="invalid-feedback">
+                    {{ $message }} 
+                </div>
+        @enderror
+        <div class="mb-2 text-sm text-red-600" id="url_imageErrorEdit"></div>
       </div>
 
       <div class="mb-6">
         <label for="priceRange" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prezzo medio</label>
         <input type="number" 
         name="priceRange" 
-        id="priceRange" 
+        id="priceRange-edit" 
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         value="{{ old('priceRange', $restaurant->priceRange) }}"
+        @error('priceRange') is-invalid @enderror
         >
+        @error('priceRange')
+                <div class="invalid-feedback">
+                    {{ $message }} 
+                </div>
+        @enderror
+        <div class="mb-2 text-sm text-red-600" id="priceRangeErrorEdit"></div>
       </div>
 
       <div class="mb-6">
