@@ -1,3 +1,5 @@
+@extends('admin.products.layouts.base')
+@section('contents')
 <h1>Prodotti</h1>
 
 <table class="table">
@@ -28,3 +30,7 @@
         @endforeach
     </tbody>
 </table>
+
+{{ $products->links() }}
+
+@endsection
