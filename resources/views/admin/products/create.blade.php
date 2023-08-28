@@ -5,6 +5,7 @@
 method="POST"
 action="{{ route('admin.products.store') }}"
 enctype="multipart/form-data"
+id="product_create_form"
 novalidate>
     @csrf
     <div class="mb-3">
@@ -13,11 +14,6 @@ novalidate>
         class="form-control" id="product_name_create" 
         name="name" 
         value="{{old('name')}}">
-        {{-- <div class="invalid-feedback">
-            @error('name')
-            {{ $message }}
-            @enderror
-        </div> --}}
     </div>
     <div class="mb-2 text-sm" id="ProductNameError"></div>
 
@@ -27,27 +23,17 @@ novalidate>
         class="form-control" id="product_ingredients_create" 
         name="ingredients" 
         value="{{old('ingredients')}}">
-        {{-- <div class="invalid-feedback">
-            @error('ingredients')
-            {{ $message }}
-            @enderror
-        </div> --}}
     </div>
     <div class="mb-2 text-sm" id="ProductIngredientsError"></div>
 
-
     <div class="mb-3">
         <label for="price" class="form-label">Prezzo</label>
-        <input type="text" 
-        class="form-control @error('price') is-invalid @enderror" id="price" 
+        <input type="number" 
+        class="form-control" id="product_price_create" 
         name="price" 
         value="{{old('price')}}">
-        <div class="invalid-feedback">
-            @error('price')
-            {{ $message }}
-            @enderror
-        </div>
     </div>
+    <div class="mb-2 text-sm" id="ProductPriceError"></div>
 
     <div class="mb-3">
         <label for="description" class="form-label">Descrizione</label>
