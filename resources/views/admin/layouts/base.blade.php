@@ -9,7 +9,8 @@
 </head>
 <body>
     <div class="container">
-        <main>
+        @include('admin.partials.header')
+        <main class="mt-32">
             @yield('contents')
         </main>
     </div>
