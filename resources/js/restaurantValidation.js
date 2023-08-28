@@ -14,6 +14,7 @@ if (formCreate) {
         const city = document.getElementById("city-create").value;
         const address = document.getElementById("address-create").value;
         const vat = document.getElementById("vat-create").value;
+        const url_image = document.getElementById("url_image-create").value;
 
         // Ottieni le aree in cui verranno mostrati i messaggi di errore
         const nameError = document.getElementById("nameError");
@@ -21,6 +22,7 @@ if (formCreate) {
         const cityError = document.getElementById("cityError");
         const addressError = document.getElementById("addressError");
         const vatError = document.getElementById("vatError");
+        const url_imageError = document.getElementById("url_imageError");
         const categoryError = document.getElementById("categoryError");
 
         // Resetta i messaggi di errore
@@ -29,6 +31,7 @@ if (formCreate) {
         cityError.textContent = "";
         addressError.textContent = "";
         vatError.textContent = "";
+        url_imageError.textContent = "";
 
         // Esegui le validazioni
         let isValid = true;
@@ -75,6 +78,15 @@ if (formCreate) {
         } else if (!/^\d{10}$/.test(vat)) {
             vatError.textContent =
                 "Inserisci una P.IVA valida composta da 10 cifre.";
+            isValid = false;
+        }
+
+        if (url_image.length > 300) {
+            url_imageError.textContent =
+                "Il campo URL dell'Immagine non può contenere più di 300 caratteri.";
+            isValid = false;
+        } else if (!/^https?:\/\/\S+$/.test(url_image)) {
+            url_imageError.textContent = "Inserisci un URL valido.";
             isValid = false;
         }
 
