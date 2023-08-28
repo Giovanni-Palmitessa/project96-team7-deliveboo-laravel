@@ -67,8 +67,7 @@ if (formCreate) {
         }
 
         if (vat.trim() === "") {
-            addressError.textContent =
-                "Il campo P.IVA è obbligatorio ciao ciao 2.";
+            vatError.textContent = "Il campo P.IVA è obbligatorio ciao ciao 2.";
             isValid = false;
         } else if (!/^\d{10}$/.test(vat)) {
             vatError.textContent =
