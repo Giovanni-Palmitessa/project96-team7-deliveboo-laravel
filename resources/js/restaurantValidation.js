@@ -50,11 +50,19 @@ if (formCreate) {
             cityError.textContent =
                 "Il campo Città è obbligatorio ciao ciao 2.";
             isValid = false;
+        } else if (city.length > 30) {
+            cityError.textContent =
+                "Il campo Città non può contenere più di 30 caratteri.";
+            isValid = false;
         }
 
-        if (city.trim() === "") {
+        if (address.trim() === "") {
             addressError.textContent =
                 "Il campo Indirizzo è obbligatorio ciao ciao 2.";
+            isValid = false;
+        } else if (address.length > 30) {
+            addressError.textContent =
+                "Il campo Indirizzo non può contenere più di 50 caratteri.";
             isValid = false;
         }
 
@@ -62,9 +70,11 @@ if (formCreate) {
             addressError.textContent =
                 "Il campo P.IVA è obbligatorio ciao ciao 2.";
             isValid = false;
+        } else if (!/^\d{10}$/.test(vat)) {
+            vatError.textContent =
+                "Inserisci una P.IVA valida composta da 10 cifre.";
+            isValid = false;
         }
-
-        // Aggiungi qui le altre validazioni...
 
         // Se tutto è valido, sottometti il form
         if (isValid) {
