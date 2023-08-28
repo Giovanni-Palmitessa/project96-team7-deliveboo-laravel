@@ -1,4 +1,4 @@
-@extends('admin.products.layouts.base')
+@extends('admin.layouts.base')
 @section('contents')
 <h1 class="text-center">Inserisci un nuovo Prodotto</h1>
 <form
