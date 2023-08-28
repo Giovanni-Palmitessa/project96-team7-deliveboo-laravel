@@ -48,7 +48,7 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate($this->validations, $this->validation_messages);
+        $request->validate($this->validations);
 
         $data = $request->all();
 

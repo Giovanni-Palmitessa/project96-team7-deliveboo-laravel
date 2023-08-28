@@ -19,7 +19,7 @@ novalidate>
             @enderror
         </div> --}}
     </div>
-    <div class="mb-2 text-sm text-red-600" id="ProductNameError"></div>
+    <div class="mb-2 text-sm" id="ProductNameError"></div>
 
     <div class="mb-3">
         <label for="ingredients" class="form-label">Ingredienti</label>
@@ -33,7 +33,7 @@ novalidate>
             @enderror
         </div> --}}
     </div>
-    <div class="mb-2 text-sm text-red-600" id="ProductIngredientsError"></div>
+    <div class="mb-2 text-sm" id="ProductIngredientsError"></div>
 
 
     <div class="mb-3">
