@@ -39,18 +39,19 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function index()
-    // {
-    //     $restaurant = Auth::user()->restaurant;
+    public function index()
+    {
+        $restaurant = Auth::user()->restaurant;
 
-    //     if ($restaurant) {
-    //         $products = $restaurant->products;
-    //     } else {
-    //         $products = []; // oppure puoi gestire l'assenza del ristorante in modo diverso
-    //     }
+        if ($restaurant) {
+            $products = $restaurant->products;
+            // dd($products);
+        } else {
+            $products = [];
+        }
 
-    //     return view('admin.dashboard', compact('restaurant', 'products'));
-    // }
+        return view('admin.restaurants.index', compact('restaurant', 'products'));
+    }
 
     /**
      * Show the form for creating a new resource.

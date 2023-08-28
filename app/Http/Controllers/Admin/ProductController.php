@@ -32,6 +32,11 @@ class ProductController extends Controller
 
         return view('admin.products.index', compact('products'));
     }
+    // public function index()
+    // {
+    //     $products = Product::paginate(5);
+    //     return view('admin.products.index', compact('products'));
+    // }
 
 
     public function create()
