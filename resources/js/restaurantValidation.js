@@ -1,4 +1,4 @@
-// validation restaurants
+// validation restaurants per create
 
 const formCreate = document.getElementById("form-create"); // Seleziona il form
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -97,3 +97,5 @@ if (formCreate) {
         }
     });
 }
+
+// validation restaurants per create
