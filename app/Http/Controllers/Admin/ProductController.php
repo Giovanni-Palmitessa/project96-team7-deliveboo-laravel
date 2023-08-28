@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Order;
-use App\Models\Restaurant;
 use App\Models\Product;
-use App\Http\Controllers\Controller;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -19,11 +20,19 @@ class ProductController extends Controller
         'url_image' => 'required|string',
     ];
 
-    public function index()
-    {
-        $products = Product::paginate(5);
-        return view('admin.products.index', compact('products'));
-    }
+    // public function index()
+    // {
+    //     $restaurant = Auth::user()->restaurant;
+
+    //     if ($restaurant) {
+    //         $products = $restaurant->products()->paginate(5);
+    //     } else {
+    //         $products = collect([]); // Una collezione vuota
+    //     }
+
+    //     return view('admin.dashboard', compact('products'));
+    // }
+
 
     public function create()
     {

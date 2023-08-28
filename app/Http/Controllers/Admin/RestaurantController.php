@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
 {
@@ -38,12 +39,18 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $restaurants = Restaurant::all();
+    // public function index()
+    // {
+    //     $restaurant = Auth::user()->restaurant;
 
-        return view('admin.restaurants.index', compact('restaurants'));
-    }
+    //     if ($restaurant) {
+    //         $products = $restaurant->products;
+    //     } else {
+    //         $products = []; // oppure puoi gestire l'assenza del ristorante in modo diverso
+    //     }
+
+    //     return view('admin.dashboard', compact('restaurant', 'products'));
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -116,7 +123,7 @@ class RestaurantController extends Controller
     public function show($slug)
     {
         $restaurant = Restaurant::where('slug', $slug)->firstOrFail();
-        
+
         return view('admin.restaurants.show', compact('restaurant'));
     }
 
@@ -182,7 +189,6 @@ class RestaurantController extends Controller
         // reindirizzare su una rotta di tipo get
 
         return to_route('admin.restaurants.show', ['restaurant' => $restaurant]);
-
     }
 
     /**
