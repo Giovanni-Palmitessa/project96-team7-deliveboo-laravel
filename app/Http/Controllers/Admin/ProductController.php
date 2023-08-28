@@ -24,6 +24,8 @@ class ProductController extends Controller
         'name.required' => 'Il campo Nome è obbligatorio',
         'name.min' => 'Il campo Nome deve avere almeno :min caratteri',
         'name.max' => 'Il campo Nome deve avere massimo :max caratteri',
+        // ingredients
+        'ingredients.required' => 'Il campo ingredienti è obbligatorio',
         // description
         'description.required' => 'Il campo Descrizione è obbligatorio',
         // url_image

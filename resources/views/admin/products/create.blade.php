@@ -1,3 +1,5 @@
+@extends('admin.products.layouts.base')
+@section('contents')
 <h1 class="text-center">Inserisci un nuovo Prodotto</h1>
 <form
 method="POST"
@@ -8,28 +10,31 @@ novalidate>
     <div class="mb-3">
         <label for="name" class="form-label">Nome</label>
         <input type="text" 
-        class="form-control @error('name') is-invalid @enderror" id="name" 
+        class="form-control" id="product_name_create" 
         name="name" 
         value="{{old('name')}}">
-        <div class="invalid-feedback">
+        {{-- <div class="invalid-feedback">
             @error('name')
             {{ $message }}
             @enderror
-        </div>
+        </div> --}}
     </div>
+    <div class="mb-2 text-sm text-red-600" id="ProductNameError"></div>
 
     <div class="mb-3">
         <label for="ingredients" class="form-label">Ingredienti</label>
         <input type="text" 
-        class="form-control @error('ingredients') is-invalid @enderror" id="ingredients" 
+        class="form-control" id="product_ingredients_create" 
         name="ingredients" 
         value="{{old('ingredients')}}">
-        <div class="invalid-feedback">
+        {{-- <div class="invalid-feedback">
             @error('ingredients')
             {{ $message }}
             @enderror
-        </div>
+        </div> --}}
     </div>
+    <div class="mb-2 text-sm text-red-600" id="ProductIngredientsError"></div>
+
 
     <div class="mb-3">
         <label for="price" class="form-label">Prezzo</label>
@@ -85,3 +90,8 @@ novalidate>
 
     <button class="btn btn-primary">Save</button>
 </form>
+@endsection
+
+{{-- @section('script')
+@vite(['resources/js/productValidationCreate.js'])
+@endsection --}}
