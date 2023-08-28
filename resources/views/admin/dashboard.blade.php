@@ -1,4 +1,8 @@
-<x-app-layout>
+@extends('admin.layouts.base')
+@section('contents')
+    <h1 class="text-4xl text-b_hover">DASHBOARD</h1>
+    
+    <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -52,24 +56,6 @@
         </div>
 
     </div>
-
-
 </x-app-layout>
+@endsection
 
-{{-- @if ($restaurant)
-    {{ $restaurant->name }}
-    {{ $restaurant->description }}
-    {{ $restaurant->city }}
-    {{ $restaurant->address }}
-    {{ $restaurant->vat }}
-    {{-- {{ $restaurant->url_image }} --}}
-{{-- {{ $restaurant->priceRange }} --}}
-{{-- {{ $restaurant->rating_value }} --}}
-{{-- {{ $restaurant->review_count }} --}}
-{{-- @foreach ($products as $product) --}}
-{{-- <p>{{ $product->name }}</p> --}}
-{{-- @endforeach --}}
-{{-- @foreach ($orders as $order) --}}
-{{-- <p>{{ $order->total_price }}</p> --}}
-{{-- @endforeach --}}
-{{-- @endif --}}
