@@ -8,14 +8,17 @@ form.addEventListener("submit", function (event) {
 
     // Ottieni i valori dai campi di input
     const name = document.getElementById("name-create").value;
+    const description = document.getElementById("description-create").value;
     // Aggiungi qui gli altri campi...
 
     // Ottieni le aree in cui verranno mostrati i messaggi di errore
     const nameError = document.getElementById("nameError");
+    const descriptionError = document.getElementById("descriptionError");
     // Aggiungi qui gli altri elementi per gli errori...
 
     // Resetta i messaggi di errore
     nameError.textContent = "";
+    descriptionError.textContent = "";
     // Aggiungi qui il reset per gli altri messaggi...
 
     // Esegui le validazioni
@@ -25,6 +28,13 @@ form.addEventListener("submit", function (event) {
         nameError.textContent = "Il campo Nome è obbligatorio ciao ciao.";
         isValid = false;
     }
+
+    if (description.trim() === "") {
+        descriptionError.textContent =
+            "Il campo Descrizione è obbligatorio ciao ciao 2.";
+        isValid = false;
+    }
+
     // Aggiungi qui le altre validazioni...
 
     // Se tutto è valido, sottometti il form
