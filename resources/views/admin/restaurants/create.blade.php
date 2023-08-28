@@ -1,6 +1,6 @@
-<h1>Sono il create</h1>
+@extends('admin.layouts.base')
 
-
+@section('contents')
 <form method="POST" action="{{ route('admin.restaurants.store') }}" enctype="multipart/form-data" novalidate>
     @csrf
 
@@ -17,7 +17,8 @@
                 <div class="invalid-feedback">
                     {{ $message }} 
                 </div>
-            @enderror
+      @enderror
+      {{-- <div class="mb-2 text-sm text-red-600" id="nameError"></div> --}}
     </div>
 
     <div class="mb-6">
@@ -104,4 +105,4 @@
 
     <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
   </form>
-  
+@endsection
