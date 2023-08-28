@@ -20,17 +20,22 @@ class ProductController extends Controller
         'url_image' => 'required|string',
     ];
 
+    public function index()
+    {
+        $restaurant = Auth::user()->restaurant;
+
+        if ($restaurant) {
+            $products = $restaurant->products()->paginate(5);
+        } else {
+            $products = collect([]); // Una collezione vuota
+        }
+
+        return view('admin.products.index', compact('products'));
+    }
     // public function index()
     // {
-    //     $restaurant = Auth::user()->restaurant;
-
-    //     if ($restaurant) {
-    //         $products = $restaurant->products()->paginate(5);
-    //     } else {
-    //         $products = collect([]); // Una collezione vuota
-    //     }
-
-    //     return view('admin.dashboard', compact('products'));
+    //     $products = Product::paginate(5);
+    //     return view('admin.products.index', compact('products'));
     // }
 
 
