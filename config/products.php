@@ -79,7 +79,7 @@ return [
         "price"         => 18,
         "description"   => "I Gamberi Aglio e Limone sono una deliziosa prelibatezza marina. Gamberi succosi vengono cotti con aglio fragrante e succo di limone per un piatto fresco e leggero",
         "url_image"         => "https://cdn.cook.stbm.it/thumbnails/ricette/144/144286/hd750x421.jpg",
-        "restaurant_id" => 5
+        "restaurant_id" => 2
     ],
     [
         "name"          => "Insalata di Riso Mediterranea",
@@ -95,7 +95,7 @@ return [
         "price"         => 15,
         "description"   => "Un piatto rustico e aromatico, il Pollo al Rosmarino con Patate unisce pezzi di pollo succulenti con patate arrosto profumate al rosmarino. Un comfort food dal sapore intenso",
         "url_image"         => "https://cdn.cook.stbm.it/thumbnails/ricette/144/144286/hd750x421.jpg",
-        "restaurant_id" => 5
+        "restaurant_id" => 2
     ],
     [
         "name"          => "Salmone alla Griglia con Salsa di Mango",
@@ -119,7 +119,7 @@ return [
         "price"         => 12,
         "description"   => "Una quiche elegante e saporita, la Quiche agli Spinaci e Formaggio di Capra unisce spinaci freschi e formaggio di capra cremoso in una crosta croccante. Perfetta per pranzi o cene speciali",
         "url_image"         => "https://cdn.cook.stbm.it/thumbnails/ricette/144/144286/hd750x421.jpg",
-        "restaurant_id" => 5
+        "restaurant_id" => 2
     ],
     [
         "name"          => "Pasta al Pomodoro Fresco",
@@ -135,7 +135,7 @@ return [
         "price"         => 6,
         "description"   => "Un dessert fresco e dolce, la Crostata alle Fragole combina una crosta friabile con fragole mature e una glassa lucida per un'esplosione di sapori fruttati",
         "url_image"         => "https://cdn.cook.stbm.it/thumbnails/ricette/144/144286/hd750x421.jpg",
-        "restaurant_id" => 6
+        "restaurant_id" => 3
     ],
     [
         "name"          => "Pasta al pesto di Zucchine e Mandorle",
@@ -175,7 +175,7 @@ return [
         "price"         => 15,
         "description"   => "Una pietanza asiatica appagante, il Pollo Teriyaki con Verdure combina pezzi di pollo marinati con una salsa teriyaki dolce e salata, serviti con verdure croccanti",
         "url_image"         => "https://cdn.cook.stbm.it/thumbnails/ricette/144/144286/hd750x421.jpg",
-        "restaurant_id" => 6
+        "restaurant_id" => 3
     ],
     [
         "name"          => "Melanzane Parmigiana",
@@ -183,7 +183,7 @@ return [
         "price"         => 12,
         "description"   => "Una creazione italiana deliziosa e sostanziosa, la Melanzane Parmigiana combina fette di melanzane impanate, salsa di pomodoro e formaggi fondenti",
         "url_image"         => "https://cdn.cook.stbm.it/thumbnails/ricette/144/144286/hd750x421.jpg",
-        "restaurant_id" => 5
+        "restaurant_id" => 2
     ],
     [
         "name"          => "Sformato di Spinaci",
@@ -207,7 +207,7 @@ return [
         "price"         => 8,
         "description"   => "Un'insalata leggera e nutriente, l'Insalata di Couscous Mediterranea unisce couscous, verdure croccanti e olive nere, condite con un dressing al limone e olio d'oliva",
         "url_image"         => "https://cdn.cook.stbm.it/thumbnails/ricette/144/144286/hd750x421.jpg",
-        "restaurant_id" => 5
+        "restaurant_id" => 2
     ],
     [
         "name"          => "Sushi Rolls Vegetariani",
@@ -215,7 +215,7 @@ return [
         "price"         => 12,
         "description"   => "I Sushi Rolls Vegetariani sono un'opzione fresca e colorata. Avocado, carota, cetriolo e peperone si arrotolano in nori e riso, per creare un pasto leggero e gustoso",
         "url_image"         => "https://cdn.cook.stbm.it/thumbnails/ricette/144/144286/hd750x421.jpg",
-        "restaurant_id" => 5
+        "restaurant_id" => 2
     ],
     [
         "name"          => "Mousse al Cioccolato",
