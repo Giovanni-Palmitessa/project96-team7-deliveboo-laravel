@@ -110,15 +110,32 @@ if (formEdit) {
 
         // Ottieni i valori dai campi di input
         const nameEdit = document.getElementById("name-edit").value;
+        const descriptionEdit =
+            document.getElementById("description-edit").value;
+        const cityEdit = document.getElementById("city-edit").value;
+        const addressEdit = document.getElementById("address-edit").value;
+        const vatEdit = document.getElementById("vat-edit").value;
 
         // Ottieni le aree in cui verranno mostrati i messaggi di errore
         const nameErrorEdit = document.getElementById("nameErrorEdit");
+        const descriptionErrorEdit = document.getElementById(
+            "descriptionErrorEdit"
+        );
+        const cityErrorEdit = document.getElementById("cityErrorEdit");
+        const addressErrorEdit = document.getElementById("addressErrorEdit");
+        const vatErrorEdit = document.getElementById("vatErrorEdit");
+        const categoryErrorEdit = document.getElementById("categoryErrorEdit");
 
         // Resetta i messaggi di errore
         nameErrorEdit.textContent = "";
+        descriptionErrorEdit.textContent = "";
+        cityErrorEdit.textContent = "";
+        addressErrorEdit.textContent = "";
+        vatErrorEdit.textContent = "";
 
         // Esegui le validazioni
         let isValidEdit = true;
+        let isAnyCheckboxCheckedEdit = false;
 
         if (nameEdit.trim() === "") {
             nameErrorEdit.textContent =
@@ -128,6 +145,55 @@ if (formEdit) {
             nameErrorEdit.textContent =
                 "Il campo Nome non può contenere più di 50 caratteri.";
             isValidEdit = false;
+        }
+
+        if (descriptionEdit.trim() === "") {
+            descriptionErrorEdit.textContent =
+                "Il campo Descrizione è obbligatorio ciao ciao 2.";
+            isValidEdit = false;
+        }
+
+        if (cityEdit.trim() === "") {
+            cityErrorEdit.textContent =
+                "Il campo Città è obbligatorio ciao ciao 2.";
+            isValidEdit = false;
+        } else if (cityEdit.length > 30) {
+            cityErrorEdit.textContent =
+                "Il campo Città non può contenere più di 30 caratteri.";
+            isValidEdit = false;
+        }
+
+        if (addressEdit.trim() === "") {
+            addressErrorEdit.textContent =
+                "Il campo Indirizzo è obbligatorio ciao ciao 2.";
+            isValidEdit = false;
+        } else if (addressEdit.length > 30) {
+            addressErrorEdit.textContent =
+                "Il campo Indirizzo non può contenere più di 50 caratteri.";
+            isValidEdit = false;
+        }
+
+        if (vatEdit.trim() === "") {
+            vatErrorEdit.textContent =
+                "Il campo P.IVA è obbligatorio ciao ciao 2.";
+            isValidEdit = false;
+        } else if (!/^\d{10}$/.test(vatEdit)) {
+            vatErrorEdit.textContent =
+                "Inserisci una P.IVA valida composta da 10 cifre.";
+            isValidEdit = false;
+        }
+
+        checkboxesEdit.forEach((checkboxEdit) => {
+            if (checkboxEdit.checked) {
+                isAnyCheckboxCheckedEdit = true;
+            }
+        });
+
+        if (!isAnyCheckboxCheckedEdit) {
+            event.preventDefault();
+            categoryErrorEdit.textContent = "Seleziona almeno una categoria.";
+        } else {
+            categoryErrorEdit.textContent = ""; // Rimuovi il messaggio di errore se almeno un checkbox è selezionato
         }
 
         // Se tutto è valido, sottometti il form
