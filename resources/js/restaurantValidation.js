@@ -135,6 +135,8 @@ if (formEdit) {
         const cityEdit = document.getElementById("city-edit").value;
         const addressEdit = document.getElementById("address-edit").value;
         const vatEdit = document.getElementById("vat-edit").value;
+        const url_imageEdit = document.getElementById("url_image-edit").value;
+        const priceRangeEdit = document.getElementById("priceRange-edit").value;
 
         // Ottieni le aree in cui verranno mostrati i messaggi di errore
         const nameErrorEdit = document.getElementById("nameErrorEdit");
@@ -144,6 +146,11 @@ if (formEdit) {
         const cityErrorEdit = document.getElementById("cityErrorEdit");
         const addressErrorEdit = document.getElementById("addressErrorEdit");
         const vatErrorEdit = document.getElementById("vatErrorEdit");
+        const url_imageErrorEdit =
+            document.getElementById("url_imageErrorEdit");
+        const priceRangeErrorEdit = document.getElementById(
+            "priceRangeErrorEdit"
+        );
         const categoryErrorEdit = document.getElementById("categoryErrorEdit");
 
         // Resetta i messaggi di errore
@@ -152,6 +159,8 @@ if (formEdit) {
         cityErrorEdit.textContent = "";
         addressErrorEdit.textContent = "";
         vatErrorEdit.textContent = "";
+        url_imageErrorEdit.textContent = "";
+        priceRangeErrorEdit.textContent = "";
 
         // Esegui le validazioni
         let isValidEdit = true;
@@ -200,6 +209,20 @@ if (formEdit) {
         } else if (!/^\d{10}$/.test(vatEdit)) {
             vatErrorEdit.textContent =
                 "Inserisci una P.IVA valida composta da 10 cifre.";
+            isValidEdit = false;
+        }
+
+        if (url_imageEdit.length > 300) {
+            url_imageErrorEdit.textContent =
+                "Il campo URL dell'Immagine non può contenere più di 300 caratteri.";
+            isValidEdit = false;
+        } else if (!/^https?:\/\/\S+$/.test(url_imageEdit)) {
+            url_imageErrorEdit.textContent = "Inserisci un URL valido.";
+            isValidEdit = false;
+        }
+
+        if (!/^\d+$/.test(priceRangeEdit)) {
+            priceRangeErrorEdit.textContent = "Inserisci solo valori numerici.";
             isValidEdit = false;
         }
 
