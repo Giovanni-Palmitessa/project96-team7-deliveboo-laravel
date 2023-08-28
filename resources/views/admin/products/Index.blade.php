@@ -25,7 +25,8 @@
                     <th scope="row">{{ $product->price }}</th>
                     <th scope="row">{{ $product->description }}</th>
                     <th scope="row">
-                        <img src="{{ $product->url_image }}" alt="{{ $product->name }}" class="w-24 h-24 rounded-full mr-4">
+                        <img src="{{ asset('storage/' . $product->url_image) }}" alt="{{ $product->name }}"
+                            class="w-24 h-24 rounded-full mr-4">
                     </th>
                     <th scope="row">{{ $product->restaurant_id }}</th>
                 </tr>

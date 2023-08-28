@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function creaElementoErrore() {
         const span = document.createElement("span");
         span.classList.add("invalid-feedback");
-        span.classList.add("errore-colore");
+        span.classList.add("text-red-500");
         return span;
     }
 
