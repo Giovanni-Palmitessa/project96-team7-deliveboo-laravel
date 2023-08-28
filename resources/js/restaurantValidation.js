@@ -12,24 +12,31 @@ if (formCreate) {
         const description = document.getElementById("description-create").value;
         const city = document.getElementById("city-create").value;
         const address = document.getElementById("address-create").value;
+        const vat = document.getElementById("vat-create").value;
 
         // Ottieni le aree in cui verranno mostrati i messaggi di errore
         const nameError = document.getElementById("nameError");
         const descriptionError = document.getElementById("descriptionError");
         const cityError = document.getElementById("cityError");
         const addressError = document.getElementById("addressError");
+        const vatError = document.getElementById("vatError");
 
         // Resetta i messaggi di errore
         nameError.textContent = "";
         descriptionError.textContent = "";
         cityError.textContent = "";
         addressError.textContent = "";
+        vatError.textContent = "";
 
         // Esegui le validazioni
         let isValid = true;
 
         if (name.trim() === "") {
             nameError.textContent = "Il campo Nome è obbligatorio ciao ciao.";
+            isValid = false;
+        } else if (name.length > 50) {
+            nameError.textContent =
+                "Il campo Nome non può contenere più di 50 caratteri.";
             isValid = false;
         }
 
@@ -48,6 +55,12 @@ if (formCreate) {
         if (city.trim() === "") {
             addressError.textContent =
                 "Il campo Indirizzo è obbligatorio ciao ciao 2.";
+            isValid = false;
+        }
+
+        if (vat.trim() === "") {
+            addressError.textContent =
+                "Il campo P.IVA è obbligatorio ciao ciao 2.";
             isValid = false;
         }
 
