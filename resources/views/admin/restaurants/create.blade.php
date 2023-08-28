@@ -34,9 +34,14 @@ novalidate
       id="description-create" 
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
       value="{{old('description')}}" 
-      @error('name') is-invalid @enderror
+      @error('description') is-invalid @enderror
       required>
-      <div class="mb-2 text-sm text-red-600" id="nameError"></div>
+      @error('description')
+                <div class="invalid-feedback">
+                    {{ $message }} 
+                </div>
+      @enderror
+      <div class="mb-2 text-sm text-red-600" id="descriptionError"></div>
     </div>
 
     <div class="mb-6">
