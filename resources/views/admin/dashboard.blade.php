@@ -41,6 +41,9 @@
                     @foreach ($products as $product)
                         <p>{{ $product->name }}</p>
                     @endforeach
+                    @foreach ($orders as $order)
+                        <p>{{ $order->total_price }}</p>
+                    @endforeach
                 @endif
             </tbody>
         </table>
