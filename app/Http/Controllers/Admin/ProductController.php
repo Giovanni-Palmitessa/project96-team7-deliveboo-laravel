@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Order;
-use App\Models\Restaurant;
 use App\Models\Product;
-use App\Http\Controllers\Controller;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -29,16 +30,19 @@ class ProductController extends Controller
     //     // description
     //     'description.required' => 'Il campo Descrizione è obbligatorio',
     //     // url_image
-    //     'url_image.required' => 'Il campo Url Immagine è obbligatorio',
-    //     // price
-    //     'price.integer' => 'Il prezzo deve essere un\' intero',
-    // ];
+    // public function index()
+    // {
+    //     $restaurant = Auth::user()->restaurant;
 
-    public function index()
-    {
-        $products = Product::paginate(5);
-        return view('admin.products.index', compact('products'));
-    }
+    //     if ($restaurant) {
+    //         $products = $restaurant->products()->paginate(5);
+    //     } else {
+    //         $products = collect([]); // Una collezione vuota
+    //     }
+
+    //     return view('admin.dashboard', compact('products'));
+    // }
+
 
     public function create()
     {
