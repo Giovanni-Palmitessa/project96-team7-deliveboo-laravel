@@ -1,4 +1,4 @@
-@extends('admin.products.layouts.base')
+@extends('admin.layouts.base')
 @section('contents')
 <h1>Prodotti</h1>
 

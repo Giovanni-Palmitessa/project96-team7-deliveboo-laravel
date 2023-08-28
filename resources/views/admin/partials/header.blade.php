@@ -6,7 +6,7 @@
     <div
       class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
     >
-      <a href="https://flowbite.com/" class="flex items-center">
+      <a href="{{ route('dashboard') }}" class="flex items-center">
         <div
             style="background-image: url({{ Vite::asset('public/img/logo-deliveboo_thumbnail.png') }})"
           class="h-14 w-52 md:ml-[-25px] overflow-hidden bg-[length:245px_155px] bg-center"
@@ -45,35 +45,44 @@
         id="navbar-sticky"
       >
         <ul
-          class="flex flex-col lg:items-center text-center p-4 md:p-0 mt-4 font-medium border bg-primary border-secondary rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0"
+          class="flex flex-col gap-4 lg:items-center text-center p-4 md:p-0 mt-4 font-medium border bg-primary border-secondary rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0"
         >
           <li>
             <a
-              href="#"
-              class="block py-2 pl-3 pr-4 text-gray-900 hover:bg-secondary hover:text-white md:p-0 rounded md:bg-transparent md:text-secondary"
+              href="{{ route('dashboard') }}"
+              class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent md:text-secondary"
               aria-current="page"
               >Home</a
             >
           </li>
           <li>
+            <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" type="button" class="hover:text-secondary">Product</button>
+            <!-- Dropdown menu -->
+            <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                  <li>
+                    <a href="{{ route('admin.products.index') }}" class="block px-4 py-2 hover:bg-gray-100">Products</a>
+                  </li>
+                  <li>
+                    <a href="{{ route('admin.products.create') }}" class="block px-4 py-2 hover:bg-gray-100">New Product</a>
+                  </li>
+                </ul>
+            </div>
+          </li>
+          <li>
             <a
-              href="#"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-secondary md:hover:bg-transparent md:hover:text-secondary hover:text-white md:p-0"
-              >About</a
+              href="{{ route('admin.restaurants.create') }}"
+              class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
+              aria-current="page"
+              >New Restaurant</a
             >
           </li>
           <li>
             <a
-              href="#"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-secondary md:hover:bg-transparent md:hover:text-secondary hover:text-white md:p-0"
-              >Contact us</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="block py-2 pl-3 pr-4 mb-2 lg:mb-0 text-gray-900 rounded hover:bg-secondary md:hover:bg-transparent md:hover:text-secondary hover:text-white md:p-0"
-              ><i class="fa-solid fa-cart-shopping mr-1"></i>Cart</a
+              href="{{ route('admin.restaurants.index') }}"
+              class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
+              aria-current="page"
+              >Restaurants</a
             >
           </li>
         </ul>
