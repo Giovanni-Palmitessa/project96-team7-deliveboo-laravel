@@ -88,15 +88,16 @@ if (formCreate) {
             url_imageError.textContent =
                 "Il campo URL dell'Immagine non può contenere più di 300 caratteri.";
             isValid = false;
-        } else if (!/^https?:\/\/\S+$/.test(url_image)) {
-            url_imageError.textContent = "Inserisci un URL valido.";
-            isValid = false;
         }
+        // else if (!/^https?:\/\/\S+$/.test(url_image)) {
+        //     url_imageError.textContent = "Inserisci un URL valido.";
+        //     isValid = false;
+        // }
 
-        if (!/^\d+$/.test(priceRange)) {
-            priceRangeError.textContent = "Inserisci solo valori numerici.";
-            isValid = false;
-        }
+        // if (!/^\d+$/.test(priceRange)) {
+        //     priceRangeError.textContent = "Inserisci solo valori numerici.";
+        //     isValid = false;
+        // }
 
         checkboxes.forEach((checkbox) => {
             if (checkbox.checked) {
@@ -216,15 +217,20 @@ if (formEdit) {
             url_imageErrorEdit.textContent =
                 "Il campo URL dell'Immagine non può contenere più di 300 caratteri.";
             isValidEdit = false;
-        } else if (!/^https?:\/\/\S+$/.test(url_imageEdit)) {
-            url_imageErrorEdit.textContent = "Inserisci un URL valido.";
-            isValidEdit = false;
         }
+        // else if (!/^https?:\/\/\S+$/.test(url_imageEdit)) {
+        //     url_imageErrorEdit.textContent = "Inserisci un URL valido.";
+        //     isValidEdit = false;
+        // } else {
+        //     isValidEdit = true;
+        // }
 
-        if (!/^\d+$/.test(priceRangeEdit)) {
-            priceRangeErrorEdit.textContent = "Inserisci solo valori numerici.";
-            isValidEdit = false;
-        }
+        // if (!/^\d+$/.test(priceRangeEdit)) {
+        //     priceRangeErrorEdit.textContent = "Inserisci solo valori numerici.";
+        //     isValidEdit = false;
+        // } else {
+        //     isValidEdit = true;
+        // }
 
         checkboxesEdit.forEach((checkboxEdit) => {
             if (checkboxEdit.checked) {
