@@ -1,60 +1,78 @@
-const email = document.getElementById("email");
-const password = document.getElementById("password");
+document.addEventListener("DOMContentLoaded", function () {
+    // Identificare il form di login
+    const loginForm = document.querySelector("#loginForm");
 
-const errorEmail = creaElementoErrore();
-const errorPassword = creaElementoErrore();
+    if (!loginForm) return;
 
-const emailError = {
-    "@": "La email deve contenere una '@'",
-    ".suffisso": "La email deve contenere un prefisso '.com' o '.it'",
-    lunghezza: "Inserisci un'email valida",
-};
+    // Ottieni gli elementi input all'interno del form di login
+    const email = loginForm.querySelector("#log_email");
+    const password = loginForm.querySelector("#log_password");
 
-const passwordError = {
-    lunghezza: "La password deve contenere almeno 8 caratteri",
-};
+    // Assicurarsi che gli input esistano prima di proseguire
+    if (!email || !password) return;
 
-email.addEventListener("input", validaEmail);
-password.addEventListener("input", validaPassword);
+    const emailError = {
+        "@": "La email deve contenere una '@'",
+        ".suffisso": "La email deve contenere un prefisso '.com' o '.it'",
+        lunghezza: "Inserisci un'email valida",
+    };
 
-function creaElementoErrore() {
-    const span = document.createElement("span");
-    span.classList.add("invalid-feedback");
-    span.classList.add("errore-colore");
-    return span;
-}
+    const passwordError = {
+        lunghezza: "La password deve contenere almeno 8 caratteri",
+    };
 
-function validaEmail() {
-    if (!email.value.includes("@")) {
-        mostraErrore(email, errorEmail, emailError["@"]);
-    } else if (!suffissoValido(email.value)) {
-        mostraErrore(email, errorEmail, emailError[".suffisso"]);
-    } else if (email.value.length <= 5) {
-        mostraErrore(email, errorEmail, emailError["lunghezza"]);
-    } else {
-        rimuoviErrore(email, errorEmail);
+    email.addEventListener("input", validaEmail);
+    password.addEventListener("input", validaPassword);
+
+    function creaElementoErrore() {
+        const span = document.createElement("span");
+        span.classList.add("invalid-feedback");
+        span.classList.add("errore-colore");
+        return span;
     }
-}
 
-function suffissoValido(email) {
-    return email.includes(".com") || email.includes(".it");
-}
-
-function validaPassword() {
-    if (password.value.length <= 7) {
-        mostraErrore(password, errorPassword, passwordError["lunghezza"]);
-    } else {
-        rimuoviErrore(password, errorPassword);
+    function validaEmail() {
+        if (!email.value.includes("@")) {
+            mostraErrore(email, emailError["@"]);
+        } else if (!suffissoValido(email.value)) {
+            mostraErrore(email, emailError[".suffisso"]);
+        } else if (email.value.length <= 5) {
+            mostraErrore(email, emailError["lunghezza"]);
+        } else {
+            rimuoviErrore(email);
+        }
     }
-}
 
-function mostraErrore(elementoInput, elementoErrore, messaggio) {
-    elementoErrore.innerText = messaggio;
-    elementoInput.after(elementoErrore);
-    elementoInput.classList.add("is-invalid");
-}
+    function suffissoValido(emailVal) {
+        return emailVal.includes(".com") || emailVal.includes(".it");
+    }
 
-function rimuoviErrore(elementoInput, elementoErrore) {
-    elementoErrore.innerText = "";
-    elementoInput.classList.remove("is-invalid");
-}
+    function validaPassword() {
+        if (password.value.length <= 7) {
+            mostraErrore(password, passwordError["lunghezza"]);
+        } else {
+            rimuoviErrore(password);
+        }
+    }
+
+    function mostraErrore(elementoInput, messaggio) {
+        let errore = elementoInput.nextSibling;
+        if (
+            !errore.classList ||
+            !errore.classList.contains("invalid-feedback")
+        ) {
+            errore = creaElementoErrore();
+            elementoInput.after(errore);
+        }
+        errore.innerText = messaggio;
+        elementoInput.classList.add("is-invalid");
+    }
+
+    function rimuoviErrore(elementoInput) {
+        const errore = elementoInput.nextSibling;
+        if (errore.classList && errore.classList.contains("invalid-feedback")) {
+            errore.innerText = "";
+        }
+        elementoInput.classList.remove("is-invalid");
+    }
+});

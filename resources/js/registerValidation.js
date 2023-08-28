@@ -1,75 +1,111 @@
-const nome = document.getElementById("name");
-const passwordConferma = document.getElementById("password_confirmation");
+document.addEventListener("DOMContentLoaded", function () {
+    // Identificare il form di registrazione
+    const registerForm = document.querySelector("#registerForm");
 
-const errorNome = creaElementoErrore();
-const errorPasswordConferma = creaElementoErrore();
+    if (!registerForm) return;
 
-const nomeError = {
-    lunghezza: "Il nome deve contenere almeno 3 caratteri",
-};
+    // Ottieni gli elementi input all'interno del form di registrazione
+    const nome = registerForm.querySelector("#reg_name");
+    const email = registerForm.querySelector("#reg_email");
+    const password = registerForm.querySelector("#reg_password");
+    const passwordConferma = registerForm.querySelector(
+        "#reg_password_confirmation"
+    );
 
-const passwordConfermaError = {
-    nonCorrispondente: "Le password non corrispondono",
-};
+    // Assicurarsi che gli input esistano prima di proseguire
+    if (!nome || !email || !password || !passwordConferma) return;
 
-// Aggiungo gli event listener
-nome.addEventListener("input", validaNome);
-passwordConferma.addEventListener("input", validaConfermaPassword);
+    const nomeErrori = {
+        lunghezza: "Il nome deve contenere almeno 3 caratteri",
+    };
 
-function creaElementoErrore() {
-    const span = document.createElement("span");
-    span.classList.add("invalid-feedback");
-    span.style.color = "red"; // per rendere il testo rosso
-    return span;
-}
+    const emailErrori = {
+        "@": "La email deve contenere una '@'",
+        ".suffisso": "La email deve contenere un prefisso '.com' o '.it'",
+        lunghezza: "Inserisci un'email valida",
+    };
 
-function validaNome() {
-    if (nome.value.length < 3) {
-        mostraErrore(nome, errorNome, nomeError["lunghezza"]);
-    } else {
-        rimuoviErrore(nome, errorNome);
+    const passwordErrori = {
+        lunghezza: "La password deve contenere almeno 8 caratteri",
+    };
+
+    const passwordConfermaErrori = {
+        nonCorrispondente: "Le password non corrispondono",
+    };
+
+    nome.addEventListener("input", validaNome);
+    email.addEventListener("input", validaEmail);
+    password.addEventListener("input", validaPassword);
+    passwordConferma.addEventListener("input", validaConfermaPassword);
+
+    function creaElementoErrore() {
+        const span = document.createElement("span");
+        span.classList.add("invalid-feedback");
+        span.classList.add("errore-colore");
+        return span;
     }
-}
 
-// function validaEmail() {
-//     if (!email.value.includes("@")) {
-//         mostraErrore(email, errorEmail, emailError["@"]);
-//     } else if (!suffissoValido(email.value)) {
-//         mostraErrore(email, errorEmail, emailError[".suffisso"]);
-//     } else if (email.value.length <= 5) {
-//         mostraErrore(email, errorEmail, emailError["lunghezza"]);
-//     } else {
-//         rimuoviErrore(email, errorEmail);
-//     }
-// }
-
-// function validaPassword() {
-//     if (password.value.length < 8) {
-//         mostraErrore(password, errorPassword, passwordError["lunghezza"]);
-//     } else {
-//         rimuoviErrore(password, errorPassword);
-//     }
-// }
-
-function validaConfermaPassword() {
-    if (passwordConferma.value !== password.value) {
-        mostraErrore(
-            passwordConferma,
-            errorPasswordConferma,
-            passwordConfermaError["nonCorrispondente"]
-        );
-    } else {
-        rimuoviErrore(passwordConferma, errorPasswordConferma);
+    function validaNome() {
+        if (nome.value.length < 3) {
+            mostraErrore(nome, nomeErrori["lunghezza"]);
+        } else {
+            rimuoviErrore(nome);
+        }
     }
-}
 
-function mostraErrore(elementoInput, elementoErrore, messaggio) {
-    elementoErrore.innerText = messaggio;
-    elementoInput.after(elementoErrore);
-    elementoInput.classList.add("is-invalid");
-}
+    function validaEmail() {
+        if (!email.value.includes("@")) {
+            mostraErrore(email, emailErrori["@"]);
+        } else if (!suffissoValido(email.value)) {
+            mostraErrore(email, emailErrori[".suffisso"]);
+        } else if (email.value.length <= 5) {
+            mostraErrore(email, emailErrori["lunghezza"]);
+        } else {
+            rimuoviErrore(email);
+        }
+    }
 
-function rimuoviErrore(elementoInput, elementoErrore) {
-    elementoErrore.innerText = "";
-    elementoInput.classList.remove("is-invalid");
-}
+    function validaPassword() {
+        if (password.value.length < 8) {
+            mostraErrore(password, passwordErrori["lunghezza"]);
+        } else {
+            rimuoviErrore(password);
+        }
+    }
+
+    function validaConfermaPassword() {
+        if (passwordConferma.value !== password.value) {
+            mostraErrore(
+                passwordConferma,
+                passwordConfermaErrori["nonCorrispondente"]
+            );
+        } else {
+            rimuoviErrore(passwordConferma);
+        }
+    }
+
+    function suffissoValido(emailVal) {
+        return emailVal.includes(".com") || emailVal.includes(".it");
+    }
+
+    function mostraErrore(elementoInput, messaggio) {
+        let errore = elementoInput.nextSibling;
+        if (
+            !errore.classList ||
+            !errore.classList.contains("invalid-feedback")
+        ) {
+            errore = creaElementoErrore();
+            elementoInput.after(errore);
+        }
+        errore.innerText = messaggio;
+        elementoInput.classList.add("is-invalid");
+    }
+
+    function rimuoviErrore(elementoInput) {
+        const errore = elementoInput.nextSibling;
+        if (errore.classList && errore.classList.contains("invalid-feedback")) {
+            errore.innerText = "";
+        }
+        elementoInput.classList.remove("is-invalid");
+    }
+});
