@@ -10,17 +10,17 @@ if (formCreate) {
         // Ottieni i valori dai campi di input
         const name = document.getElementById("name-create").value;
         const description = document.getElementById("description-create").value;
-        // Aggiungi qui gli altri campi...
+        const city = document.getElementById("city-create").value;
 
         // Ottieni le aree in cui verranno mostrati i messaggi di errore
         const nameError = document.getElementById("nameError");
         const descriptionError = document.getElementById("descriptionError");
-        // Aggiungi qui gli altri elementi per gli errori...
+        const cityError = document.getElementById("cityError");
 
         // Resetta i messaggi di errore
         nameError.textContent = "";
         descriptionError.textContent = "";
-        // Aggiungi qui il reset per gli altri messaggi...
+        cityError.textContent = "";
 
         // Esegui le validazioni
         let isValid = true;
@@ -33,6 +33,12 @@ if (formCreate) {
         if (description.trim() === "") {
             descriptionError.textContent =
                 "Il campo Descrizione è obbligatorio ciao ciao 2.";
+            isValid = false;
+        }
+
+        if (city.trim() === "") {
+            cityError.textContent =
+                "Il campo Città è obbligatorio ciao ciao 2.";
             isValid = false;
         }
 
