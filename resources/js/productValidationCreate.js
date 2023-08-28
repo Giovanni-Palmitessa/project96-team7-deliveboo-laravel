@@ -8,18 +8,24 @@ myForm.addEventListener("submit", function (event) {
     const name = document.getElementById("product_name_create").value;
     const ingredients = document.getElementById("product_ingredients_create").value;
     const price = document.getElementById("product_price_create").value;
+    const description = document.getElementById("product_description_create").value;
+    const url_image = document.getElementById("product_url_image_create").value;
     // Aggiungi qui gli altri campi...
 
     // Ottieni le aree in cui verranno mostrati i messaggi di errore
     const nameError = document.querySelector("#ProductNameError");
     const ingredientsError = document.querySelector("#ProductIngredientsError");
     const priceError = document.querySelector("#ProductPriceError");
+    const descriptionError = document.querySelector("#ProductDescriptionError");
+    const urlImageError = document.querySelector("#ProductUrlImageError");
     // Aggiungi qui gli altri elementi per gli errori...
 
     // Resetta i messaggi di errore
     nameError.textContent = "";
     ingredientsError.textContent = "";
     priceError.textContent = "";
+    descriptionError.textContent = "";
+    urlImageError.textContent = "";
     // Aggiungi qui il reset per gli altri messaggi...
 
     // Esegui le validazioni
@@ -46,6 +52,17 @@ myForm.addEventListener("submit", function (event) {
         priceError.textContent = "Il prezzo deve essere maggiore di zero"
     }
     // Aggiungi qui le altre validazioni...
+    if (description.trim() === "") {
+        descriptionError.textContent = "Il campo descrizione è obbligatoriooo"
+    } else if (description.length < 10) {
+        descriptionError.textContent = "Il campo descrizione deve contenere almeno 10 caratteri"
+    }
+
+    if (url_image.trim() === "") {
+        urlImageError.textContent = "Il campo Url_image è obbligatoriooo"
+    } else if (url_image.length < 10) {
+        urlImageError.textContent = "Il campo Url_image deve contenere almeno 10 caratteri"
+    }
 
     // Se tutto è valido, sottometti il form
     if (isValid) {

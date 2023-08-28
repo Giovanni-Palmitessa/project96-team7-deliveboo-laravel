@@ -37,47 +37,22 @@ novalidate>
 
     <div class="mb-3">
         <label for="description" class="form-label">Descrizione</label>
-        <textarea class="form-control @error ('description') is-invalid @enderror" 
+        <textarea class="form-control" 
         name="description" 
-        id="description"
+        id="product_description_create"
         rows="3">{{ old('description') }}</textarea>
-        <div class="invalid-feedback">
-            @error('description')
-            {{ $message }}
-            @enderror
-        </div>
     </div>
+    <div class="mb-2 text-sm" id="ProductDescriptionError"></div>
 
     <div class="mb-3">
         <label for="url_image" class="form-label">Url Immagine</label>
-        <textarea class="form-control @error ('url_image') is-invalid @enderror" 
+        <textarea class="form-control" 
         name="url_image" 
-        id="url_image"
+        id="product_url_image_create"
         rows="3">{{ old('url_image') }}</textarea>
-        <div class="invalid-feedback">
-            @error('url_image')
-            {{ $message }}
-            @enderror
-        </div>
     </div>
-
-    {{-- <div class="mb-3">
-        <label for="restaurant_id" class="form-label">Restaurant ID</label>
-        <textarea class="form-control @error ('restaurant_id') is-invalid @enderror" 
-        name="restaurant_id" 
-        id="restaurant_id"
-        rows="3">{{ old('restaurant_id') }}</textarea>
-        <div class="invalid-feedback">
-            @error('restaurant_id')
-            {{ $message }}
-            @enderror
-        </div>
-    </div> --}}
+    <div class="mb-2 text-sm" id="ProductUrlImageError"></div>
 
     <button class="btn btn-primary">Save</button>
 </form>
 @endsection
-
-{{-- @section('script')
-@vite(['resources/js/productValidationCreate.js'])
-@endsection --}}
