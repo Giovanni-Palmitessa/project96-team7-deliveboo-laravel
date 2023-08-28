@@ -21,6 +21,7 @@ class RestaurantsTableSeeder extends Seeder
 
             $restaurant = Restaurant::create([
                 'name'                  => $objRestaurant['name'],
+                'user_id'               => $objRestaurant['user_id'],
                 'slug'                  => $slug,
                 'description'           => $objRestaurant['description'],
                 'city'                  => $objRestaurant['city'],

@@ -6,6 +6,7 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
+
 // validation restaurants
 
 const form = document.querySelector("form"); // Seleziona il form
@@ -40,3 +41,7 @@ form.addEventListener("submit", function (event) {
         form.submit();
     }
 });
+
+import "./loginValidation";
+import "./registerValidation";
+

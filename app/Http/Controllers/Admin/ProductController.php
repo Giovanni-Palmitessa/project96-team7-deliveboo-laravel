@@ -17,7 +17,6 @@ class ProductController extends Controller
         'price' => 'required|integer',
         'description' => 'required|string',
         'url_image' => 'required|string',
-        'restaurant_id' => 'required|integer'
     ];
 
     private $validation_messages = [
@@ -31,8 +30,6 @@ class ProductController extends Controller
         'url_image.required' => 'Il campo Url Immagine è obbligatorio',
         // price
         'price.integer' => 'Il prezzo deve essere un\' intero',
-        // restaurant_id
-        'restaurant_id' => 'Il restaurant ID è obbligatorio'
     ];
 
     public function index()
@@ -43,6 +40,7 @@ class ProductController extends Controller
 
     public function create()
     {
+        $restaurant = Restaurant::all();
         return view('admin.products.create');
     }
 
@@ -59,7 +57,6 @@ class ProductController extends Controller
         $newProduct->price = $data['price'];
         $newProduct->description = $data['description'];
         $newProduct->url_image = $data['url_image'];
-        $newProduct->restaurant_id = $data['restaurant_id'];
 
         // salvo il nuovo Prodotto
         $newProduct->save();
