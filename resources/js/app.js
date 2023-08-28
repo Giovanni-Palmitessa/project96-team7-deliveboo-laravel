@@ -1,4 +1,5 @@
 import "./bootstrap";
+import "flowbite";
 
 import Alpine from "alpinejs";
 
@@ -9,4 +10,3 @@ Alpine.start();
 import "./productValidationCreate";
 // import "./loginValidation";
 // import "./registerValidation";
-
