@@ -24,7 +24,10 @@ return new class extends Migration
             $table->string('url_image', 300)->nullable();
             $table->smallInteger('priceRange')->nullable();
             $table->tinyInteger('rating_value')->nullable();
-            $table->smallInteger('review_count')->nullable();            
+            $table->smallInteger('review_count')->nullable();
+            
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -39,13 +42,8 @@ return new class extends Migration
         Schema::dropIfExists('restaurants');
 
         // Schema::table('restaurants', function (Blueprint $table) {
-        //     // eliminare la chiave esterna
-        //     $table->dropForeign('restaurants_product_id_foreign');
-        //     // $table->dropForeign('restaurants_order_id_foreign');
-
-        //     // eliminare la colonna
-        //     $table->dropColumn('product_id');
-        //     // $table->dropColumn('order_id');
+        //     $table->dropForeign(['user_id']);
+        //     $table->dropColumn('user_id');
         // });
     }
 };
