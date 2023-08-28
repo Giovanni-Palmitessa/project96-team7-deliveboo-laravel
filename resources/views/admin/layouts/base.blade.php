@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <div class="container">
+    <div class="container mx-auto">
         @include('admin.partials.header')
         <main class="mt-32">
             @yield('contents')
