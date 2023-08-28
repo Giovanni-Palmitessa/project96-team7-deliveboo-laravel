@@ -1,6 +1,7 @@
 // validation restaurants
 
 const formCreate = document.getElementById("form-create"); // Seleziona il form
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
 if (formCreate) {
     formCreate.addEventListener("submit", function (event) {
@@ -20,6 +21,7 @@ if (formCreate) {
         const cityError = document.getElementById("cityError");
         const addressError = document.getElementById("addressError");
         const vatError = document.getElementById("vatError");
+        const categoryError = document.getElementById("categoryError");
 
         // Resetta i messaggi di errore
         nameError.textContent = "";
@@ -30,6 +32,7 @@ if (formCreate) {
 
         // Esegui le validazioni
         let isValid = true;
+        let isAnyCheckboxChecked = false;
 
         if (name.trim() === "") {
             nameError.textContent = "Il campo Nome è obbligatorio ciao ciao.";
@@ -73,6 +76,19 @@ if (formCreate) {
             vatError.textContent =
                 "Inserisci una P.IVA valida composta da 10 cifre.";
             isValid = false;
+        }
+
+        checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+                isAnyCheckboxChecked = true;
+            }
+        });
+
+        if (!isAnyCheckboxChecked) {
+            event.preventDefault();
+            categoryError.textContent = "Seleziona almeno una categoria.";
+        } else {
+            categoryError.textContent = ""; // Rimuovi il messaggio di errore se almeno un checkbox è selezionato
         }
 
         // Se tutto è valido, sottometti il form
