@@ -1,10 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Identificare il form di registrazione
     const registerForm = document.querySelector("#registerForm");
 
     if (!registerForm) return;
 
-    // Ottieni gli elementi input all'interno del form di registrazione
     const nome = registerForm.querySelector("#reg_name");
     const email = registerForm.querySelector("#reg_email");
     const password = registerForm.querySelector("#reg_password");
@@ -12,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "#reg_password_confirmation"
     );
 
-    // Assicurarsi che gli input esistano prima di proseguire
     if (!nome || !email || !password || !passwordConferma) return;
 
     const nomeErrori = {
@@ -38,6 +35,17 @@ document.addEventListener("DOMContentLoaded", function () {
     password.addEventListener("input", validaPassword);
     passwordConferma.addEventListener("input", validaConfermaPassword);
 
+    registerForm.addEventListener("submit", function (event) {
+        if (
+            !validaNome() ||
+            !validaEmail() ||
+            !validaPassword() ||
+            !validaConfermaPassword()
+        ) {
+            event.preventDefault();
+        }
+    });
+
     function creaElementoErrore() {
         const span = document.createElement("span");
         span.classList.add("invalid-feedback");
@@ -48,28 +56,36 @@ document.addEventListener("DOMContentLoaded", function () {
     function validaNome() {
         if (nome.value.length < 3) {
             mostraErrore(nome, nomeErrori["lunghezza"]);
+            return false;
         } else {
             rimuoviErrore(nome);
+            return true;
         }
     }
 
     function validaEmail() {
         if (!email.value.includes("@")) {
             mostraErrore(email, emailErrori["@"]);
+            return false;
         } else if (!suffissoValido(email.value)) {
             mostraErrore(email, emailErrori[".suffisso"]);
+            return false;
         } else if (email.value.length <= 5) {
             mostraErrore(email, emailErrori["lunghezza"]);
+            return false;
         } else {
             rimuoviErrore(email);
+            return true;
         }
     }
 
     function validaPassword() {
         if (password.value.length < 8) {
             mostraErrore(password, passwordErrori["lunghezza"]);
+            return false;
         } else {
             rimuoviErrore(password);
+            return true;
         }
     }
 
@@ -79,13 +95,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 passwordConferma,
                 passwordConfermaErrori["nonCorrispondente"]
             );
+            return false;
         } else {
             rimuoviErrore(passwordConferma);
+            return true;
         }
     }
 
     function suffissoValido(emailVal) {
-        return emailVal.includes(".com") || emailVal.includes(".it");
+        return emailVal.endsWith(".com") || emailVal.endsWith(".it");
     }
 
     function mostraErrore(elementoInput, messaggio) {
