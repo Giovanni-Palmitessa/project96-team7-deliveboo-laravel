@@ -6,8 +6,10 @@
     @php
     $product = session('delete_success')
     @endphp
-    <div class="bg-red-600">
-        Il product "{{ $product->name }}" è stato eliminato per sempre
+    <div class="container mx-auto max-w-screen-xl px-2">
+        <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+            <span class="font-medium">Il product "{{ $product->name }}" è stato eliminato per sempre</span>
+        </div>
     </div>
     @endif
 
