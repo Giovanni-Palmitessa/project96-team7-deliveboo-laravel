@@ -101,8 +101,10 @@ class ProductController extends Controller
         return to_route('admin.products.show', ['product' => $product]);
     }
 
-    public function destroy(Product $product)
+    public function destroy($slug)
     {
-        //
+        $product = Product::where('slug', $slug)->firstOrFail();
+        $product->delete();
+        return to_route('admin.products.index')->with('delete_success', $product);
     }
 }

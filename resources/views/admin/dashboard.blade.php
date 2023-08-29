@@ -20,7 +20,14 @@
             <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Prodotti</h2>
             <ul>
                 @foreach ($products as $product)
-                    <li class="border-b border-gray-200 py-2 text-center">{{ $product->name }}</li>
+                    <li class="border-b border-gray-200 py-2 text-center">
+                        <div>
+                            {{ $product->name }}
+                            <a href="{{ route('admin.products.show', ['product' => $product]) }}"
+                            class="bg-secondary hover:bg-b_hover p-2 rounded-md">Vista</a>
+                            <button class="bg-gray-500 hover:bg-gray-700 p-2 rounded-md">Nascondi</button>
+                        </div>
+                    </li>
                 @endforeach
             </ul>
         </div>
