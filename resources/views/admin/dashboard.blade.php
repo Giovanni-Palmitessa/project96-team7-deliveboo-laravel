@@ -1,5 +1,5 @@
 @extends('admin.layouts.base')
-@section('contents')    
+@section('contents')
     <div class="min-h-screen bg-gray-100 p-6 flex flex-col items-center">
         <!-- Header del ristorante -->
         <div class="text-center mb-10">
@@ -43,6 +43,4 @@
             </ul>
         </div>
     </div>
-
 @endsection
-
