@@ -59,7 +59,7 @@
         </div>
         <div class="mb-2 error text-sm" id="ProductUrlImageError"></div>
 
-        <button class="rounded-lg bg-blue-500 hover:bg-blue-700 font-medium text-sm px-5 py-2.5 text-center text-white">Save</button>
+        <button class="rounded-lg bg-blue-500 hover:bg-blue-700 font-medium text-sm px-5 py-2.5 text-center text-white">Salva</button>
     </form>
 </div>
 @endsection
