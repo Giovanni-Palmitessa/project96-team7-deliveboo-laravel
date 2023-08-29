@@ -89,7 +89,7 @@ id="form-edit"
         <div class="mb-2 text-sm text-red-600" id="vatErrorEdit"></div>
       </div>
 
-      <div class="mb-6">
+      {{-- <div class="mb-6">
         <label for="url_image"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Immagine</label>
         <input type="text" 
         name="url_image" 
@@ -104,6 +104,16 @@ id="form-edit"
                 </div>
         @enderror
         <div class="mb-2 text-sm text-red-600" id="url_imageErrorEdit"></div>
+      </div> --}}
+
+      <div class="mb-6">
+        <label class="block mb-2 text-sm font-medium text-gray-900" for="url_image">Upload Image</label>
+        <input id="url_image" type="file" name="url_image"  value="{{old('url_image')}}" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 ">
+        @error('url_image')
+          <div class="invalid-feedback">
+              {{ $message }} 
+          </div>
+        @enderror
       </div>
 
       <div class="mb-6">
