@@ -97,8 +97,8 @@ class RestaurantController extends Controller
         $newRestaurant->description = $data['description'];
         $newRestaurant->city = $data['city'];
         $newRestaurant->address = $data['address'];
-        if ($request->has('url_image')) {
-            $imagePath = Storage::put('public/uploads', $data['url_image']);
+        if ($request->hasFIle('url_image')) {
+            $imagePath = Storage::put('uploads', $data['url_image']);
             $newRestaurant->url_image          = $imagePath;
         }
         $newRestaurant->vat = $data['vat'];
