@@ -60,7 +60,6 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        $products = Product::all();
         $categories = Category::all();
         return view('admin.restaurants.create', compact('products', 'categories'));
     }
@@ -97,13 +96,14 @@ class RestaurantController extends Controller
         $newRestaurant->description = $data['description'];
         $newRestaurant->city = $data['city'];
         $newRestaurant->address = $data['address'];
-        // $newRestaurant->image = $imagePath;
+        if ($request->has('url_image')) {
+            $imagePath = Storage::put('uploads', $data['url_image']);
+            $newProject->url_image          = $imagePath;
+        }
         $newRestaurant->vat = $data['vat'];
-        $newRestaurant->url_image = $data['url_image'];
+        // $newRestaurant->url_image = $data['url_image'];
         $newRestaurant->priceRange = $data['priceRange'];
         $newRestaurant->user_id          = auth()->user()->id;
-        // $newRestaurant->rating_value = $data['rating_value'];
-        // $newRestaurant->review_count = $data['review_count'];
 
         $newRestaurant->save();
 
@@ -138,7 +138,6 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::where('slug', $slug)->firstOrFail();
 
-        $products = Product::all();
         $categories = Category::all();
 
         return view('admin.restaurants.edit', compact('restaurant', 'products', 'categories'));
@@ -177,10 +176,15 @@ class RestaurantController extends Controller
         $restaurant->city = $data['city'];
         $restaurant->address = $data['address'];
         $restaurant->vat = $data['vat'];
-        $restaurant->url_image = $data['url_image'];
+        if ($request->has('url_image')) {
+            $imagePath = Storage::disk('public')->put('uploads', $data['url_image']);
+            if ($restaurant->url_image) {
+                Storage::delete($restaurant->url_image);
+            }
+            $restaurant->url_image = $imagePath;
+        }
+        // $restaurant->url_image = $data['url_image'];
         $restaurant->priceRange = $data['priceRange'];
-        // $restaurant->rating_value = $data['rating_value'];
-        // $restaurant->review_count = $data['review_count'];
 
         $restaurant->update();
 
