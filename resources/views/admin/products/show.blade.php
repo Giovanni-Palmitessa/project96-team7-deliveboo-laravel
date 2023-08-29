@@ -3,7 +3,7 @@
 <h1 class="text-center text-3xl mb-2">{{ $product->name}}</h1>
 <div class="container mx-auto max-w-screen-xl">
     <div>
-        <img src="{{ $product->url_image }}" alt="{{ $product->name }}">
+        <img src="{{ asset('storage/' . $product->url_image) }}" alt="{{ $product->name }}">
     </div>
     <p>{{ $product->description }}</p>
     <div class="flex gap-2">

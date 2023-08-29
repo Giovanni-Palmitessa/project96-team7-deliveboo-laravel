@@ -57,7 +57,10 @@ class ProductController extends Controller
         $newProduct->ingredients = $data['ingredients'];
         $newProduct->price = $data['price'];
         $newProduct->description = $data['description'];
-        $newProduct->url_image = $data['url_image'];
+        if ($request->hasFIle('url_image')) {
+            $imagePath = Storage::put('uploads', $data['url_image']);
+            $newProduct->url_image = $imagePath;
+        }
         $newProduct->visible = $data['visible'];
 
         // salvo il nuovo Prodotto
@@ -93,7 +96,13 @@ class ProductController extends Controller
         $product->ingredients = $data['ingredients'];
         $product->price = $data['price'];
         $product->description = $data['description'];
-        $product->url_image = $data['url_image'];
+        if ($request->has('url_image')) {
+            $imagePath = Storage::disk('public')->put('uploads', $data['url_image']);
+            if ($product->url_image) {
+                Storage::delete($product->url_image);
+            }
+            $product->url_image = $imagePath;
+        }
         $product->visible = $data['visible'];
         // $product->restaurant_id = $data['restaurant_id'];
         // update
