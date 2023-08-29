@@ -11,7 +11,7 @@
     </div>
     @endif
 
-    <div class="container mx-auto max-w-screen-xl">
+    <div class="container mx-auto max-w-screen-xl px-2">
         <table class="w-full text-sm text-left text-black dark:text-gray-400">
             <thead class="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>

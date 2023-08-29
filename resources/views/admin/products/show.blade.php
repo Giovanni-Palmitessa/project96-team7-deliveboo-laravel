@@ -1,7 +1,7 @@
 @extends('admin.layouts.base')
 @section('contents')
 <h1 class="text-center text-3xl mb-2">{{ $product->name}}</h1>
-<div class="container mx-auto max-w-screen-xl">
+<div class="container mx-auto max-w-screen-xl px-2">
     <div>
         <img src="{{ $product->url_image }}" alt="{{ $product->name }}">
     </div>
