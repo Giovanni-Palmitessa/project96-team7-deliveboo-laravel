@@ -18,6 +18,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource('products', ProductController::class);
         Route::resource('categories', CategoryController::class);
         Route::resource('orders', OrderController::class);
+        Route::post('/dashboard/products/toggle-visibility/{product_id}', [ProductController::class, 'toggleProductVisibility'])->name('products.toggleProductVisibility');
     });
 
 

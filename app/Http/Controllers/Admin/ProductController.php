@@ -8,6 +8,7 @@ use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -17,7 +18,7 @@ class ProductController extends Controller
         'ingredients' => 'required|string',
         'price' => 'required|integer',
         'description' => 'required|string',
-        'url_image' => 'required|string',
+        // 'url_image' => 'required|image|2048',
     ];
 
     public function index()
@@ -57,8 +58,14 @@ class ProductController extends Controller
         $newProduct->ingredients = $data['ingredients'];
         $newProduct->price = $data['price'];
         $newProduct->description = $data['description'];
-        $newProduct->url_image = $data['url_image'];
-        $newProduct->visible = $data['visible'];
+        if ($request->hasFIle('url_image')) {
+            $imagePath = Storage::put('uploads', $data['url_image']);
+            $newProduct->url_image = $imagePath;
+        } else {
+            // Altrimenti, un valore di default
+            $imagePath = 'defaultImage/default.jpg';
+        }
+        // $newProduct->visible = $data['visible'];
 
         // salvo il nuovo Prodotto
         $newProduct->save();
@@ -93,8 +100,14 @@ class ProductController extends Controller
         $product->ingredients = $data['ingredients'];
         $product->price = $data['price'];
         $product->description = $data['description'];
-        $product->url_image = $data['url_image'];
-        $product->visible = $data['visible'];
+        if ($request->has('url_image')) {
+            $imagePath = Storage::disk('public')->put('uploads', $data['url_image']);
+            if ($product->url_image) {
+                Storage::delete($product->url_image);
+            }
+            $product->url_image = $imagePath;
+        }
+        // $product->visible = $data['visible'];
         // $product->restaurant_id = $data['restaurant_id'];
         // update
         $product->update();
@@ -110,4 +123,14 @@ class ProductController extends Controller
         $product->delete();
         return to_route('admin.products.index')->with('delete_success', $product);
     }
+
+    public function toggleProductVisibility(Request $request, $product_id)
+{
+    $product = Product::find($product_id);
+    if ($product) {
+        $product->visible = !$product->visible; // Inverte lo stato corrente
+        $product->save();
+    }
+    return redirect()->back(); // reindirizza alla dashboard
+}
 }

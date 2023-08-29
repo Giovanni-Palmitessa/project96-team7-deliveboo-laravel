@@ -49,15 +49,12 @@
         </div>
         <div class="mb-2 error text-sm" id="ProductDescriptionError"></div>
 
-        <div class="mb-3">
-            <label for="url_image" class="form-label">Url Immagine</label>
-            <textarea class="form-control block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-            name="url_image" 
-            id="product_url_image_create"
-            rows="3"
-            placeholder="Inserisci l'immagine del tuo prodotto">{{ old('url_image') }}</textarea>
-        </div>
-        <div class="mb-2 error text-sm" id="ProductUrlImageError"></div>
+    <div class="mb-3">
+        <label class="block mb-2 text-sm font-medium text-gray-900" for="url_image">Upload Image</label>
+        <input id="url_image" type="file" name="url_image"  value="{{old('url_image')}}" class="form-control block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ">
+      </div>
+
+        
 
         <button class="rounded-lg bg-blue-500 hover:bg-blue-700 font-medium text-sm px-5 py-2.5 text-center text-white">Salva</button>
     </form>

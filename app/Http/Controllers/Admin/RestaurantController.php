@@ -102,7 +102,6 @@ class RestaurantController extends Controller
             $newRestaurant->url_image          = $imagePath;
         }
         $newRestaurant->vat = $data['vat'];
-        // $newRestaurant->url_image = $data['url_image'];
         $newRestaurant->priceRange = $data['priceRange'];
         $newRestaurant->user_id          = auth()->user()->id;
 
