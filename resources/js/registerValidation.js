@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const emailErrori = {
         "@": "La email deve contenere una '@'",
-        ".suffisso": "La email deve contenere un prefisso '.com' o '.it'",
+        ".suffisso": "La email deve terminare con '.com' o '.it'",
         lunghezza: "Inserisci un'email valida",
     };
 
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function creaElementoErrore() {
         const span = document.createElement("span");
         span.classList.add("invalid-feedback");
-        span.classList.add("errore-colore");
+        span.classList.add("text-red-500");
         return span;
     }
 
