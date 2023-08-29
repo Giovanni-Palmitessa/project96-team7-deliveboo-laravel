@@ -13,28 +13,28 @@ use Illuminate\Support\Facades\Storage;
 class RestaurantController extends Controller
 {
     private $validations = [
-        'name' => 'required|string|max:50',
-        'description' => 'required|string',
-        'city' => 'required|string|max:30',
-        'address' => 'required|string|max:50',
-        'vat' => 'required|string|max:10|min:10',
-        // 'url_image' => 'nullable|url|max:300',
-        'priceRange' => 'nullable|integer',
-        'rating_value' => 'nullable|integer',
-        'review_count' => 'nullable|integer',
-        'categories' => 'nullable|array',
-        'categories.*' => 'integer|exists:categories,id',
+        'name'                 => 'required|string|max:50',
+        'description'          => 'required|string',
+        'city'                 => 'required|string|max:30',
+        'address'              => 'required|string|max:50',
+        'vat'                  => 'required|string|max:10|min:10',
+        'url_image'            => 'nullable|image|max:2048',
+        'priceRange'           => 'nullable|integer',
+        'rating_value'         => 'nullable|integer',
+        'review_count'         => 'nullable|integer',
+        'categories'           => 'nullable|array',
+        'categories.*'         => 'integer|exists:categories,id',
     ];
 
-    private $validations_messages = [
-        'required' => 'Il campo :attribute è richiesto',
-        'min' => 'Il campo :attribute deve avere almeno :min caratteri',
-        'max' => 'Il campo :attribute deve avere massimo :max caratteri',
-        // 'url' => 'Il campo :attribute deve essere un URL valido',
-        'date' => 'Il campo :attribute deve essere una data in formato valido',
-        'exists' => 'Il campo :attribute non è valido',
-        'integer' => 'Il campo :attribute deve essere un numero intero.',
-    ];
+    // private $validations_messages = [
+    //     'required' => 'Il campo :attribute è richiesto',
+    //     'min' => 'Il campo :attribute deve avere almeno :min caratteri',
+    //     'max' => 'Il campo :attribute deve avere massimo :max caratteri',
+    //     'url' => 'Il campo :attribute deve essere un URL valido',
+    //     'date' => 'Il campo :attribute deve essere una data in formato valido',
+    //     'exists' => 'Il campo :attribute non è valido',
+    //     'integer' => 'Il campo :attribute deve essere un numero intero.',
+    // ];
     /**
      * Display a listing of the resource.
      *
@@ -74,7 +74,7 @@ class RestaurantController extends Controller
     public function store(Request $request)
     {
         // validare i dati del form
-        $request->validate($this->validations, $this->validations_messages);
+        $request->validate($this->validations);
 
         $data = $request->all();
 
@@ -155,7 +155,7 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::where('slug', $slug)->firstOrFail();
 
-        $request->validate($this->validations, $this->validations_messages);
+        $request->validate($this->validations);
 
         $data = $request->all();
 
