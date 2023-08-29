@@ -31,8 +31,8 @@
                         {{-- <td scope="row">{{ $product->id }}</td> --}}
                         <td scope="row" class="px-6 py-4">{{ $product->name }}</td>
                         {{-- <td scope="row">{{ $product->slug }}</td> --}}
-                        <td scope="row" class="px-6 py-4">{{ $product->ingredients }}</td>
-                        <td scope="row" class="px-6 py-4">{{ $product->price }}</td>
+                        <td scope="row" class="px-6 py-4 max-w-lg">{{ $product->ingredients }}</td>
+                        <td scope="row" class="px-6 py-4 text-center">{{ $product->price }}</td>
                         {{-- <td scope="row">{{ $product->description }}</td> --}}
                         {{-- <td scope="row">
                             <img src="{{ $product->url_image }}" alt="{{ $product->name }}" class="w-24 h-24 rounded-full mr-4">
