@@ -1,6 +1,6 @@
 @extends('admin.layouts.base')
 @section('contents')
-<h1 class="text-center text-3xl mb-2">NUOVO PRODOTTO</h1>
+<h1 class="text-center text-3xl mb-2 text-secondary">NUOVO PRODOTTO</h1>
 <div class="container mx-auto max-w-screen-xl px-2">
     <form
     method="POST"

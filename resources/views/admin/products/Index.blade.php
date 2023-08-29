@@ -1,6 +1,6 @@
 @extends('admin.layouts.base')
 @section('contents')
-    <h1 class="text-center text-3xl mb-2">PRODOTTI</h1>
+    <h1 class="text-center text-3xl mb-2 text-secondary">PRODOTTI</h1>
 
     @if (session('delete_success'))
     @php
@@ -38,11 +38,11 @@
                             <img src="{{ $product->url_image }}" alt="{{ $product->name }}" class="w-24 h-24 rounded-full mr-4">
                         </td> --}}
                         <td class="px-6 py-4 flex gap-1">
-                            <button class="rounded-lg bg-blue-500 hover:bg-blue-700 font-medium text-sm px-5 py-2.5 text-center text-white">
-                                <a href="{{ route('admin.products.show', ['product' => $product]) }}">Vista</a>
+                            <button class="rounded-lg bg-blue-500 hover:bg-blue-700 font-medium text-sm text-center text-white">
+                                <a href="{{ route('admin.products.show', ['product' => $product]) }}" class="px-5 py-2.5">Vista</a>
                             </button>
-                            <button class="rounded-lg bg-yellow-300 hover:bg-yellow-500 font-medium text-sm px-5 py-2.5 text-center text-white">
-                                <a href="{{ route('admin.products.edit', ['product' => $product]) }}">Modifica</a>
+                            <button class="rounded-lg bg-yellow-300 hover:bg-yellow-500 font-medium text-sm text-center text-white">
+                                <a href="{{ route('admin.products.edit', ['product' => $product]) }}" class="px-5 py-2.5">Modifica</a>
                             </button>
                             <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" type="button">
                                 Elimina
