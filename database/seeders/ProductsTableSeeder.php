@@ -23,8 +23,8 @@ class ProductsTableSeeder extends Seeder
                 'price'          => $objProduct['price'],
                 'description'    => $objProduct['description'],
                 'url_image'      => $objProduct['url_image'],
+                'visible'        => $objProduct['visible'],
             ]);
-
         }
     }
 }
