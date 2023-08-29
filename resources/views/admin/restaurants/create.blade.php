@@ -102,6 +102,7 @@ novalidate
               {{ $message }} 
           </div>
         @enderror
+        <div class="mb-2 text-sm text-red-600" id="url_imageError"></div>
       </div>
 
 

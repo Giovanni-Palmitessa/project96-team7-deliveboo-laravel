@@ -108,12 +108,24 @@ id="form-edit"
 
       <div class="mb-6">
         <label class="block mb-2 text-sm font-medium text-gray-900" for="url_image">Upload Image</label>
+        <input id="url_image-edit" type="file" name="url_image"  value="{{old('url_image')}}" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 ">
+        @error('url_image')
+          <div class="invalid-feedback">
+              {{ $message }} 
+          </div>
+        @enderror
+        <div class="mb-2 text-sm text-red-600" id="url_imageErrorEdit"></div>
+      </div>
+
+      <div class="mb-6">
+        <label class="block mb-2 text-sm font-medium text-gray-900" for="url_image">Upload Image</label>
         <input id="url_image" type="file" name="url_image"  value="{{old('url_image')}}" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 ">
         @error('url_image')
           <div class="invalid-feedback">
               {{ $message }} 
           </div>
         @enderror
+        <div class="mb-2 text-sm text-red-600" id="url_imageError"></div>
       </div>
 
       <div class="mb-6">

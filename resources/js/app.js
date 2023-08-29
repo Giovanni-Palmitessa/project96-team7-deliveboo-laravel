@@ -7,7 +7,7 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-// import "./restaurantValidation";
+import "./restaurantValidation";
 import "./loginValidation";
 import "./registerValidation";
 import "./productValidationCreate";
