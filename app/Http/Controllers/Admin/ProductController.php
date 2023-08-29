@@ -58,6 +58,7 @@ class ProductController extends Controller
         $newProduct->price = $data['price'];
         $newProduct->description = $data['description'];
         $newProduct->url_image = $data['url_image'];
+        $newProduct->visible = $data['visible'];
 
         // salvo il nuovo Prodotto
         $newProduct->save();
@@ -93,6 +94,7 @@ class ProductController extends Controller
         $product->price = $data['price'];
         $product->description = $data['description'];
         $product->url_image = $data['url_image'];
+        $product->visible = $data['visible'];
         // $product->restaurant_id = $data['restaurant_id'];
         // update
         $product->update();
