@@ -15,11 +15,11 @@
         <thead>
             <tr>
                 {{-- <th scope="col">ID</th> --}}
-                <th scope="col">Name</th>
+                <th scope="col">Nome</th>
                 {{-- <th scope="col">Slug</th> --}}
-                <th scope="col">Ingredients</th>
-                <th scope="col">Price</th>
-                <th scope="col">Description</th>
+                <th scope="col">Ingredienti</th>
+                <th scope="col">Prezzo</th>
+                <th scope="col">Descrizione</th>
                 <th scope="col">Immagine</th>
             </tr>
         </thead>
