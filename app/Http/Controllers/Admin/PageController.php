@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Restaurant;
 use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
@@ -37,5 +38,11 @@ class PageController extends Controller
         }
 
         return view('admin.dashboard', compact('restaurant', 'products', 'orders'));
+    }
+    public function header()
+    {
+        $restaurant = Auth::user()->restaurant;
+
+        return view('admin.partials.header', compact('restaurant'));
     }
 }
