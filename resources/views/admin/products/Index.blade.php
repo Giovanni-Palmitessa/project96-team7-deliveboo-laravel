@@ -2,6 +2,15 @@
 @section('contents')
     <h1>Prodotti</h1>
 
+    @if (session('delete_success'))
+    @php
+    $product = session('delete_success')
+    @endphp
+    <div class="bg-red-600">
+        Il product "{{ $product->name }}" è stato eliminato per sempre
+    </div>
+    @endif
+
     <table class="table">
         <thead>
             <tr>
@@ -11,8 +20,7 @@
                 <th scope="col">Ingredients</th>
                 <th scope="col">Price</th>
                 <th scope="col">Description</th>
-                <th scope="col">UrlImage</th>
-                <th scope="col">Restaurant_ID</th>
+                <th scope="col">Immagine</th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +35,23 @@
                     <th scope="row">
                         <img src="{{ $product->url_image }}" alt="{{ $product->name }}" class="w-24 h-24 rounded-full mr-4">
                     </th>
-                    <th scope="row">{{ $product->restaurant_id }}</th>
+                    <th>
+                        <a href="{{ route('admin.products.show', ['product' => $product]) }}">Vista</a>
+                        <a href="{{ route('admin.products.edit', ['product' => $product]) }}">Modifica</a>
+                        <form 
+                            action="{{ route('admin.products.destroy', ['product' => $product]) }}"
+                            method="POST"
+                            class="d-inline-block"
+                            id="confirm_delete">
+                            @csrf
+                            @method('delete')
+                            <button
+                            class="bg-red-600"
+                            >
+                            Elimina
+                            </button>
+                        </form>
+                    </th>
                 </tr>
             @endforeach
         </tbody>
