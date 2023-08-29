@@ -24,7 +24,8 @@
                         <div>
                             {{ $product->name }}
                             <a href="{{ route('admin.products.show', ['product' => $product]) }}"
-                            class="bg-secondary hover:bg-b_hover p-2 rounded-md"    >Vista</a>
+                            class="bg-secondary hover:bg-b_hover p-2 rounded-md">Vista</a>
+                            <button class="bg-gray-500 hover:bg-gray-700 p-2 rounded-md">Nascondi</button>
                         </div>
                     </li>
                 @endforeach
