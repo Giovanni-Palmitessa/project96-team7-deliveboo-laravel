@@ -104,6 +104,7 @@ class ProductController extends Controller
     public function destroy($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
+        $product->orders()->detach();
         $product->delete();
         return to_route('admin.products.index')->with('delete_success', $product);
     }
