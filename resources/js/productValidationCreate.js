@@ -54,8 +54,8 @@ if (productCreateForm) {
         } else if (price <= 0) {
             priceError.textContent = "Il campo 'Prezzo' non può essere zero.";
             isValid = false;
-        } else if (price > 630) {
-            priceError.textContent = "Il campo 'Prezzo' può essere al massimo di 630."
+        } else if (price > 254) {
+            priceError.textContent = "Il campo 'Prezzo' può essere al massimo di 254."
             isValid = false;
         }
 
