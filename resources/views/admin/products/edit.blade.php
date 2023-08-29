@@ -45,14 +45,18 @@ id="product_edit_form"
     </div>
     <div class="mb-2 text-sm error" id="ProductDescriptionError"></div>
 
-    <div class="mb-3">
-        <label for="url_image" class="form-label">Url Immagine</label>
-        <textarea class="form-control" 
-        name="url_image" 
-        id="product_url_image_edit"
-        rows="3">{{ old('url_image', $product->url_image) }}</textarea>
+    <div class="mb-6">
+        <label class="block mb-2 text-sm font-medium text-gray-900" for="url_image">Upload Image</label>
+        <input id="product_url_image_edit" type="file" name="url_image"  value="{{old('url_image', $product->url_image)}}" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 ">
     </div>
     <div class="mb-2 text-sm error" id="ProductUrlImageError"></div>
+
+    
+    {{-- <div class="flex items-center mb-6">
+        <input id="default-checkbox" name="visible" type="checkbox" value="{{old('visible', $product->visible)}}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Prodotto disponibile?</label>
+    </div> --}}
+    
 
     <button type="submit" class="btn btn-primary">Save</button>
 </form>

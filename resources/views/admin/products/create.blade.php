@@ -45,13 +45,9 @@ novalidate>
     <div class="mb-2 error text-sm" id="ProductDescriptionError"></div>
 
     <div class="mb-3">
-        <label for="url_image" class="form-label">Url Immagine</label>
-        <textarea class="form-control" 
-        name="url_image" 
-        id="product_url_image_create"
-        rows="3">{{ old('url_image') }}</textarea>
-    </div>
-    <div class="mb-2 error text-sm" id="ProductUrlImageError"></div>
+        <label class="block mb-2 text-sm font-medium text-gray-900" for="url_image">Upload Image</label>
+        <input id="url_image" type="file" name="url_image"  value="{{old('url_image')}}" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 ">
+      </div>
 
     <button class="btn btn-primary">Save</button>
 </form>
