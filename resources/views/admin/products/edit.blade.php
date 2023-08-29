@@ -13,7 +13,7 @@
         <div class="mb-3">
             <label for="name" class="form-label">Nome</label>
             <input type="text" 
-            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" id="product_name_create" id="product_name_edit" 
+            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" id="product_name_edit" 
             name="name" 
             value="{{old('name', $product->name)}}">
         </div>
@@ -22,7 +22,7 @@
         <div class="mb-3">
             <label for="ingredients" class="form-label">Ingredienti</label>
             <input type="text" 
-            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" id="product_ingredients_create"  id="product_ingredients_edit" 
+            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" id="product_ingredients_edit" 
             name="ingredients" 
             value="{{old('ingredients', $product->ingredients)}}">
         </div>
@@ -31,7 +31,7 @@
         <div class="mb-3">
             <label for="price" class="form-label">Prezzo</label>
             <input type="text" 
-            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" id="product_price_create" id="product_price_edit" 
+            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" id="product_price_edit" 
             name="price" 
             value="{{old('price', $product->price)}}">
         </div>
