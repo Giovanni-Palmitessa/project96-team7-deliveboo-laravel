@@ -8,6 +8,7 @@ use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
@@ -17,7 +18,7 @@ class RestaurantController extends Controller
         'city' => 'required|string|max:30',
         'address' => 'required|string|max:50',
         'vat' => 'required|string|max:10|min:10',
-        'url_image' => 'nullable|url|max:300',
+        // 'url_image' => 'nullable|url|max:300',
         'priceRange' => 'nullable|integer',
         'rating_value' => 'nullable|integer',
         'review_count' => 'nullable|integer',
@@ -29,7 +30,7 @@ class RestaurantController extends Controller
         'required' => 'Il campo :attribute è richiesto',
         'min' => 'Il campo :attribute deve avere almeno :min caratteri',
         'max' => 'Il campo :attribute deve avere massimo :max caratteri',
-        'url' => 'Il campo :attribute deve essere un URL valido',
+        // 'url' => 'Il campo :attribute deve essere un URL valido',
         'date' => 'Il campo :attribute deve essere una data in formato valido',
         'exists' => 'Il campo :attribute non è valido',
         'integer' => 'Il campo :attribute deve essere un numero intero.',
@@ -61,7 +62,7 @@ class RestaurantController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.restaurants.create', compact('products', 'categories'));
+        return view('admin.restaurants.create', compact('categories'));
     }
 
     /**
@@ -97,8 +98,8 @@ class RestaurantController extends Controller
         $newRestaurant->city = $data['city'];
         $newRestaurant->address = $data['address'];
         if ($request->has('url_image')) {
-            $imagePath = Storage::put('uploads', $data['url_image']);
-            $newProject->url_image          = $imagePath;
+            $imagePath = Storage::put('public/uploads', $data['url_image']);
+            $newRestaurant->url_image          = $imagePath;
         }
         $newRestaurant->vat = $data['vat'];
         // $newRestaurant->url_image = $data['url_image'];
@@ -140,7 +141,7 @@ class RestaurantController extends Controller
 
         $categories = Category::all();
 
-        return view('admin.restaurants.edit', compact('restaurant', 'products', 'categories'));
+        return view('admin.restaurants.edit', compact('restaurant', 'categories'));
     }
 
     /**
