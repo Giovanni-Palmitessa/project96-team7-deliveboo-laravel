@@ -16,19 +16,26 @@ class PageController extends Controller
 
     public function dashboard()
     {
-        $restaurant = Auth::user()->restaurant;
+        // Inizializzo le variabili
+        $restaurant = null;
+        $products = [];
+        $orders = [];
+
+        // Controllo se l'utente ha un ristorante
+        if (Auth::check()) {
+            $restaurant = Auth::user()->restaurant;
+        }
 
         if ($restaurant) {
+            // Recupero i prodotti del ristorante se esiste
             $products = $restaurant->products;
-            // dd($products);
-        } else {
-            $products = [];
-        }
-        if ($restaurant) {
+
+            // Recupero gli ordini associati ai prodotti del ristorante
             $orders = Order::whereHas('products', function ($q) use ($restaurant) {
                 $q->where('restaurant_id', $restaurant->id);
             })->get();
         }
+
         return view('admin.dashboard', compact('restaurant', 'products', 'orders'));
     }
 }

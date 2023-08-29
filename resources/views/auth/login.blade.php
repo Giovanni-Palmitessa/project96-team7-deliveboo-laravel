@@ -33,6 +33,10 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
+
+            <a href="{{ route('register') }}"
+                class="ml-3 mr-3 rounded-md px-4 py-2 bg-secondary text-white text-sm">REGISTER</a>
+
             @if (Route::has('password.request'))
                 <a class="underline text-sm text-secondary hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     href="{{ route('password.request') }}">
