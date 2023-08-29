@@ -14,8 +14,8 @@ if (formCreate) {
         const city = document.getElementById("city-create").value;
         const address = document.getElementById("address-create").value;
         const vat = document.getElementById("vat-create").value;
-        const url_image = document.getElementById("url_image-create").value;
         const priceRange = document.getElementById("priceRange-create").value;
+        const inputImage = document.getElementById("url_image");
 
         // Ottieni le aree in cui verranno mostrati i messaggi di errore
         const nameError = document.getElementById("nameError");
@@ -23,9 +23,9 @@ if (formCreate) {
         const cityError = document.getElementById("cityError");
         const addressError = document.getElementById("addressError");
         const vatError = document.getElementById("vatError");
-        const url_imageError = document.getElementById("url_imageError");
         const priceRangeError = document.getElementById("priceRangeError");
         const categoryError = document.getElementById("categoryError");
+        const errorDiv = document.getElementById("url_imageError");
 
         // Resetta i messaggi di errore
         nameError.textContent = "";
@@ -33,7 +33,7 @@ if (formCreate) {
         cityError.textContent = "";
         addressError.textContent = "";
         vatError.textContent = "";
-        url_imageError.textContent = "";
+        errorDiv.textContent = "";
         priceRangeError.textContent = "";
 
         // Esegui le validazioni
@@ -84,11 +84,30 @@ if (formCreate) {
             isValid = false;
         }
 
-        if (url_image.length > 300) {
-            url_imageError.textContent =
-                "Il campo URL dell'Immagine non può contenere più di 300 caratteri.";
-            isValid = false;
+        if (inputImage.files[0]) {
+            const file = inputImage.files[0];
+            const maxSize = 1 * 1024 * 1024; // 1 MB in bytes
+            const allowedExtensions = ["jpeg", "png"];
+
+            if (file.size > maxSize) {
+                errorDiv.textContent = "L'immagine non deve superare 1 MB.";
+                isValid = false;
+            } else if (
+                !allowedExtensions.includes(
+                    file.name.split(".").pop().toLowerCase()
+                )
+            ) {
+                errorDiv.textContent =
+                    "Sono consentiti solo file con estensione .jpg, .jpeg o .png.";
+                isValid = false;
+            }
         }
+
+        // if (url_image.length > 300) {
+        //     url_imageError.textContent =
+        //         "Il campo URL dell'Immagine non può contenere più di 300 caratteri.";
+        //     isValid = false;
+        // }
         // else if (!/^https?:\/\/\S+$/.test(url_image)) {
         //     url_imageError.textContent = "Inserisci un URL valido.";
         //     isValid = false;
@@ -136,8 +155,9 @@ if (formEdit) {
         const cityEdit = document.getElementById("city-edit").value;
         const addressEdit = document.getElementById("address-edit").value;
         const vatEdit = document.getElementById("vat-edit").value;
-        const url_imageEdit = document.getElementById("url_image-edit").value;
+        // const url_imageEdit = document.getElementById("url_image-edit").value;
         const priceRangeEdit = document.getElementById("priceRange-edit").value;
+        const inputImageEdit = document.getElementById("url_image-edit");
 
         // Ottieni le aree in cui verranno mostrati i messaggi di errore
         const nameErrorEdit = document.getElementById("nameErrorEdit");
@@ -147,12 +167,13 @@ if (formEdit) {
         const cityErrorEdit = document.getElementById("cityErrorEdit");
         const addressErrorEdit = document.getElementById("addressErrorEdit");
         const vatErrorEdit = document.getElementById("vatErrorEdit");
-        const url_imageErrorEdit =
-            document.getElementById("url_imageErrorEdit");
+        // const url_imageErrorEdit =
+        //     document.getElementById("url_imageErrorEdit");
         const priceRangeErrorEdit = document.getElementById(
             "priceRangeErrorEdit"
         );
         const categoryErrorEdit = document.getElementById("categoryErrorEdit");
+        const errorDivEdit = document.getElementById("url_imageErrorEdit");
 
         // Resetta i messaggi di errore
         nameErrorEdit.textContent = "";
@@ -160,7 +181,7 @@ if (formEdit) {
         cityErrorEdit.textContent = "";
         addressErrorEdit.textContent = "";
         vatErrorEdit.textContent = "";
-        url_imageErrorEdit.textContent = "";
+        errorDivEdit.textContent = "";
         priceRangeErrorEdit.textContent = "";
 
         // Esegui le validazioni
@@ -213,10 +234,23 @@ if (formEdit) {
             isValidEdit = false;
         }
 
-        if (url_imageEdit.length > 300) {
-            url_imageErrorEdit.textContent =
-                "Il campo URL dell'Immagine non può contenere più di 300 caratteri.";
-            isValidEdit = false;
+        if (inputImageEdit.files[0]) {
+            const file = inputImageEdit.files[0];
+            const maxSize = 1 * 1024 * 1024; // 1 MB in bytes
+            const allowedExtensions = ["jpeg", "png"];
+
+            if (file.size > maxSize) {
+                errorDivEdit.textContent = "L'immagine non deve superare 1 MB.";
+                isValidEdit = false;
+            } else if (
+                !allowedExtensions.includes(
+                    file.name.split(".").pop().toLowerCase()
+                )
+            ) {
+                errorDivEdit.textContent =
+                    "Sono consentiti solo file con estensione .jpg, .jpeg o .png.";
+                isValidEdit = false;
+            }
         }
         // else if (!/^https?:\/\/\S+$/.test(url_imageEdit)) {
         //     url_imageErrorEdit.textContent = "Inserisci un URL valido.";
