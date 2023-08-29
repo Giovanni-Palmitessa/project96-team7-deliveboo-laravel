@@ -10,7 +10,7 @@
             <x-input-label for="log_email" :value="__('Email')" />
             <x-text-input id="log_email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
                 autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            {{-- <x-input-error :messages="$errors->get('email')" class="mt-2 text-red-500" /> --}}
         </div>
 
         <!-- Password -->
@@ -20,7 +20,7 @@
             <x-text-input id="log_password" class="block mt-1 w-full" type="password" name="password" required
                 autocomplete="current-password" />
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            {{-- <x-input-error :messages="$errors->get('password')" class="mt-2" /> --}}
         </div>
 
         <!-- Remember Me -->
