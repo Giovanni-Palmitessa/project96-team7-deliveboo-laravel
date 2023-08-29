@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string("name", 50);
             $table->string('slug', 50)->unique();
             $table->text("ingredients");
-            $table->tinyInteger("price");
+            $table->tinyInteger("price")->unsigned();
             $table->text("description");
             $table->text("url_image")->nullable();
             $table->boolean("visible")->default(true);

@@ -1,7 +1,7 @@
 @extends('admin.layouts.base')
 @section('contents')
-<h1 class="text-center text-3xl mb-2">{{ $product->name}}</h1>
-<div class="container mx-auto max-w-screen-xl">
+<h1 class="text-center text-3xl mb-2 text-secondary">{{ $product->name}}</h1>
+<div class="container mx-auto max-w-screen-xl px-2">
     <div>
         <img src="{{ asset('storage/' . $product->url_image) }}" alt="{{ $product->name }}">
     </div>
@@ -15,8 +15,8 @@
         <p>{{ $product->price }}</p>
     </div>
     <div class="mx-auto flex justify-center gap-2">
-        <button class="rounded-lg bg-yellow-300 hover:bg-yellow-500 font-medium text-sm px-5 py-2.5 text-center text-white">
-            <a href="{{ route('admin.products.edit', ['product' => $product]) }}">Modifica</a>
+        <button class="rounded-lg bg-yellow-300 hover:bg-yellow-500 font-medium text-sm text-center text-white">
+            <a href="{{ route('admin.products.edit', ['product' => $product]) }}" class="px-5 py-2.5">Modifica</a>
         </button>
         <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" type="button">
         Elimina
