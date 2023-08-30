@@ -4,6 +4,7 @@
         <div class="min-h-screen bg-gray-100 p-6 flex flex-col items-center">
             <!-- Header del ristorante -->
             <div class="text-center mb-10">
+                {{-- <img src="{{ asset('storage/' . $restaurant->url_image) }}" alt="{{ $restaurant->name }}"> --}}
                 <h1 class="text-4xl font-bold text-gray-800 mb-4">{{ $restaurant->name }}</h1>
                 <div class="bg-white rounded-lg shadow-lg p-6 w-3/4 m-auto">
                     <p class="text-gray-600">{{ $restaurant->description }}</p>
