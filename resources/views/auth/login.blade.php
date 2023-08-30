@@ -7,21 +7,31 @@
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="log_email" :value="__('Email')" />
+            <label for="log_email" :value="__('Email')">Email</label>
+            <input id="log_email" class="block mt-1 w-full rounded-md" type="email" name="email" :value="old('email')"
+                autofocus autocomplete="username">
+
+            {{-- <x-input-label for="log_email" :value="__('Email')" />
             <x-text-input id="log_email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
-                autofocus autocomplete="username" />
+                autofocus autocomplete="username" /> --}}
             {{-- <x-input-error :messages="$errors->get('email')" class="mt-2 text-red-500" /> --}}
         </div>
+        <div class="mb-2 error text-sm" id="EmailError"></div>
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="log_password" :value="__('Password')" />
+            <label for="log_password" :value="__('Password')">Password</label>
+            <input id="log_password" class="block mt-1 w-full rounded-md" type="password" name="password"
+                autocomplete="current-password">
+            {{-- <x-input-label for="log_password" :value="__('Password')" />
 
             <x-text-input id="log_password" class="block mt-1 w-full" type="password" name="password" required
-                autocomplete="current-password" />
+                autocomplete="current-password" /> --}}
 
             {{-- <x-input-error :messages="$errors->get('password')" class="mt-2" /> --}}
         </div>
+        <div class="mb-2 text-red-500 error text-sm" id="PasswordError"></div>
+
 
         <!-- Remember Me -->
         <div class="block mt-4">

@@ -1,111 +1,70 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Identificare il form di registrazione
-    const registerForm = document.querySelector("#registerForm");
+const registerForm = document.getElementById("registerForm");
 
-    if (!registerForm) return;
+if (registerForm) {
+    registerForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    // Ottieni gli elementi input all'interno del form di registrazione
-    const nome = registerForm.querySelector("#reg_name");
-    const email = registerForm.querySelector("#reg_email");
-    const password = registerForm.querySelector("#reg_password");
-    const passwordConferma = registerForm.querySelector(
-        "#reg_password_confirmation"
-    );
+        // valori dai campi di input
+        const name = document.getElementById("reg_name").value;
+        const email = document.getElementById("reg_email").value;
+        const password = document.getElementById("reg_password").value;
+        const passwordConfirmation = document.getElementById(
+            "reg_password_confirmation"
+        ).value;
 
-    // Assicurarsi che gli input esistano prima di proseguire
-    if (!nome || !email || !password || !passwordConferma) return;
+        // div dove mostrare gli errori
+        const nameError = document.getElementById("NameError");
+        const emailError = document.getElementById("EmailError");
+        const passwordError = document.getElementById("PasswordError");
+        const passwordConfirmationError = document.getElementById(
+            "PasswordConfirmationError"
+        );
 
-    const nomeErrori = {
-        lunghezza: "Il nome deve contenere almeno 3 caratteri",
-    };
+        // Reset messaggi di errore
+        nameError.textContent = "";
+        emailError.textContent = "";
+        passwordError.textContent = "";
+        passwordConfirmationError.textContent = "";
 
-    const emailErrori = {
-        "@": "La email deve contenere una '@'",
-        ".suffisso": "La email deve terminare con '.com' o '.it'",
-        lunghezza: "Inserisci un'email valida",
-    };
+        // Eseguo le validazioni
+        let isValid = true;
 
-    const passwordErrori = {
-        lunghezza: "La password deve contenere almeno 8 caratteri",
-    };
-
-    const passwordConfermaErrori = {
-        nonCorrispondente: "Le password non corrispondono",
-    };
-
-    nome.addEventListener("input", validaNome);
-    email.addEventListener("input", validaEmail);
-    password.addEventListener("input", validaPassword);
-    passwordConferma.addEventListener("input", validaConfermaPassword);
-
-    function creaElementoErrore() {
-        const span = document.createElement("span");
-        span.classList.add("invalid-feedback");
-        span.classList.add("text-red-500");
-        return span;
-    }
-
-    function validaNome() {
-        if (nome.value.length < 3) {
-            mostraErrore(nome, nomeErrori["lunghezza"]);
-        } else {
-            rimuoviErrore(nome);
+        // Validazione del nome
+        if (name.trim() === "") {
+            nameError.textContent = "Il campo 'Nome' è obbligatorio.";
+            isValid = false;
+        } else if (name.length < 3) {
+            nameError.textContent =
+                "Il campo 'Nome' deve contenere almeno 3 caratteri.";
+            isValid = false;
         }
-    }
 
-    function validaEmail() {
-        if (!email.value.includes("@")) {
-            mostraErrore(email, emailErrori["@"]);
-        } else if (!suffissoValido(email.value)) {
-            mostraErrore(email, emailErrori[".suffisso"]);
-        } else if (email.value.length <= 5) {
-            mostraErrore(email, emailErrori["lunghezza"]);
-        } else {
-            rimuoviErrore(email);
+        // Validazione dell'email
+        if (!email.includes("@") || !email.includes(".")) {
+            emailError.textContent = "Inserisci un'email valida.";
+            isValid = false;
+        } else if (!(email.endsWith(".com") || email.endsWith(".it"))) {
+            emailError.textContent = "L'email deve terminare con .com o .it.";
+            isValid = false;
         }
-    }
 
-    function validaPassword() {
-        if (password.value.length < 8) {
-            mostraErrore(password, passwordErrori["lunghezza"]);
-        } else {
-            rimuoviErrore(password);
+        // Validazione della password
+        if (password.length < 8) {
+            passwordError.textContent =
+                "La password deve contenere almeno 8 caratteri.";
+            isValid = false;
         }
-    }
 
-    function validaConfermaPassword() {
-        if (passwordConferma.value !== password.value) {
-            mostraErrore(
-                passwordConferma,
-                passwordConfermaErrori["nonCorrispondente"]
-            );
-        } else {
-            rimuoviErrore(passwordConferma);
+        // Validazione della conferma della password
+        if (password !== passwordConfirmation) {
+            passwordConfirmationError.textContent =
+                "Le password non coincidono.";
+            isValid = false;
         }
-    }
 
-    function suffissoValido(emailVal) {
-        return emailVal.includes(".com") || emailVal.includes(".it");
-    }
-
-    function mostraErrore(elementoInput, messaggio) {
-        let errore = elementoInput.nextSibling;
-        if (
-            !errore.classList ||
-            !errore.classList.contains("invalid-feedback")
-        ) {
-            errore = creaElementoErrore();
-            elementoInput.after(errore);
+        // Se tutto è valido, invio il form
+        if (isValid) {
+            registerForm.submit();
         }
-        errore.innerText = messaggio;
-        elementoInput.classList.add("is-invalid");
-    }
-
-    function rimuoviErrore(elementoInput) {
-        const errore = elementoInput.nextSibling;
-        if (errore.classList && errore.classList.contains("invalid-feedback")) {
-            errore.innerText = "";
-        }
-        elementoInput.classList.remove("is-invalid");
-    }
-});
+    });
+}

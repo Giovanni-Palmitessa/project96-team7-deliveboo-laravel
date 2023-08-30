@@ -1,5 +1,6 @@
 @php
     $restaurant = Auth::user()->restaurant;
+    $hasProduct = $restaurant ? $restaurant->products->count() > 0 : false;
     
 @endphp
 
@@ -37,17 +38,19 @@
                             class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
                             aria-current="page">New Product</a>
                     </li>
+
+                    {{-- <li>
+                        <a href="{{ route('admin.restaurants.create') }}"
+                        class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
+                        aria-current="page">New Restaurant</a>
+                    </li> --}}
+                @endif
+                @if ($restaurant && $hasProduct)
                     <li>
                         <a href="{{ route('admin.products.index') }}"
                             class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
                             aria-current="page">Products</a>
                     </li>
-
-                    {{-- <li>
-                        <a href="{{ route('admin.restaurants.create') }}"
-                            class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
-                            aria-current="page">New Restaurant</a>
-                    </li> --}}
                 @endif
                 <li>
                     <a href="{{ route('admin.restaurants.index') }}"

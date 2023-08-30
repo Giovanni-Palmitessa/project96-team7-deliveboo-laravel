@@ -12,7 +12,7 @@
         <div class="mb-3">
             <label for="name" class="form-label">Nome</label>
             <input type="text" 
-            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" id="product_name_create" 
+            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" id="product_name_create" 
             name="name" 
             value="{{old('name')}}"
             placeholder="Inserisci il nome del tuo prodotto">
@@ -22,7 +22,7 @@
         <div class="mb-3">
             <label for="ingredients" class="form-label">Ingredienti</label>
             <input type="text" 
-            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" id="product_ingredients_create" 
+            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" id="product_ingredients_create" 
             name="ingredients" 
             value="{{old('ingredients')}}"
             placeholder="Inserisci gli ingredienti del tuo prodotto">
@@ -32,7 +32,7 @@
         <div class="mb-3">
             <label for="price" class="form-label">Prezzo</label>
             <input type="number" 
-            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" id="product_price_create" 
+            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" id="product_price_create" 
             name="price" 
             value="{{old('price')}}"
             placeholder="Inserisci il prezzo del tuo prodotto">
@@ -41,7 +41,7 @@
 
         <div class="mb-3">
             <label for="description" class="form-label">Descrizione</label>
-            <textarea class="form-control block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+            <textarea class="form-control block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" 
             name="description" 
             id="product_description_create"
             rows="3"
@@ -49,11 +49,11 @@
         </div>
         <div class="mb-2 error text-sm" id="ProductDescriptionError"></div>
 
-    <div class="mb-3">
-        <label class="block mb-2 text-sm font-medium text-gray-900" for="url_image">Upload Image</label>
-        <input id="url_image" type="file" name="url_image"  value="{{old('url_image')}}" class="form-control block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ">
-      </div>
-
+        <div class="mb-3">
+            <label class="form-label" for="url_image">Upload Image</label>
+            <input id="url_image" type="file" name="url_image"  value="{{old('url_image')}}" class="form-control block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" accept=".jpg, .jpeg, .png">
+        </div>
+        <div class="mb-2 error text-sm" id="url_imageError"></div>
         
 
         <button class="rounded-lg bg-blue-500 hover:bg-blue-700 font-medium text-sm px-5 py-2.5 text-center text-white">Salva</button>
