@@ -20,7 +20,7 @@
 
         <!-- Prodotti -->
         <div class="bg-white rounded-lg shadow-lg p-6 w-3/4 mb-6">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Prodotti</h2>
+            <h2 class="text-4xl font-bold text-gray-800 mb-4 text-center">I tuoi prodotti</h2>
             {{-- <ul>
                 @foreach ($products as $product)
                     <li class="border-b border-gray-200 py-2 text-center">
@@ -47,25 +47,32 @@
                 @endforeach
             </ul> --}}
 
-            @foreach ($products as $product)
-                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                    <img class="rounded-t-lg" src="{{ asset('storage/' . $product->url_image) }}" alt="{{ $product->name }}" />
-                    
-                    <div class="p-5">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                            {{ $product->name }}
-                        </h5>
+            <div class="flex flex-wrap gap-5">
+                @foreach ($products as $product)
+                    <div class="w-2/5 mx-auto bg-white border border-gray-200 rounded-lg shadow">
+                        <img class="rounded-t-lg" src="{{ asset('storage/' . $product->url_image) }}" alt="{{ $product->name }}" />
                         
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $product->description }}</p>
+                        <div class="p-5">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                                {{ $product->name }}
+                            </h5>
+                            
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $product->description }}</p>
 
-                        <form action="{{ route('admin.products.toggleProductVisibility', $product->id) }}" method="post">
-                            @csrf
-                            <input type="checkbox" name="visible" value="1" {{ $product->visible ? 'checked' : '' }} onChange="this.form.submit()">
-                            <label for="visible">Prodotto disponibile</label>
-                        </form>
+                            <div class="flex justify-between items-center">
+                                <form action="{{ route('admin.products.toggleProductVisibility', $product->id) }}" method="post">
+                                    @csrf
+                                    <input type="checkbox" name="visible" value="1" {{ $product->visible ? 'checked' : '' }} onChange="this.form.submit()">
+                                    <label for="visible">Prodotto disponibile</label>
+                                </form>
+        
+                                <a href="{{ route('admin.products.show', ['product' => $product]) }}" class="focus:outline-none text-white bg-secondary hover:bg-b_hover font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ">Mostra dettagli</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
+            
         </div>
 
             <!-- Ordini -->
