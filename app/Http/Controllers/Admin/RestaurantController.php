@@ -123,9 +123,10 @@ class RestaurantController extends Controller
      */
     public function show($slug)
     {
+        $categories = Category::all();
         $restaurant = Restaurant::where('slug', $slug)->firstOrFail();
 
-        return view('admin.restaurants.show', compact('restaurant'));
+        return view('admin.restaurants.show', compact('restaurant', 'categories'));
     }
 
     /**
