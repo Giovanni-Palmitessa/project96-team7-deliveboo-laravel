@@ -1,5 +1,6 @@
 @php
     $restaurant = Auth::user()->restaurant;
+    $hasProduct = $restaurant ? $restaurant->products->count() > 0 : false;
 @endphp
 
 <nav class="bg-primary fixed w-full z-20 top-0 left-0 border-gray-200">
