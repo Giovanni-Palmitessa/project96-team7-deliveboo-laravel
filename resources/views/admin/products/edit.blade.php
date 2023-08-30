@@ -13,7 +13,7 @@
         <div class="mb-3">
             <label for="name" class="form-label">Nome</label>
             <input type="text" 
-            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" id="product_name_edit" 
+            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" id="product_name_edit" 
             name="name" 
             value="{{old('name', $product->name)}}">
         </div>
@@ -22,7 +22,7 @@
         <div class="mb-3">
             <label for="ingredients" class="form-label">Ingredienti</label>
             <input type="text" 
-            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" id="product_ingredients_edit" 
+            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" id="product_ingredients_edit" 
             name="ingredients" 
             value="{{old('ingredients', $product->ingredients)}}">
         </div>
@@ -31,7 +31,7 @@
         <div class="mb-3">
             <label for="price" class="form-label">Prezzo</label>
             <input type="text" 
-            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" id="product_price_edit" 
+            class="form-control block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" id="product_price_edit" 
             name="price" 
             value="{{old('price', $product->price)}}">
         </div>
@@ -39,25 +39,18 @@
 
         <div class="mb-3">
             <label for="description" class="form-label">Descrizione</label>
-            <textarea class="form-control block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+            <textarea class="form-control block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" 
             name="description" 
             id="product_description_edit"
             rows="3">{{ old('description', $product->description) }}</textarea>
         </div>
         <div class="mb-2 text-sm error" id="ProductDescriptionError"></div>
 
-    <div class="mb-6">
-        <label class="block mb-2 text-sm font-medium text-gray-900" for="url_image">Upload Image</label>
-        <input id="product_url_image_edit" type="file" name="url_image"  value="{{old('url_image', $product->url_image)}}" class="form-control block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-    </div>
-    <div class="mb-2 text-sm error" id="ProductUrlImageError"></div>
-
-    
-    {{-- <div class="flex items-center mb-6">
-        <input id="default-checkbox" name="visible" type="checkbox" value="{{old('visible', $product->visible)}}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Prodotto disponibile?</label>
-    </div> --}}
-    
+        <div class="mb-6">
+            <label class="block mb-2 text-sm font-medium text-gray-900" for="url_image">Upload Image</label>
+            <input id="url_image" type="file" name="url_image"  value="{{old('url_image', $product->url_image)}}" class="form-control block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" accept=".jpg, .jpeg, .png">
+        </div>
+        <div class="mb-2 text-sm error" id="url_imageError"></div>
 
     <button type="submit" class="rounded-lg bg-blue-500 hover:bg-blue-700 font-medium text-sm px-5 py-2.5 text-center text-white">Salva</button>
 </form>

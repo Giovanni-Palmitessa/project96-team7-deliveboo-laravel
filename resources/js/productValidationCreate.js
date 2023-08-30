@@ -14,7 +14,7 @@ if (productCreateForm) {
         const description = document.getElementById(
             "product_description_create"
         ).value;
-        // const url_image = document.getElementById("product_url_image_create").value;
+        const inputImage = document.getElementById("url_image");
 
         // Ottieni le aree in cui verranno mostrati i messaggi di errore
         const nameError = document.querySelector("#ProductNameError");
@@ -25,14 +25,14 @@ if (productCreateForm) {
         const descriptionError = document.querySelector(
             "#ProductDescriptionError"
         );
-        // const urlImageError = document.querySelector("#ProductUrlImageError");
+        const errorDiv = document.getElementById("url_imageError");
 
         // Resetta i messaggi di errore
         nameError.textContent = "";
         ingredientsError.textContent = "";
         priceError.textContent = "";
         descriptionError.textContent = "";
-        // urlImageError.textContent = "";
+        errorDiv.textContent = "";
 
         // Esegui le validazioni
         let isValid = true;
@@ -82,13 +82,24 @@ if (productCreateForm) {
             isValid = false;
         }
 
-        // if (url_image.trim() === "") {
-        //     urlImageError.textContent = "Il campo 'Immagine' è obbligatorio.";
-        //     isValid = false;
-        // } else if (url_image.length < 10) {
-        //     urlImageError.textContent = "Il campo 'Immagine' deve contenere almeno 10 caratteri.";
-        //     isValid = false;
-        // }
+        if (inputImage.files[0]) {
+            const file = inputImage.files[0];
+            const maxSize = 1 * 1024 * 1024; // 1 MB in bytes
+            const allowedExtensions = ["jpg", "jpeg", "png"];
+
+            if (file.size > maxSize) {
+                errorDiv.textContent = "L'immagine non deve superare 1 MB.";
+                isValid = false;
+            } else if (
+                !allowedExtensions.includes(
+                    file.name.split(".").pop().toLowerCase()
+                )
+            ) {
+                errorDiv.textContent =
+                    "Sono consentiti solo file con estensione .jpg, .jpeg o .png.";
+                isValid = false;
+            }
+        }
 
         // Se tutto è valido, sottometti il form
         if (isValid) {
