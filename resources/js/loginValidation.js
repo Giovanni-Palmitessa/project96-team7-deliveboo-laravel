@@ -1,78 +1,44 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Identificare il form di login
-    const loginForm = document.querySelector("#loginForm");
+// Seleziono il form di login
+const loginForm = document.getElementById("loginForm");
 
-    if (!loginForm) return;
+// Verifico se il form esiste
+if (loginForm) {
+    // Aggiungo un event listener per l'evento "submit" al form
+    loginForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    // Ottieni gli elementi input all'interno del form di login
-    const email = loginForm.querySelector("#log_email");
-    const password = loginForm.querySelector("#log_password");
+        const email = document.getElementById("log_email").value;
+        const password = document.getElementById("log_password").value;
 
-    // Assicurarsi che gli input esistano prima di proseguire
-    if (!email || !password) return;
+        const emailError = document.getElementById("EmailError");
+        const passwordError = document.getElementById("PasswordError");
 
-    const emailError = {
-        "@": "La email deve contenere una '@'",
-        ".suffisso": "La email deve contenere un prefisso '.com' o '.it'",
-        lunghezza: "Inserisci un'email valida",
-    };
+        // Reset messaggi di errore
+        emailError.textContent = "";
+        passwordError.textContent = "";
 
-    const passwordError = {
-        lunghezza: "La password deve contenere almeno 8 caratteri",
-    };
+        // Eseguo le validazioni
+        let isValid = true;
 
-    email.addEventListener("input", validaEmail);
-    password.addEventListener("input", validaPassword);
-
-    function creaElementoErrore() {
-        const span = document.createElement("span");
-        span.classList.add("invalid-feedback");
-        span.classList.add("text-red-500");
-        return span;
-    }
-
-    function validaEmail() {
-        if (!email.value.includes("@")) {
-            mostraErrore(email, emailError["@"]);
-        } else if (!suffissoValido(email.value)) {
-            mostraErrore(email, emailError[".suffisso"]);
-        } else if (email.value.length <= 5) {
-            mostraErrore(email, emailError["lunghezza"]);
-        } else {
-            rimuoviErrore(email);
+        // Validazione dell'email
+        if (!email.includes("@") || !email.includes(".")) {
+            emailError.textContent = "Inserisci un'email valida.";
+            isValid = false;
+        } else if (!(email.endsWith(".com") || email.endsWith(".it"))) {
+            emailError.textContent = "L'email deve terminare con .com o .it.";
+            isValid = false;
         }
-    }
 
-    function suffissoValido(emailVal) {
-        return emailVal.includes(".com") || emailVal.includes(".it");
-    }
-
-    function validaPassword() {
-        if (password.value.length <= 7) {
-            mostraErrore(password, passwordError["lunghezza"]);
-        } else {
-            rimuoviErrore(password);
+        // Validazione della password
+        if (password.length < 8) {
+            passwordError.textContent =
+                "La password deve contenere almeno 8 caratteri.";
+            isValid = false;
         }
-    }
 
-    function mostraErrore(elementoInput, messaggio) {
-        let errore = elementoInput.nextSibling;
-        if (
-            !errore.classList ||
-            !errore.classList.contains("invalid-feedback")
-        ) {
-            errore = creaElementoErrore();
-            elementoInput.after(errore);
+        // Se tutto è valido, invio il form
+        if (isValid) {
+            loginForm.submit();
         }
-        errore.innerText = messaggio;
-        elementoInput.classList.add("is-invalid");
-    }
-
-    function rimuoviErrore(elementoInput) {
-        const errore = elementoInput.nextSibling;
-        if (errore.classList && errore.classList.contains("invalid-feedback")) {
-            errore.innerText = "";
-        }
-        elementoInput.classList.remove("is-invalid");
-    }
-});
+    });
+}
