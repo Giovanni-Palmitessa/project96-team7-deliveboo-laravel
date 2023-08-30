@@ -20,7 +20,7 @@
 
         <!-- Prodotti -->
         <div class="bg-white rounded-lg shadow-lg p-6 w-3/4 mb-6">
-            <h2 class="text-4xl font-bold text-gray-800 mb-4 text-center">I tuoi prodotti</h2>
+            <h2 class="text-4xl font-bold text-gray-800 mb-9 text-center">I tuoi prodotti</h2>
             {{-- <ul>
                 @foreach ($products as $product)
                     <li class="border-b border-gray-200 py-2 text-center">
@@ -47,7 +47,7 @@
                 @endforeach
             </ul> --}}
 
-            <div class="flex flex-wrap gap-5">
+            <div class="flex flex-wrap gap-10">
                 @foreach ($products as $product)
                     <div class="w-2/5 mx-auto bg-white border border-gray-200 rounded-lg shadow">
                         <img class="rounded-t-lg" src="{{ asset('storage/' . $product->url_image) }}" alt="{{ $product->name }}" />
