@@ -87,7 +87,7 @@ if (formCreate) {
         if (inputImage.files[0]) {
             const file = inputImage.files[0];
             const maxSize = 1 * 1024 * 1024; // 1 MB in bytes
-            const allowedExtensions = ["jpeg", "png"];
+            const allowedExtensions = ["jpg", "jpeg", "png"];
 
             if (file.size > maxSize) {
                 errorDiv.textContent = "L'immagine non deve superare 1 MB.";
@@ -155,7 +155,6 @@ if (formEdit) {
         const cityEdit = document.getElementById("city-edit").value;
         const addressEdit = document.getElementById("address-edit").value;
         const vatEdit = document.getElementById("vat-edit").value;
-        // const url_imageEdit = document.getElementById("url_image-edit").value;
         const priceRangeEdit = document.getElementById("priceRange-edit").value;
         const inputImageEdit = document.getElementById("url_image-edit");
 
@@ -168,7 +167,6 @@ if (formEdit) {
         const addressErrorEdit = document.getElementById("addressErrorEdit");
         const vatErrorEdit = document.getElementById("vatErrorEdit");
         // const url_imageErrorEdit =
-        //     document.getElementById("url_imageErrorEdit");
         const priceRangeErrorEdit = document.getElementById(
             "priceRangeErrorEdit"
         );
@@ -237,7 +235,7 @@ if (formEdit) {
         if (inputImageEdit.files[0]) {
             const file = inputImageEdit.files[0];
             const maxSize = 1 * 1024 * 1024; // 1 MB in bytes
-            const allowedExtensions = ["jpeg", "png"];
+            const allowedExtensions = ["jpg", "jpeg", "png"];
 
             if (file.size > maxSize) {
                 errorDivEdit.textContent = "L'immagine non deve superare 1 MB.";
@@ -252,19 +250,6 @@ if (formEdit) {
                 isValidEdit = false;
             }
         }
-        // else if (!/^https?:\/\/\S+$/.test(url_imageEdit)) {
-        //     url_imageErrorEdit.textContent = "Inserisci un URL valido.";
-        //     isValidEdit = false;
-        // } else {
-        //     isValidEdit = true;
-        // }
-
-        // if (!/^\d+$/.test(priceRangeEdit)) {
-        //     priceRangeErrorEdit.textContent = "Inserisci solo valori numerici.";
-        //     isValidEdit = false;
-        // } else {
-        //     isValidEdit = true;
-        // }
 
         checkboxesEdit.forEach((checkboxEdit) => {
             if (checkboxEdit.checked) {
@@ -276,7 +261,7 @@ if (formEdit) {
             event.preventDefault();
             categoryErrorEdit.textContent = "Seleziona almeno una categoria.";
         } else {
-            categoryErrorEdit.textContent = ""; // Rimuovi il messaggio di errore se almeno un checkbox è selezionato
+            categoryErrorEdit.textContent = "";
         }
 
         // Se tutto è valido, sottometti il form
