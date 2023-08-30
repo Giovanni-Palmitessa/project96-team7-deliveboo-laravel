@@ -1,7 +1,6 @@
 @php
     $restaurant = Auth::user()->restaurant;
     $hasProduct = $restaurant ? $restaurant->products->count() > 0 : false;
-    
 @endphp
 
 <nav class="bg-primary fixed w-full z-20 top-0 left-0 border-gray-200">
@@ -9,7 +8,6 @@
         <a href="{{ route('dashboard') }}" class="flex items-center">
             <div style="background-image: url({{ Vite::asset('public/img/logo-deliveboo_thumbnail.png') }})"
                 class="h-14 w-52 md:ml-[-25px] overflow-hidden bg-[length:245px_155px] bg-center">
-                {{-- <img src="{{ Vite::asset('public/favicon.png') }}" alt=""> --}}
             </div>
         </a>
         <div class="flex">
@@ -36,7 +34,7 @@
                     <li>
                         <a href="{{ route('admin.products.create') }}"
                             class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
-                            aria-current="page">New Product</a>
+                            aria-current="page">Aggiungi Prodotto</a>
                     </li>
 
                     {{-- <li>
@@ -44,42 +42,39 @@
                         class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
                         aria-current="page">New Restaurant</a>
                     </li> --}}
+
                 @endif
                 @if ($restaurant && $hasProduct)
                     <li>
                         <a href="{{ route('admin.products.index') }}"
                             class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
-                            aria-current="page">Products</a>
+                            aria-current="page">Prodotti</a>
                     </li>
                 @endif
                 <li>
                     <a href="{{ route('admin.restaurants.index') }}"
                         class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
-                        aria-current="page">Restaurants</a>
+                        aria-current="page">Ristorante</a>
                 </li>
             </ul>
         </div>
         <div>
             <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover"
-                type="button" class="hover:text-secondary">Profile</button>
+                type="button" class="hover:text-secondary text-gray-900 font-semibold">Profilo</button>
             <!-- Dropdown menu -->
             <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                    <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Edit profile</a></li>
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 flex flex-col gap-2 items-center" aria-labelledby="dropdownHoverButton">
+                    <li>
+                        <a class="dropdown-item font-medium" href="{{ route('profile.edit') }}">Modifica Profilo</a>
+                    </li>
                     <li>
                         <form action="{{ route('logout') }}" method="post">
                             @csrf
-                            <button>Logout</button>
-
+                            <button class="font-medium">Logout</button>
                         </form>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
-    <!-- <div
-      class="h-12 bg-primary text-center"
-      :style="{ opacity: calculatedOpacity }"
-    >
-      DEVO APPARIRE ALLO SCROLL
-    </div> -->
 </nav>
