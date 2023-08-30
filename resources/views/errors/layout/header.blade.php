@@ -28,23 +28,23 @@
                     <li>
                         <a href="{{ route('admin.products.create') }}"
                             class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
-                            aria-current="page">New Product</a>
+                            aria-current="page">Nuovo Prodotto</a>
                     </li>
                     <li>
                         <a href="{{ route('admin.products.index') }}"
                             class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
-                            aria-current="page">Products</a>
+                            aria-current="page">Prodotti</a>
                     </li>
                 <li>
                     <a href="{{ route('admin.restaurants.index') }}"
                         class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
-                        aria-current="page">Restaurants</a>
+                        aria-current="page">Ristorante</a>
                 </li>
             </ul>
         </div>
         <div>
             <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover"
-                type="button" class="hover:text-secondary">Profile</button>
+                type="button" class="hover:text-secondary">Profilo</button>
             <!-- Dropdown menu -->
             <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
