@@ -48,21 +48,6 @@ class UsersTableSeeder extends Seeder
                 "password"  => Hash::make('donald96'),
             ],
             [
-                "name"      => "Osama Bin Laden",
-                "email"     => "osama.binladen@gmail.com",
-                "password"  => Hash::make('osama96911'),
-            ],
-            [
-                "name"      => "Bob Marley",
-                "email"     => "bob.marley@gmail.com",
-                "password"  => Hash::make('marley96'),
-            ],
-            [
-                "name"      => "Silvio Berlusconi",
-                "email"     => "silvio.berlusconi@gmail.com",
-                "password"  => Hash::make('silvio9696'),
-            ],
-            [
                 "name"      => "Martina Smeraldi",
                 "email"     => "martina.smeraldi@gmail.com",
                 "password"  => Hash::make('martina96'),
