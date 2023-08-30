@@ -11,7 +11,7 @@
                     <p class="mt-4">{{ $restaurant->city }}, {{ $restaurant->address }}</p>
                     <p class="text-gray-500">Prezzo medio: {{ $restaurant->priceRange }}</p>
                     <div class="mt-4 flex justify-center items-center space-x-2">
-                        <p class="text-yellow-500 font-bold text-xl">{{ $restaurant->rating_value }}</p>
+                        <p class="text-yellow-500 font-bold text-xl">Voto medio: {{ $restaurant->rating_value }}</p>
                         <p class="text-gray-500">({{ $restaurant->review_count }} recensioni)</p>
                     </div>
                 </div>
