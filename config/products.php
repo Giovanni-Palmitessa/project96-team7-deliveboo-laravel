@@ -43,7 +43,7 @@ return [
         "price"         => 8,
         "description"   => "I Tacos di Pollo alla Griglia portano il sapore dell'estate nel tuo piatto. Il pollo marinato e grigliato è avvolto in tortillas calde e accompagnato da una selezione di salse e condimenti",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 1,
+        "restaurant_id" => 2,
         "visible"       => true,
     ],
     [
@@ -52,7 +52,7 @@ return [
         "price"         => 8,
         "description"   => "L'Insalata Caprese è un classico italiano che celebra i sapori semplici e freschi. Mozzarella di bufala, pomodori e basilico si fondono con olio d'oliva extravergine per una combinazione irresistibile",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 1,
+        "restaurant_id" => 2,
         "visible"       => true,
     ],
     [
@@ -70,7 +70,7 @@ return [
         "price"         => 7,
         "description"   => "L'Omelette Primaverile è una colazione sana e colorata. Uova leggere si combinano con asparagi croccanti, piselli dolci e formaggio feta per iniziare la giornata con energia",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 3,
+        "restaurant_id" => 2,
         "visible"       => true,
     ],
     [
@@ -79,7 +79,7 @@ return [
         "price"         => 12,
         "description"   => "Un classico italiano, gli Spaghetti alla Carbonara combinano uova, pancetta croccante e formaggio pecorino. Una pasta cremosa e saporita che conquista ogni palato",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 1,
+        "restaurant_id" => 3,
         "visible"       => true,
     ],
     [
@@ -88,7 +88,7 @@ return [
         "price"         => 18,
         "description"   => "I Gamberi Aglio e Limone sono una deliziosa prelibatezza marina. Gamberi succosi vengono cotti con aglio fragrante e succo di limone per un piatto fresco e leggero",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 2,
+        "restaurant_id" => 3,
         "visible"       => true,
     ],
     [
@@ -97,7 +97,7 @@ return [
         "price"         => 10,
         "description"   => "Un'insalata completa e saporita, l'Insalata di Riso Mediterranea unisce riso integrale con pomodori, cetrioli, olive e feta, il tutto condito con un dressing all'olio d'oliva",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 1,
+        "restaurant_id" => 3,
         "visible"       => true,
     ],
     [
@@ -106,7 +106,7 @@ return [
         "price"         => 15,
         "description"   => "Un piatto rustico e aromatico, il Pollo al Rosmarino con Patate unisce pezzi di pollo succulenti con patate arrosto profumate al rosmarino. Un comfort food dal sapore intenso",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 2,
+        "restaurant_id" => 3,
         "visible"       => true,
     ],
     [
@@ -124,7 +124,7 @@ return [
         "price"         => 6,
         "description"   => "La Pizza Margherita è una creazione classica che celebra i sapori semplici dell'Italia. Base di pizza, mozzarella, pomodori e basilico si combinano per un'esplosione di sapore",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 1,
+        "restaurant_id" => 4,
         "visible"       => true,
     ],
     [
@@ -133,7 +133,7 @@ return [
         "price"         => 12,
         "description"   => "Una quiche elegante e saporita, la Quiche agli Spinaci e Formaggio di Capra unisce spinaci freschi e formaggio di capra cremoso in una crosta croccante. Perfetta per pranzi o cene speciali",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 2,
+        "restaurant_id" => 4,
         "visible"       => true,
     ],
     [
@@ -151,7 +151,7 @@ return [
         "price"         => 6,
         "description"   => "Un dessert fresco e dolce, la Crostata alle Fragole combina una crosta friabile con fragole mature e una glassa lucida per un'esplosione di sapori fruttati",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 3,
+        "restaurant_id" => 5,
         "visible"       => true,
     ],
     [
@@ -160,7 +160,7 @@ return [
         "price"         => 10,
         "description"   => "Un'alternativa leggera al classico pesto, il Pesto di Zucchine e Mandorle combina zucchine grigliate, mandorle tostate e pecorino per una salsa fresca e cremosa",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 4,
+        "restaurant_id" => 5,
         "visible"       => true,
     ],
     [
@@ -169,7 +169,7 @@ return [
         "price"         => 13,
         "description"   => "Un piatto elegante e saporito, le Penne al Salmone e Asparagi combinano pasta penne con salmone affumicato, asparagi croccanti e una salsa leggera al limone",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 1,
+        "restaurant_id" => 5,
         "visible"       => true,
     ],
     [
@@ -178,7 +178,7 @@ return [
         "price"         => 12,
         "description"   => "Una frittata abbondante e saporita, la Frittata al Prosciutto e Formaggio unisce uova, prosciutto cotto e formaggio Cheddar per una colazione o un pranzo sostanzioso",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 1,
+        "restaurant_id" => 5,
         "visible"       => true,
     ],
     [
@@ -187,7 +187,7 @@ return [
         "price"         => 12,
         "description"   => "Gnocchi alla Sorrentina",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 1,
+        "restaurant_id" => 6,
         "visible"       => true,
     ],
     [
@@ -196,7 +196,7 @@ return [
         "price"         => 15,
         "description"   => "Una pietanza asiatica appagante, il Pollo Teriyaki con Verdure combina pezzi di pollo marinati con una salsa teriyaki dolce e salata, serviti con verdure croccanti",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 3,
+        "restaurant_id" => 6,
         "visible"       => true,
     ],
     [
@@ -205,7 +205,7 @@ return [
         "price"         => 12,
         "description"   => "Una creazione italiana deliziosa e sostanziosa, la Melanzane Parmigiana combina fette di melanzane impanate, salsa di pomodoro e formaggi fondenti",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 2,
+        "restaurant_id" => 6,
         "visible"       => true,
     ],
     [
@@ -214,7 +214,7 @@ return [
         "price"         => 10,
         "description"   => "Un piatto elegante e saporito, lo Sformato di Spinaci unisce spinaci freschi con uova, panna e formaggio Parmigiano, il tutto cotto al forno per una consistenza soffice",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 3,
+        "restaurant_id" => 6,
         "visible"       => true,
     ],
     [
@@ -223,7 +223,7 @@ return [
         "price"         => 10,
         "description"   => "I Wraps di Pollo Caesar portano il classico sapore dell'insalata Caesar in un involucro. Pollo grigliato, lattuga croccante e salsa Caesar si fondono in un pasto leggero ma soddisfacente",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 4,
+        "restaurant_id" => 7,
         "visible"       => true,
     ],
     [
@@ -232,7 +232,7 @@ return [
         "price"         => 8,
         "description"   => "Un'insalata leggera e nutriente, l'Insalata di Couscous Mediterranea unisce couscous, verdure croccanti e olive nere, condite con un dressing al limone e olio d'oliva",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 2,
+        "restaurant_id" => 7,
         "visible"       => true,
     ],
     [
@@ -241,7 +241,7 @@ return [
         "price"         => 12,
         "description"   => "I Sushi Rolls Vegetariani sono un'opzione fresca e colorata. Avocado, carota, cetriolo e peperone si arrotolano in nori e riso, per creare un pasto leggero e gustoso",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 2,
+        "restaurant_id" => 7,
         "visible"       => true,
     ],
     [
@@ -250,7 +250,7 @@ return [
         "price"         => 6,
         "description"   => "Un dessert indulgente e vellutato, la Mousse al Cioccolato unisce cioccolato fondente fuso con panna montata, creando una mousse leggera e irresistibile",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 3,
+        "restaurant_id" => 7,
         "visible"       => true,
     ],
     [
@@ -259,7 +259,7 @@ return [
         "price"         => 7,
         "description"   => "Un piatto versatile, le Crepes Ripiene di Ricotta e Spinaci combinano crepes sottili con una miscela di ricotta e spinaci, il tutto condito con salsa bianca e formaggio",
         "url_image"         => "uploads/ricetta1.jpg",
-        "restaurant_id" => 2,
+        "restaurant_id" => 8,
         "visible"       => true,
     ],
     [
@@ -268,7 +268,7 @@ return [
         "price"         => 12,
         "description"   => "Una classica comfort food, la Lasagna al Forno con Besciamella combina strati di pasta, carne saporita, mozzarella filante e una deliziosa besciamella. Un'esplosione di sapori e consistenze.",
         "url_image"     => "uploads/ricetta1.jpg",
-        "restaurant_id" => 3,
+        "restaurant_id" => 8,
         "visible"       => true,
     ],
     [
@@ -277,7 +277,7 @@ return [
         "price"         => 10,
         "description"   => "Un'iconica pietanza indiana, il Pollo Tikka Masala offre pezzi di pollo teneri marinati e cotti in una salsa cremosa e speziata. Servito con riso basmati e coriandolo fresco.",
         "url_image"     => "uploads/ricetta1.jpg",
-        "restaurant_id" => 4,
+        "restaurant_id" => 8,
         "visible"       => true,
     ],
     [
@@ -286,7 +286,7 @@ return [
         "price"         => 9,
         "description"   => "I Tacos al Pastor sono una prelibatezza messicana. Carne di maiale marinata viene cucinata allo spiedo, servita in tortillas di mais e guarnita con ananas, cipolla, coriandolo e una spruzzata di lime.",
         "url_image"     => "uploads/ricetta10.jpg",
-        "restaurant_id" => 3,
+        "restaurant_id" => 8,
         "visible"       => true,
     ],
 ];
