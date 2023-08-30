@@ -1,3 +1,7 @@
+@php
+    $restaurant = Auth::user()->restaurant;
+@endphp
+
 <nav class="bg-primary fixed w-full z-20 top-0 left-0 border-gray-200">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="{{ route('dashboard') }}" class="flex items-center">
@@ -48,7 +52,9 @@
             <!-- Dropdown menu -->
             <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                    <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Edit profile</a></li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('profile.edit') }}">Modifica Profilo</a>
+                    </li>
                     <li>
                         <form action="{{ route('logout') }}" method="post">
                             @csrf
