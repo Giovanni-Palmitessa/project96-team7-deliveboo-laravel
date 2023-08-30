@@ -1,7 +1,3 @@
-@php
-    $restaurant = Auth::user()->restaurant;
-@endphp
-
 <nav class="bg-primary fixed w-full z-20 top-0 left-0 border-gray-200">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="{{ route('dashboard') }}" class="flex items-center">
@@ -29,40 +25,7 @@
                         class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent md:text-secondary"
                         aria-current="page">Home</a>
                 </li>
-                    <li>
-                        <a href="{{ route('admin.products.create') }}"
-                            class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
-                            aria-current="page">Nuovo Prodotto</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.products.index') }}"
-                            class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
-                            aria-current="page">Prodotti</a>
-                    </li>
-                <li>
-                    <a href="{{ route('admin.restaurants.index') }}"
-                        class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
-                        aria-current="page">Ristorante</a>
-                </li>
             </ul>
-        </div>
-        <div>
-            <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover"
-                type="button" class="hover:text-secondary">Profilo</button>
-            <!-- Dropdown menu -->
-            <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                    <li>
-                        <a class="dropdown-item" href="{{ route('profile.edit') }}">Modifica Profilo</a>
-                    </li>
-                    <li>
-                        <form action="{{ route('logout') }}" method="post">
-                            @csrf
-                            <button>Logout</button>
-                        </form>
-                    </li>
-                </ul>
-            </div>
         </div>
     </div>
 </nav>
