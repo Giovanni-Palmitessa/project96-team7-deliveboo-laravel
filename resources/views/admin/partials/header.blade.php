@@ -27,7 +27,7 @@
                 class="flex flex-col lg:items-center text-center p-4 md:p-0 mt-4 font-medium border bg-primary border-secondary rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
                 <li>
                     <a href="{{ route('dashboard') }}"
-                        class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent md:text-secondary"
+                        class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
                         aria-current="page">Home</a>
                 </li>
                 @if ($restaurant)
