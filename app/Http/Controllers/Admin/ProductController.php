@@ -76,13 +76,19 @@ class ProductController extends Controller
 
     public function show($slug)
     {
-        $product = Product::where('slug', $slug)->firstOrFail();
+        $product = Product::where('slug', $slug)->where('restaurant_id', auth()->id())->first();
+        if (!$product) {
+            abort(403, 'Unauthorized'); 
+        }
         return view('admin.products.show', compact('product'));
     }
 
     public function edit($slug)
     {
-        $product = Product::where('slug', $slug)->firstOrFail();
+        $product = Product::where('slug', $slug)->where('restaurant_id', auth()->id())->first();
+        if (!$product) {
+            abort(403, 'Unauthorized'); 
+        }
 
         return view('admin.products.edit', compact('product'));
     }
