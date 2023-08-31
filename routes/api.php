@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\RestaurantController;
@@ -18,3 +19,9 @@ Route::get('restaurants', [RestaurantController::class, 'index'])->name('api.res
 Route::get('restaurants/{restaurant}', [RestaurantController::class, 'show'])->name('api.restaurants.show');
 
 Route::get('categories', [CategoryController::class, 'index'])->name('api.categories.index');
+
+// Pagamento 
+Route::get('orders', [OrderController::class, 'index']);
+
+Route::get('orders/generate',[OrderController::class, 'generate']);
+Route::post('orders/make/payment',[OrderController::class, 'makePayment']);
