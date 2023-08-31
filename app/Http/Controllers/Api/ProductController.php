@@ -11,7 +11,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $restaurant_id = $request->query('restaurant_id');
-        $query = Product::with('restaurant');
+        $query = Product::with('restaurant')->where('visible', true);
 
         if($restaurant_id) {
             $query = $query->where('restaurant_id', $restaurant_id);
