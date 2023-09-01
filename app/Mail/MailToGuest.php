@@ -33,7 +33,8 @@ class MailToGuest extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Mail To Guest',
+            replyTo: $this->lead->address, 
+            subject: 'Il tuo ordine è stato ricevuto e sta per arrivare da te!',
         );
     }
 
