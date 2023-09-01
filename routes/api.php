@@ -20,4 +20,4 @@ Route::get('restaurants/{restaurant}', [RestaurantController::class, 'show'])->n
 Route::get('categories', [CategoryController::class, 'index'])->name('api.categories.index');
 
 // PER LA MAIL DI RIEPILOGO ORDINE
-// Route::post('contact', [CategoryController::class, 'index'])->name('api.categories.index');
+Route::post('guests/', [GuestController::class, 'store'])->name('api.guests.store');
