@@ -18,3 +18,6 @@ Route::get('restaurants', [RestaurantController::class, 'index'])->name('api.res
 Route::get('restaurants/{restaurant}', [RestaurantController::class, 'show'])->name('api.restaurants.show');
 
 Route::get('categories', [CategoryController::class, 'index'])->name('api.categories.index');
+
+// PER LA MAIL DI RIEPILOGO ORDINE
+// Route::post('contact', [CategoryController::class, 'index'])->name('api.categories.index');
