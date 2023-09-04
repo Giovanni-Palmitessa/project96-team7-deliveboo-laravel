@@ -33,7 +33,7 @@ class MailToAdmin extends Mailable
     {
         return new Envelope(
             replyTo: 'admin@deliveboo.com', 
-            subject: 'Nuovo ordine ricevuto da' . $this->lead->name,
+            subject: 'Nuovo ordine ricevuto da ' . $this->lead->name,
         );
     }
 
