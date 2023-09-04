@@ -14,7 +14,7 @@
             <p class="mb-3 font-normal text-gray-700">{{$restaurant->city}}</p>
             <p class="mb-3 font-normal text-gray-700">{{$restaurant->vat}}</p>
             <ul>
-                <li><h3>Categorie:</h3></li>
+                <li><h3 class="font-bold">Categorie:</h3></li>
                 @foreach ($restaurant->categories as $category)
                 <li>{{ $category->name }}</li>
                 @endforeach

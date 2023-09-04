@@ -48,7 +48,7 @@
 
 
         <div class="mb-6">
-            <label class="block mb-2 text-sm font-medium text-gray-900" for="url_image">Upload Image</label>
+            <label class="block mb-2 text-sm font-medium text-gray-900" for="url_image">Immagine</label>
             <input id="url_image" type="file" name="url_image"  value="{{old('url_image', $product->url_image)}}" class="form-control block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" accept=".jpg, .jpeg, .png">
         </div>
         <div class="mb-2 text-sm error" id="url_imageError"></div>
