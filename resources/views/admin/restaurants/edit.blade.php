@@ -19,13 +19,7 @@
         id="name-edit" 
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
         value="{{ old('name', $restaurant->name) }}"
-        @error('name') is-invalid @enderror 
         >
-        @error('name')
-                  <div class="invalid-feedback">
-                      {{ $message }} 
-                  </div>
-        @enderror
         <div class="mb-2 text-sm text-red-600" id="nameErrorEdit"></div>
       </div>
 
@@ -36,13 +30,7 @@
         id="description-edit" 
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
         value="{{ old('description', $restaurant->description) }}"
-        @error('description') is-invalid @enderror
         >
-        @error('description')
-                  <div class="invalid-feedback">
-                      {{ $message }} 
-                  </div>
-        @enderror
         <div class="mb-2 text-sm text-red-600" id="descriptionErrorEdit"></div>
       </div>
 
@@ -53,7 +41,6 @@
           id="city-edit" 
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
           value="{{ old('city', $restaurant->city) }}"
-          @error('city-edit') is-invalid @enderror
           >
           <div class="mb-2 text-sm text-red-600" id="cityErrorEdit"></div>
         </div>
@@ -65,13 +52,7 @@
           id="address-edit" 
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
           value="{{ old('address', $restaurant->address) }}"
-          @error('address') is-invalid @enderror
           >
-          @error('address')
-                  <div class="invalid-feedback">
-                      {{ $message }} 
-                  </div>
-          @enderror
           <div class="mb-2 text-sm text-red-600" id="addressErrorEdit"></div>
         </div>
 
@@ -82,24 +63,13 @@
           id="vat-edit" 
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
           value="{{ old('vat', $restaurant->vat) }}"
-          @error('vat') is-invalid @enderror
           >
-          @error('vat')
-                  <div class="invalid-feedback">
-                      {{ $message }} 
-                  </div>
-          @enderror
           <div class="mb-2 text-sm text-red-600" id="vatErrorEdit"></div>
         </div>
 
         <div class="mb-6">
           <label class="block mb-2 text-sm font-medium text-gray-900" for="url_image">Immagine</label>
-          <input id="url_image-edit" type="file" name="url_image"  value="{{old('url_image')}}" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 ">
-          @error('url_image')
-            <div class="invalid-feedback">
-                {{ $message }} 
-            </div>
-          @enderror
+          <input id="url_image-edit" type="file" name="url_image"  value="{{old('url_image')}}" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 " accept=".jpg, .jpeg, .png">
           <div class="mb-2 text-sm text-red-600" id="url_imageErrorEdit"></div>
         </div>
 
@@ -110,13 +80,7 @@
           id="priceRange-edit" 
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           value="{{ old('priceRange', $restaurant->priceRange) }}"
-          @error('priceRange') is-invalid @enderror
           >
-          @error('priceRange')
-                  <div class="invalid-feedback">
-                      {{ $message }} 
-                  </div>
-          @enderror
           <div class="mb-2 text-sm text-red-600" id="priceRangeErrorEdit"></div>
         </div>
 
