@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\Mail;
 
 class GuestController extends Controller
 {
+    private $validations = [
+        'email'                  => 'required|email|max:255',
+        'name'                 => 'required|string|max:50',
+        'surname'                 => 'required|string|max:50',
+        'phone'              => 'required|string|max:20',
+        'message'          => 'required|string|max:200',
+    ];
+
     /**
      *
      * @param  \Illuminate\Http\Request  $request
@@ -19,6 +27,15 @@ class GuestController extends Controller
     public function store(Request $request)
     {
         $data = $request ->all();
+
+        $validator = Validator::make($data, $validations);
+
+        if($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'errors' => $validator->errors(),
+            ]);
+        };
 
         $newGuest = new Guest();
         $newGuest->email = $data['email'];
