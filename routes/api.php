@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\GuestController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\RestaurantController;
@@ -18,3 +19,6 @@ Route::get('restaurants', [RestaurantController::class, 'index'])->name('api.res
 Route::get('restaurants/{restaurant}', [RestaurantController::class, 'show'])->name('api.restaurants.show');
 
 Route::get('categories', [CategoryController::class, 'index'])->name('api.categories.index');
+
+// PER LA MAIL DI RIEPILOGO ORDINE
+Route::post('guests/', [GuestController::class, 'store'])->name('api.guests.store');
