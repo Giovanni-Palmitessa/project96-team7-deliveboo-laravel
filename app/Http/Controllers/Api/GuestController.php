@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use App\Models\Guest;
+use App\Mail\MailToGuest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class GuestController extends Controller
 {
@@ -26,7 +28,7 @@ class GuestController extends Controller
 
         $newGuest->save();
 
-        Mail::to($newGuest->email)->send(new MailtoGuest($newGuest));
+        Mail::to($newGuest->email)->send(new MailToGuest($newGuest));
     //    return response()->json($request->all());
     }
 }
