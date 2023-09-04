@@ -23,6 +23,10 @@ class GuestController extends Controller
         $newGuest->surname = $data['surname'];
         $newGuest->phone = $data['phone'];
         $newGuest->message = $data['message'];
+
+        $newGuest->save();
+
+        Mail::to($newGuest->email)->send(new MailtoGuest($newGuest));
     //    return response()->json($request->all());
     }
 }
