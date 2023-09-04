@@ -15,6 +15,9 @@ class GuestController extends Controller
      */
     public function store(Request $request)
     {
-       return response()->json($request->all());
+        $data = $request ->all();
+
+        $newGuest = new Guest();
+    //    return response()->json($request->all());
     }
 }
