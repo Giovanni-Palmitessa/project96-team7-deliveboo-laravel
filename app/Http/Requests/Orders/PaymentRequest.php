@@ -25,14 +25,7 @@ class OrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'token' => 'required',
-            'order' => [
-                'required',
-                new ValidOrder()
-                ]
-            ];
-            
-            
-            // 'amount'=> 'required'
+            'token' => ['required'],
+        ];
     }
 }

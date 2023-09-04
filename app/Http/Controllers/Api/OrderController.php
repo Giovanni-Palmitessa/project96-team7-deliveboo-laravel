@@ -5,17 +5,17 @@ namespace App\Http\Controllers\Api;
 use App\Models\Order;
 use Braintree\Gateway;
 use App\Models\Product;
+use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\OrderResource;
-use App\Http\Requests\Orders\OrderRequest;
+use App\Http\Requests\Orders\PaymentRequest;
 
 class OrderController extends Controller
 {
-    public function index(Request $request) {
-        $orders = Order::all();
-        return OrderResource::collection($orders);
-    }
+    // public function index(Request $request) {
+    //     $orders = Order::all();
+    //     return OrderResource::collection($orders);
+    // }
 
     public function generate(Request $request,Gateway $gateway){
         $token = $gateway->clientToken()->generate();
@@ -28,30 +28,77 @@ class OrderController extends Controller
         return response()->json($data,200);
     }
 
-    public function makePayment(OrderRequest $request,Gateway $gateway){
+    public function makePayment(PaymentRequest $request,Gateway $gateway){
 
-        $order = Order::find($request->order);
+        $total = 0;
+        $data = $request->all();
+        $cart = $data['cart'];
+
+        foreach ($cart as $item) {
+            $product = Product::where('id', $item['id'])->first();
+            $total += $product->price * $item['qnt'];
+        }
+
 
         $result = $gateway->transaction()->sale([
-            'amount' => $order->total_price,
+            'amount' => $total,
             'paymentMethodNonce' => $request->token,
             'options' => [
                 'submitForSettlement' => true
             ]
         ]);
 
-        if($result->success){
+        if ($result->success) {
+            $order = new Order();
+            $order->total = $total;
+            $order->restaurant_id = $data['restaurant_id'];
+            $order->name = $data['name'];
+            $order->surname = $data['surname'];
+            $order->email = $data['email'];
+            $order->message = $data['message'];
+            $order->save();
+
+            foreach ($cart as $item) {
+                $order_product = new OrderProduct();
+                $order_product->order_id = $order->id;
+                $order_product->product_id = $item['id'];
+                $order_product->product_quantity = $item['qnt'];
+                $order_product->save();
+            }
+
+            if ($order && $order_product) {
+                $orderMessage = 'I dati sono stati salvati';
+                //invio e-mail
+            }
+
             $data = [
-                'success' => true,
-                'message' => "Transazione eseguita con Successo!"
+            'success' => true,
+            'message' => "Transazione eseguita con Successo!"
             ];
             return response()->json($data,200);
-        }else{
+            
+        } else {
             $data = [
                 'success' => false,
                 'message' => "Transazione Fallita!!"
             ];
             return response()->json($data,401);
         }
+
+
+
+        // if($result->success){
+        //     $data = [
+        //         'success' => true,
+        //         'message' => "Transazione eseguita con Successo!"
+        //     ];
+        //     return response()->json($data,200);
+        // }else{
+        //     $data = [
+        //         'success' => false,
+        //         'message' => "Transazione Fallita!!"
+        //     ];
+        //     return response()->json($data,401);
+        // }
     }
 }
