@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Guest;
+use App\Mail\MailToAdmin;
 use App\Mail\MailToGuest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -29,6 +30,8 @@ class GuestController extends Controller
         $newGuest->save();
 
         Mail::to($newGuest->email)->send(new MailToGuest($newGuest));
+
+        Mail::to('admin@deliveboo.com')->send(new MailToAdmin($newGuest));
     //    return response()->json($request->all());
     }
 }
