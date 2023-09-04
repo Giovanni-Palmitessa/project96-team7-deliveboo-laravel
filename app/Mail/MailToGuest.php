@@ -46,7 +46,7 @@ class MailToGuest extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.mail-to-guest',
+            view: 'emails.mail-to-guest',
         );
     }
 
