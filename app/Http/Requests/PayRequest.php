@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Requests\Orders;
+namespace App\Http\Requests;
 
-use App\Rules\ValidOrder;
 use Illuminate\Foundation\Http\FormRequest;
 
 class OrderRequest extends FormRequest

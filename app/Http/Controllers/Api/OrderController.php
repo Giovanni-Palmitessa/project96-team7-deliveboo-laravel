@@ -7,8 +7,8 @@ use Braintree\Gateway;
 use App\Models\Product;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
+use App\Http\Requests\PayRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Orders\PaymentRequest;
 
 class OrderController extends Controller
 {
@@ -28,7 +28,7 @@ class OrderController extends Controller
         return response()->json($data,200);
     }
 
-    public function makePayment(PaymentRequest $request,Gateway $gateway){
+    public function makePayment(PayRequest $request,Gateway $gateway){
 
         $total = 0;
         $data = $request->all();
