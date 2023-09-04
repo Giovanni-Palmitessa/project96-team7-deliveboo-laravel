@@ -32,7 +32,7 @@ class MailToAdmin extends Mailable
     public function envelope()
     {
         return new Envelope(
-            replyTo: 'admin@deliveboo.com', 
+            replyTo: env('ADMIN_ADDRESS', 'admin@deliveboo.com'), 
             subject: 'Nuovo ordine ricevuto da ' . $this->lead->name,
         );
     }

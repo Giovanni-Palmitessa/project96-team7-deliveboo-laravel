@@ -31,7 +31,7 @@ class GuestController extends Controller
 
         Mail::to($newGuest->email)->send(new MailToGuest($newGuest));
 
-        Mail::to('admin@deliveboo.com')->send(new MailToAdmin($newGuest));
+        Mail::to(env('ADMIN_ADDRESS', 'admin@deliveboo.com'))->send(new MailToAdmin($newGuest));
     //    return response()->json($request->all());
     }
 }
