@@ -14,7 +14,7 @@ class GuestController extends Controller
 {
     private $validations = [
         'email'                  => 'required|email|max:255',
-        'name'                 => 'required|string|max:50',
+        'name'                 => 'required|string|max:50|min:5' ,
         'surname'                 => 'required|string|max:50',
         'phone'              => 'required|string|max:20',
         'message'          => 'required|string|max:200',
@@ -29,7 +29,7 @@ class GuestController extends Controller
     {
         $data = $request ->all();
 
-        $validator = Validator::make($data, $validations);
+        $validator = Validator::make($data, $this->validations);
 
         if($validator->fails()) {
             return response()->json([
