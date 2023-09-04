@@ -18,6 +18,11 @@ class GuestController extends Controller
         $data = $request ->all();
 
         $newGuest = new Guest();
+        $newGuest->email = $data['email'];
+        $newGuest->name = $data['name'];
+        $newGuest->surname = $data['surname'];
+        $newGuest->phone = $data['phone'];
+        $newGuest->message = $data['message'];
     //    return response()->json($request->all());
     }
 }
