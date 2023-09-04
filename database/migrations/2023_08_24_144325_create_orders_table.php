@@ -10,7 +10,11 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->smallInteger('total_price');
+            $table->decimal('total_price', 6, 2);
+            $table->string('name', 50);
+            $table->string('surname', 50);
+            $table->string('email')->unique();
+            $table->string('message', 200)->nullable();
             $table->unsignedBigInteger('restaurant_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurants');
         });

@@ -15,35 +15,55 @@ class OrdersTableSeeder extends Seeder
      */
     public function run()
     {
-        $orders = [
-            [
-                "total_price"      => "100",
-                "products"     => [1, 3, 5, 6],
-                "restaurant_id"      => "1",
-            ],
-            [
-                "total_price"      => "50",
-                "products"     => [20, 12, 15,],
-                "restaurant_id"      => "2",
-            ],
-            [
-                "total_price"      => "25",
-                "products"     => [7, 23],
-                "restaurant_id"      => "3",
-            ],
-            [
-                "total_price"      => "75",
-                "products"     => [1, 3, 8],
-                "restaurant_id"      => "4",
-            ],
-        ];
+        // $orders = [
+        //     [
+        //         "total_price"       => "100",
+        //         "name"              => "Davide",
+        //         "surname"           => "Farci",
+        //         "email"             => "davide.farci@gmail.com",
+        //         "message"           => "",
+        //         "restaurant_id"     => "1",
+        //         "products"          => [1, 2],
+        //     ],
+        //     [
+        //         "total_price"       => "50",
+        //         "name"              => "Giovanni",
+        //         "surname"           => "Palmitessa",
+        //         "email"             =>  "giovanni.palmitessa@gmail.com",
+        //         "message"           => "",
+        //         "restaurant_id"     => "2",
+        //         "products"          => [3, 4],
+        //     ],
+        //     [
+        //         "total_price"       => "25",
+        //         "name"              => "Domenico",
+        //         "surname"           => "Ferrari",
+        //         "email"             => "domenico.ferrari@gmail.com",
+        //         "message"           => "",
+        //         "restaurant_id"     => "3",
+        //         "products"          => [5, 6],
+        //     ],
+        //     [
+        //         "total_price"       => "75",
+        //         "name"              => "Loris",
+        //         "surname"           => "Marzocchi",
+        //         "email"             => "loris.marzocchi@gmail.com",
+        //         "message"           => "",
+        //         "restaurant_id"     => "4",
+        //         "products"          => [7, 8],
+        //     ],
+        // ];
 
-        foreach ($orders as $objOrder) {
-            $order = Order::create([
-                "total_price"       => $objOrder['total_price'],
-                "restaurant_id"       => $objOrder['restaurant_id'],
-            ]);
-            $order->products()->sync($objOrder['products']);
-        }
+        // foreach ($orders as $objOrder) {
+        //     $order = Order::create([
+        //         "total_price"       => $objOrder['total_price'],
+        //         "name"              => $objOrder['name'],
+        //         "surname"           => $objOrder['surname'],
+        //         "email"             => $objOrder['email'],
+        //         "message"           => $objOrder['message'],
+        //         "restaurant_id"     => $objOrder['restaurant_id'],
+        //     ]);
+        //     $order->products()->sync($objOrder['products']);
+        // }
     }
 }
