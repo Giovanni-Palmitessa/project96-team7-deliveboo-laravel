@@ -86,7 +86,7 @@
         </div>
 
         <div class="mb-6">
-          <h3>Categorie</h3>
+          <h3 class="text-gray-900 text-sm font-medium">Categorie</h3>
               
               <fieldset>
                   @foreach ($categories as $category)            
@@ -100,7 +100,7 @@
                       checked  
                       @endif
                       >
-                      <label for="checkbox-1" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{$category->name}}</label>
+                      <label for="checkbox-1" class="ml-2 text-sm font-normal text-gray-900 dark:text-gray-300">{{$category->name}}</label>
                   </div>
                   @endforeach
                   </fieldset>

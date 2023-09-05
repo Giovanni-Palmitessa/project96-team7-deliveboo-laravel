@@ -31,8 +31,7 @@ if (loginForm) {
 
         // Validazione della password
         if (password.length < 8) {
-            passwordError.textContent =
-                "La password deve contenere almeno 8 caratteri.";
+            passwordError.textContent = "La password deve contenere almeno 8 caratteri.";
             isValid = false;
         }
 
