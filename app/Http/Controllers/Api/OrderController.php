@@ -7,8 +7,8 @@ use Braintree\Gateway;
 use App\Models\Product;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
-use App\Http\Requests\PayRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PaymentRequest;
 
 class OrderController extends Controller
 {
@@ -28,20 +28,20 @@ class OrderController extends Controller
         return response()->json($data,200);
     }
 
-    public function makePayment(PayRequest $request,Gateway $gateway){
+    public function makePayment(PaymentRequest $request,Gateway $gateway){
 
-        $total = 0;
+        $total_price = 0;
         $data = $request->all();
         $cart = $data['cart'];
 
         foreach ($cart as $item) {
             $product = Product::where('id', $item['id'])->first();
-            $total += $product->price * $item['qnt'];
+            $total_price += $product->price * $item['qnt'];
         }
 
 
         $result = $gateway->transaction()->sale([
-            'amount' => $total,
+            'amount' => $total_price,
             'paymentMethodNonce' => $request->token,
             'options' => [
                 'submitForSettlement' => true
@@ -50,7 +50,7 @@ class OrderController extends Controller
 
         if ($result->success) {
             $order = new Order();
-            $order->total = $total;
+            $order->total_price = $total_price;
             $order->restaurant_id = $data['restaurant_id'];
             $order->name = $data['name'];
             $order->surname = $data['surname'];
