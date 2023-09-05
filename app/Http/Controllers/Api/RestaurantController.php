@@ -10,19 +10,23 @@ class RestaurantController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Restaurant::query()->with(['categories']); // Iniziamo con una query vuota
+        $query = Restaurant::query()->with(['categories']);
 
         if ($request->has('category_id')) {
-            $category_ids = is_array($request->category_id) ? $request->category_id : [$request->category_id]; // Accetta sia un array che un singolo ID
-
-            $query->whereHas('categories', function ($q) use ($category_ids) {
-                $q->whereIn('id', $category_ids);
-            }, '=', count($category_ids));
-
-            // Aggiungi questa parte per escludere ristoranti con categorie extra
-            $query->whereDoesntHave('categories', function ($q) use ($category_ids) {
-                $q->whereNotIn('id', $category_ids);
-            });
+            $category_ids = is_array($request->category_id) ? $request->category_id : [$request->category_id];
+        
+            // Verifica se ci sono almeno due categorie specificate
+            if (count($category_ids) >= 2) {
+                // Se ci sono almeno due categorie, usa whereHas per trovare i ristoranti che hanno entrambe le categorie
+                $query->whereHas('categories', function ($q) use ($category_ids) {
+                    $q->whereIn('id', $category_ids);
+                }, '=', count($category_ids));
+            } else {
+                // Se c'è una sola categoria specificata, usa whereHas per trovare i ristoranti che hanno quella categoria
+                $query->whereHas('categories', function ($q) use ($category_ids) {
+                    $q->whereIn('id', $category_ids);
+                });
+            }
         }
 
         $restaurants = $query->paginate(6);
