@@ -42,7 +42,6 @@ class GuestController extends Controller
         $newGuest->email = $data['email'];
         $newGuest->name = $data['name'];
         $newGuest->surname = $data['surname'];
-        $newGuest->phone = $data['phone'];
         $newGuest->message = $data['message'];
 
         $newGuest->save();
