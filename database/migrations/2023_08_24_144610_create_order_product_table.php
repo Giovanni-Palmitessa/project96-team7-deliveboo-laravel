@@ -15,6 +15,9 @@ return new class extends Migration
             $table->foreign('order_id')->references('id')->on('orders');
             $table->foreign('product_id')->references('id')->on('products');
 
+            $table->primary(['order_id', 'product_id']);
+            $table->unsignedBigInteger('product_quantity');
+
             // $table->id();
             // $table->timestamps();
         });
