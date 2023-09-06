@@ -1,26 +1,29 @@
 @extends('admin.layouts.base')
 @section('contents')
-<h1 class="text-center text-3xl mb-2 text-secondary">{{ $product->name}}</h1>
+
 <div class="container mx-auto max-w-screen-xl px-2">
-    <div>
-        <img src="{{ asset('storage/' . $product->url_image) }}" alt="{{ $product->name }}">
-    </div>
-    <p>{{ $product->description }}</p>
-    <div class="flex gap-2">
-        <span class="font-semibold">Ingredienti:</span>
-        <p>{{ $product->ingredients }}</p>
-    </div>
-    <div class="flex gap-2">
-        <span class="font-semibold">Prezzo:</span>
-        <p>{{ $product->price }}</p>
-    </div>
-    <div class="mx-auto flex justify-center gap-2">
-        <button class="rounded-lg bg-yellow-300 hover:bg-yellow-500 font-medium text-sm text-center text-white">
-            <a href="{{ route('admin.products.edit', ['product' => $product]) }}" class="px-5 py-2.5">Modifica</a>
-        </button>
-        <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" type="button">
-        Elimina
-        </button>
+    <div class="border border-gray-200 rounded-lg shadow bg-gray-50">
+        <img class="rounded-md w-6/12 h-3/4 mx-auto" src="{{ asset('storage/' . $product->url_image) }}" alt="{{ $product->name }}" onerror="this.onerror=null; this.src='{{ Vite::asset('public/img/non-disponibile.jpg') }}';" />
+
+        
+        <div class="p-5">
+            <h5 class="my-5 text-3xl font-bold tracking-tight text-primary text-center">{{$product->name}}</h5>
+
+            <p class="my-5 font-normal text-gray-700"><span class="text-xl font-bold text-secondary">Info: </span>{{$product->description}}</p>
+
+            <p class="my-5 font-normal text-gray-700"><span class="text-xl font-bold text-secondary">Ingredienti: </span>{{$product->ingredients}}</p>
+
+            <p class="my-5 font-bold text-gray-700 text-xl"><span class="text-xl font-bold text-secondary">Prezzo: </span>{{$product->price}} € </p>
+
+            <div class="mx-auto flex justify-center gap-5">
+                <button class="rounded-lg bg-yellow-300 hover:bg-yellow-500 font-medium text-sm text-center text-white">
+                    <a href="{{ route('admin.products.edit', ['product' => $product]) }}" class="px-8 py-2.5">Modifica</a>
+                </button>
+                <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" type="button">
+                Elimina
+                </button>
+            </div>
+        </div>
     </div>
 
     <div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
