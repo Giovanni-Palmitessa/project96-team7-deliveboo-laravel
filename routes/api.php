@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\GuestController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\RestaurantController;
@@ -25,3 +26,7 @@ Route::get('orders', [OrderController::class, 'index']);
 
 Route::get('orders/generate', [OrderController::class, 'generate']);
 Route::post('orders/make/payment', [OrderController::class, 'makePayment']);
+
+// PER LA MAIL DI RIEPILOGO ORDINE
+Route::post('guests/', [GuestController::class, 'store'])->name('api.guests.store');
+

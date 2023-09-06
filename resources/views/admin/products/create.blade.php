@@ -50,7 +50,7 @@
         <div class="mb-2 error text-sm" id="ProductDescriptionError"></div>
 
         <div class="mb-3">
-            <label class="form-label" for="url_image">Upload Image</label>
+            <label class="form-label" for="url_image">Immagine</label>
             <input id="url_image" type="file" name="url_image"  value="{{old('url_image')}}" class="form-control block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" accept=".jpg, .jpeg, .png">
         </div>
         <div class="mb-2 error text-sm" id="url_imageError"></div>

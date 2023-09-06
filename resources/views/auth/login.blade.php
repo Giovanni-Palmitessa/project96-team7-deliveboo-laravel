@@ -8,8 +8,7 @@
         <!-- Email Address -->
         <div>
             <label for="log_email" :value="__('Email')">Email</label>
-            <input id="log_email" class="block mt-1 w-full rounded-md" type="email" name="email" :value="old('email')"
-                autofocus autocomplete="username">
+            <input id="log_email" class="block mt-1 w-full rounded-md" type="text" name="email" :value="old('email')" autofocus>
 
             {{-- <x-input-label for="log_email" :value="__('Email')" />
             <x-text-input id="log_email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
@@ -21,8 +20,7 @@
         <!-- Password -->
         <div class="mt-4">
             <label for="log_password" :value="__('Password')">Password</label>
-            <input id="log_password" class="block mt-1 w-full rounded-md" type="password" name="password"
-                autocomplete="current-password">
+            <input id="log_password" class="block mt-1 w-full rounded-md" type="password" name="password" autocomplete="current-password">
             {{-- <x-input-label for="log_password" :value="__('Password')" />
 
             <x-text-input id="log_password" class="block mt-1 w-full" type="password" name="password" required
@@ -38,23 +36,24 @@
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox"
                     class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                <span class="text-sm text-gray-600 pl-2">{{ __('Ricordami') }}</span>
             </label>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="flex items-center justify-between mt-4 gap-2">
 
-            <a href="{{ route('register') }}"
-                class="ml-3 mr-3 rounded-md px-4 py-2 bg-secondary text-white text-sm">REGISTER</a>
+            <x-primary-button class="bg-secondary">
+            <a href="{{ route('register') }}">REGISTRATI</a>
+            </x-primary-button>
 
             @if (Route::has('password.request'))
                 <a class="underline text-sm text-secondary hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+                    {{ __('Password dimenticata?') }}
                 </a>
             @endif
 
-            <x-primary-button class="ml-3 bg-secondary text-primary">
+            <x-primary-button class="bg-secondary">
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
