@@ -41,46 +41,46 @@ if (formCreate) {
         let isAnyCheckboxChecked = false;
 
         if (name.trim() === "") {
-            nameError.textContent = "Il campo Nome è obbligatorio ciao ciao.";
+            nameError.textContent = "Il campo 'Nome' è obbligatorio.";
             isValid = false;
         } else if (name.length > 50) {
             nameError.textContent =
-                "Il campo Nome non può contenere più di 50 caratteri.";
+                "Il campo 'Nome' può contenere al massimo 50 caratteri.";
             isValid = false;
         }
 
         if (description.trim() === "") {
             descriptionError.textContent =
-                "Il campo Descrizione è obbligatorio ciao ciao 2.";
+                "Il campo 'Descrizione' è obbligatorio.";
             isValid = false;
         }
 
         if (city.trim() === "") {
             cityError.textContent =
-                "Il campo Città è obbligatorio ciao ciao 2.";
+                "Il campo 'Città' è obbligatorio.";
             isValid = false;
         } else if (city.length > 30) {
             cityError.textContent =
-                "Il campo Città non può contenere più di 30 caratteri.";
+                "Il campo 'Città' può contenere al massimo 30 caratteri.";
             isValid = false;
         }
 
         if (address.trim() === "") {
             addressError.textContent =
-                "Il campo Indirizzo è obbligatorio ciao ciao 2.";
+                "Il campo 'Indirizzo' è obbligatorio.";
             isValid = false;
         } else if (address.length > 30) {
             addressError.textContent =
-                "Il campo Indirizzo non può contenere più di 50 caratteri.";
+                "Il campo 'Indirizzo' può contenere al massimo 30 caratteri.";
             isValid = false;
         }
 
         if (vat.trim() === "") {
-            vatError.textContent = "Il campo P.IVA è obbligatorio ciao ciao 2.";
+            vatError.textContent = "Il campo 'P.IVA' è obbligatorio.";
             isValid = false;
         } else if (!/^\d{10}$/.test(vat)) {
             vatError.textContent =
-                "Inserisci una P.IVA valida composta da 10 cifre.";
+                "Inserisci una 'P.IVA' valida composta da 10 cifre.";
             isValid = false;
         }
 
@@ -103,21 +103,6 @@ if (formCreate) {
             }
         }
 
-        // if (url_image.length > 300) {
-        //     url_imageError.textContent =
-        //         "Il campo URL dell'Immagine non può contenere più di 300 caratteri.";
-        //     isValid = false;
-        // }
-        // else if (!/^https?:\/\/\S+$/.test(url_image)) {
-        //     url_imageError.textContent = "Inserisci un URL valido.";
-        //     isValid = false;
-        // }
-
-        // if (!/^\d+$/.test(priceRange)) {
-        //     priceRangeError.textContent = "Inserisci solo valori numerici.";
-        //     isValid = false;
-        // }
-
         checkboxes.forEach((checkbox) => {
             if (checkbox.checked) {
                 isAnyCheckboxChecked = true;
@@ -127,6 +112,7 @@ if (formCreate) {
         if (!isAnyCheckboxChecked) {
             event.preventDefault();
             categoryError.textContent = "Seleziona almeno una categoria.";
+            isValid = false;
         } else {
             categoryError.textContent = ""; // Rimuovi il messaggio di errore se almeno un checkbox è selezionato
         }
@@ -188,47 +174,47 @@ if (formEdit) {
 
         if (nameEdit.trim() === "") {
             nameErrorEdit.textContent =
-                "Il campo Nome è obbligatorio ciao ciao.";
+                "Il campo 'Nome' è obbligatorio.";
             isValidEdit = false;
         } else if (nameEdit.length > 50) {
             nameErrorEdit.textContent =
-                "Il campo Nome non può contenere più di 50 caratteri.";
+                "Il campo 'Nome' può contenere al massimo 50 caratteri.";
             isValidEdit = false;
         }
 
         if (descriptionEdit.trim() === "") {
             descriptionErrorEdit.textContent =
-                "Il campo Descrizione è obbligatorio ciao ciao 2.";
+                "Il campo 'Descrizione' è obbligatorio.";
             isValidEdit = false;
         }
 
         if (cityEdit.trim() === "") {
             cityErrorEdit.textContent =
-                "Il campo Città è obbligatorio ciao ciao 2.";
+                "Il campo 'Città' è obbligatorio.";
             isValidEdit = false;
         } else if (cityEdit.length > 30) {
             cityErrorEdit.textContent =
-                "Il campo Città non può contenere più di 30 caratteri.";
+                "Il campo 'Città' può contenere al massimo 30 caratteri.";
             isValidEdit = false;
         }
 
         if (addressEdit.trim() === "") {
             addressErrorEdit.textContent =
-                "Il campo Indirizzo è obbligatorio ciao ciao 2.";
+                "Il campo 'Indirizzo' è obbligatorio.";
             isValidEdit = false;
         } else if (addressEdit.length > 30) {
             addressErrorEdit.textContent =
-                "Il campo Indirizzo non può contenere più di 50 caratteri.";
+                "Il campo 'Indirizzo' può contenere al massimo 30 caratteri.";
             isValidEdit = false;
         }
 
         if (vatEdit.trim() === "") {
             vatErrorEdit.textContent =
-                "Il campo P.IVA è obbligatorio ciao ciao 2.";
+                "Il campo 'P.IVA' è obbligatorio.";
             isValidEdit = false;
         } else if (!/^\d{10}$/.test(vatEdit)) {
             vatErrorEdit.textContent =
-                "Inserisci una P.IVA valida composta da 10 cifre.";
+                "Inserisci una 'P.IVA' valida composta da 10 cifre.";
             isValidEdit = false;
         }
 
@@ -260,6 +246,7 @@ if (formEdit) {
         if (!isAnyCheckboxCheckedEdit) {
             event.preventDefault();
             categoryErrorEdit.textContent = "Seleziona almeno una categoria.";
+            isValidEdit = false;
         } else {
             categoryErrorEdit.textContent = "";
         }
