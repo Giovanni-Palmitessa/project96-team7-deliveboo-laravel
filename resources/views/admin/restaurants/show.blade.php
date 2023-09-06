@@ -17,9 +17,9 @@
             <p class="my-5 font-bold text-gray-700 text-xl"><span class="text-xl font-bold text-secondary">Prezzo Medio: </span>{{$restaurant->priceRange}} €</p>
             
             @if(isset($restaurant->rating_value) && isset($restaurant->review_count))
-                <div class="flex justify-between">
-                    <span class="text-xl font-bold text-secondary">Voto medio su TripAdvisor: <span class="font-bold text-gray-700 text-xl">{{$restaurant->rating_value}}</span></span>
-                    <span class="text-xl font-bold text-secondary">Recensioni su TripAdvisor: <span class="font-bold text-gray-700 text-xl"> {{$restaurant->review_count}}</span></span>
+                <div class="flex justify-between flex-col md:flex-row">
+                    <div class="text-xl font-bold text-secondary">Voto medio su TripAdvisor: <span class="font-bold text-gray-700 text-xl">{{$restaurant->rating_value}}</span></div>
+                    <div class="text-xl font-bold text-secondary pt-5 md:pt-0">Recensioni su TripAdvisor: <span class="font-bold text-gray-700 text-xl"> {{$restaurant->review_count}}</span></div>
                 </div>
             @endif
         </div>
