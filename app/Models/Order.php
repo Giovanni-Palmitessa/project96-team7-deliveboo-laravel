@@ -12,6 +12,11 @@ class Order extends Model
     use HasFactory;
     public $timestamps = false;
 
+    protected $fillable = [
+        'total_price', 'restaurant_id', 'name', 'surname', 'email', 'message'
+    ];
+
+
     public function products()
     {
         return $this->belongsToMany(Product::class);

@@ -20,8 +20,8 @@ Route::get('restaurants/{restaurant}', [RestaurantController::class, 'show'])->n
 
 Route::get('categories', [CategoryController::class, 'index'])->name('api.categories.index');
 
-// Pagamento 
+// Pagamento
 Route::get('orders', [OrderController::class, 'index']);
 
-Route::get('orders/generate',[OrderController::class, 'generate']);
-Route::post('orders/make/payment',[OrderController::class, 'makePayment']);
+Route::get('orders/generate', [OrderController::class, 'generate']);
+Route::post('orders/make/payment', [OrderController::class, 'makePayment']);
