@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +48,9 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        // Supponendo che tu abbia una relazione 'products' nel tuo modello Order
+        $products = $order->products;
+        return view('admin.orders.details', compact('order', 'products'));
     }
 
     /**
