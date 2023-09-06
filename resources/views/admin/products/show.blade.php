@@ -3,7 +3,8 @@
 
 <div class="container mx-auto max-w-screen-xl px-2">
     <div class="border border-gray-200 rounded-lg shadow bg-gray-50">
-        <img class="rounded-md w-6/12 h-3/4 mx-auto" src="{{ asset('storage/' . $product->url_image) }}" alt="{{ $product->name }}" />
+        <img class="rounded-md w-6/12 h-3/4 mx-auto" src="{{ asset('storage/' . $product->url_image) }}" alt="{{ $product->name }}" onerror="this.onerror=null; this.src='{{ Vite::asset('public/img/non-disponibile.jpg') }}';" />
+
         
         <div class="p-5">
             <h5 class="my-5 text-3xl font-bold tracking-tight text-primary text-center">{{$product->name}}</h5>
