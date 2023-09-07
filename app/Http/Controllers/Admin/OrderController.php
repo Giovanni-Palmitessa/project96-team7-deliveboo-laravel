@@ -17,6 +17,8 @@ class OrderController extends Controller
     public function index()
     {
         //
+        $orders = Order::orderBy('payment_date', 'desc')->get();
+        return view('admin.orders.index', compact('orders'));
     }
 
     /**
@@ -48,7 +50,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        // Supponendo che tu abbia una relazione 'products' nel tuo modello Order
+        // $orders = Order::orderBy('payment_date', 'desc')->get();
         $products = $order->products;
         return view('admin.orders.details', compact('order', 'products'));
     }

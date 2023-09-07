@@ -71,7 +71,10 @@
                             <!-- Table -->
                             <header class="px-5 py-4 border-b border-gray-100">
                                 <h2 class="font-bold text-center md:text-left lg:text-left text-gray-800">Riepilogo ordini
-                                    ricevuti</h2>
+                                    ricevuti
+                                </h2>
+                                <a href="{{ route('admin.orders.index') }}"
+                                    class=" underline text-secondary text-xs">Visualizza tutti gli ordini</a>
                             </header>
                             <div class="p-3">
                                 <div class="overflow-x-auto">
@@ -95,15 +98,20 @@
                                                     <span class="font-bold text-center">Totale Ordine</span>
                                                 </th>
                                                 <th class="p-2 whitespace-nowrap">
-                                                    <span class="font-bold text-center">Dettagli ordine</span>
+                                                    <span class="font-bold text-center">Data</span>
                                                 </th>
+
                                             </tr>
                                         </thead>
                                         @foreach ($orders as $order)
                                             <tbody class="text-sm divide-y divide-gray-100">
                                                 <tr>
                                                     <td class="p-2 whitespace-nowrap">
-                                                        <div class="text-center">#{{ $order->id }}</div>
+                                                        <div class="text-center"><a
+                                                                href="{{ route('admin.orders.show', $order->id) }}"
+                                                                class="block py-2 pl-3 pr-4 underline hover:text-secondary md:p-0 rounded md:bg-transparent"
+                                                                aria-current="page">#{{ $order->id }}</a>
+                                                        </div>
                                                     </td>
                                                     <td class="p-2 whitespace-nowrap lg:table-cell hidden">
                                                         <div class="text-center">{{ $order->name }}</div>
@@ -122,15 +130,15 @@
                                                             {{ $order->total_price }}€
                                                         </div>
                                                     </td>
-                                                    <td class="p-2 whitespace-nowrap">
+                                                    <td class="p-2 whitespace-nowrap ">
+
                                                         <div class="text-center">
-                                                            <a href="{{ route('admin.orders.show', $order->id) }}"
-                                                                class="px-2 py-1 text-xs font-bold text-white bg-green-500 rounded-full hover:bg-green-700">
-                                                                Dettagli
-                                                            </a>
+
+                                                            {{ \Carbon\Carbon::parse($order->payment_date)->format('d/m/Y') }}
 
                                                         </div>
                                                     </td>
+
                                                 </tr>
 
                                             </tbody>
