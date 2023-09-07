@@ -30,6 +30,13 @@
                         class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
                         aria-current="page">Guest</a>
                 </li>
+                <li>
+                    <a href="{{ route('dashboard') }}" class="flex items-center">
+                        Dashboard
+                    </a>
+                </li>
+
+
                 @if ($restaurant)
                     <li>
                         <a href="{{ route('admin.products.create') }}"
@@ -42,7 +49,6 @@
                         class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
                         aria-current="page">New Restaurant</a>
                     </li> --}}
-
                 @endif
                 @if ($restaurant && $hasProduct)
                     <li>
@@ -56,6 +62,11 @@
                         class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
                         aria-current="page">Ristorante</a>
                 </li>
+                <li>
+                    <a href="{{ route('admin.orders.index') }}"
+                        class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
+                        aria-current="page">Ordini</a>
+                </li>
             </ul>
         </div>
         <div>
@@ -63,7 +74,8 @@
                 type="button" class="hover:text-secondary text-gray-900 font-semibold">Profilo</button>
             <!-- Dropdown menu -->
             <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 flex flex-col gap-2 items-center" aria-labelledby="dropdownHoverButton">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 flex flex-col gap-2 items-center"
+                    aria-labelledby="dropdownHoverButton">
                     <li>
                         <a class="dropdown-item font-medium" href="{{ route('profile.edit') }}">Modifica Profilo</a>
                     </li>

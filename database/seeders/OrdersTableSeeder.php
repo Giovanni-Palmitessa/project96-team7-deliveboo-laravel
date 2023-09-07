@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Order;
+use App\Models\OrderProduct;
+use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -13,57 +15,26 @@ class OrdersTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        // $orders = [
-        //     [
-        //         "total_price"       => "100",
-        //         "name"              => "Davide",
-        //         "surname"           => "Farci",
-        //         "email"             => "davide.farci@gmail.com",
-        //         "message"           => "",
-        //         "restaurant_id"     => "1",
-        //         "products"          => [1, 2],
-        //     ],
-        //     [
-        //         "total_price"       => "50",
-        //         "name"              => "Giovanni",
-        //         "surname"           => "Palmitessa",
-        //         "email"             =>  "giovanni.palmitessa@gmail.com",
-        //         "message"           => "",
-        //         "restaurant_id"     => "2",
-        //         "products"          => [3, 4],
-        //     ],
-        //     [
-        //         "total_price"       => "25",
-        //         "name"              => "Domenico",
-        //         "surname"           => "Ferrari",
-        //         "email"             => "domenico.ferrari@gmail.com",
-        //         "message"           => "",
-        //         "restaurant_id"     => "3",
-        //         "products"          => [5, 6],
-        //     ],
-        //     [
-        //         "total_price"       => "75",
-        //         "name"              => "Loris",
-        //         "surname"           => "Marzocchi",
-        //         "email"             => "loris.marzocchi@gmail.com",
-        //         "message"           => "",
-        //         "restaurant_id"     => "4",
-        //         "products"          => [7, 8],
-        //     ],
-        // ];
 
-        // foreach ($orders as $objOrder) {
-        //     $order = Order::create([
-        //         "total_price"       => $objOrder['total_price'],
-        //         "name"              => $objOrder['name'],
-        //         "surname"           => $objOrder['surname'],
-        //         "email"             => $objOrder['email'],
-        //         "message"           => $objOrder['message'],
-        //         "restaurant_id"     => $objOrder['restaurant_id'],
-        //     ]);
-        //     $order->products()->sync($objOrder['products']);
-        // }
+
+    public function run(Faker $faker)
+    {
+
+        for ($i = 0; $i < 50; $i++) {
+            $orders = Order::create([
+                'total_price' => $faker->numberBetween(10, 150),
+                'name' => $faker->name(),
+                'surname' => $faker->lastName(),
+                'email' => $faker->email(),
+                'message' => $faker->text(),
+                'payment_date' => $faker->dateTimeInInterval('-2 week', '+14 days'),
+                'restaurant_id' => 3,
+            ]);
+            $order_product = OrderProduct::create([
+                'order_id' => $orders->id,
+                'product_id' => $faker->numberBetween(1, 30),
+                'product_quantity' => $faker->numberBetween(1, 10),
+            ]);
+        }
     }
 }

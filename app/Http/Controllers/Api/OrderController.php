@@ -22,6 +22,7 @@ class OrderController extends Controller
         $total_price = 0;
         $data        = $request->all();
         $cart        = $data['cart'];
+        $shipping    = 4.9;
 
         // foreach ($cart as $item) {
         //     $product = Product::find($item['id']);
@@ -36,6 +37,8 @@ class OrderController extends Controller
             $product = Product::where('id', $item['id'])->first();
             $total_price += $product->price * $item['qnt'];
         }
+        $total_price += $shipping;
+
 
         $result = $gateway->transaction()->sale([
             'amount'                    => $total_price,
