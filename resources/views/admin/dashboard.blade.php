@@ -73,8 +73,7 @@
                                 <h2 class="font-bold text-center md:text-left lg:text-left text-gray-800">Riepilogo ordini
                                     ricevuti
                                 </h2>
-                                <a href="{{ route('admin.orders.index') }}"
-                                    class=" underline text-secondary text-xs">Visualizza tutti gli ordini</a>
+
                             </header>
                             <div class="p-3">
                                 <div class="overflow-x-auto">
@@ -144,6 +143,12 @@
                                             </tbody>
                                         @endforeach
                                     </table>
+                                </div>
+                                <div class=" flex justify-end mt-5 ">
+                                    <a href="{{ route('admin.orders.index') }}"
+                                        class=" underline text-secondary text-xs">Visualizza tutti gli ordini
+                                    </a>
+
                                 </div>
                             </div>
                         </div>

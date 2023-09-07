@@ -34,7 +34,7 @@ class PageController extends Controller
             // Recupero gli ordini associati ai prodotti del ristorante
             $orders = Order::whereHas('products', function ($q) use ($restaurant) {
                 $q->where('restaurant_id', $restaurant->id);
-            })->orderBy('payment_date', 'desc')->limit(6)->get();
+            })->orderBy('payment_date', 'desc')->limit(5)->get();
         }
 
         return view('admin.dashboard', compact('restaurant', 'products', 'orders'));
