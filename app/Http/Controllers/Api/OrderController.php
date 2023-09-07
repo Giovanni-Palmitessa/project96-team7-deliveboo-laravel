@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Guest;
 use App\Models\Order;
 use Braintree\Gateway;
 use App\Models\Product;
+use App\Mail\MailToAdmin;
+use App\Mail\MailToGuest;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\PaymentRequest;
 use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\PaymentRequest;
 
 class OrderController extends Controller
 {
@@ -56,11 +60,24 @@ class OrderController extends Controller
             ]);
 
             foreach ($cart as $item) {
-                OrderProduct::create([
+                $orderProduct = OrderProduct::create([
                     'order_id'          => $order->id,
                     'product_id'        => $item['id'],
                     'product_quantity'  => $item['qnt'],
                 ]);
+            }
+
+            if($order && $orderProduct) {
+                Guest::create([
+                    'name' => $data['name'],
+                    'surname' => $data['surname'],
+                    'email' => $data['email'],
+                    'message' => $data['message'],
+                ]);
+                
+                Mail::to($order->email)->send(new MailToGuest($order));
+
+                Mail::to(env('ADMIN_ADDRESS', 'admin@deliveboo.com'))->send(new MailToAdmin($order));
             }
 
 
