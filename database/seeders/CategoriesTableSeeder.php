@@ -38,7 +38,11 @@ class CategoriesTableSeeder extends Seeder
                 'image'         => 'https://media.istockphoto.com/id/899907172/it/foto/pizza-margerita-gustosa-al-forno-vicino-al-forno.jpg?s=612x612&w=0&k=20&c=XktWlTnq_736EJ0qhENM-d5btFu9ceVYVBqiu9oA_6s=',
 
             ],
+            [
+                'name'          => 'Messicano',
+                'image'         => 'https://c8.alamy.com/compit/bchfy6/un-autentico-ristorante-messicano-di-notte-bchfy6.jpg',
 
+            ],
         ];
         foreach ($categories as $category) {
             Category::create($category);
