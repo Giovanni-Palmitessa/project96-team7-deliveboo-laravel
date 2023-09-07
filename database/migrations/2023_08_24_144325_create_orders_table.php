@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('surname', 50);
             $table->string('email');
             $table->string('message', 200)->nullable();
+            $table->dateTime('payment_date')->nullable();
             $table->unsignedBigInteger('restaurant_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurants');
         });

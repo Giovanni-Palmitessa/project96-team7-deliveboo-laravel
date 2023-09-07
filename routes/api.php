@@ -21,6 +21,7 @@ Route::get('restaurants/{restaurant}', [RestaurantController::class, 'show'])->n
 
 Route::get('categories', [CategoryController::class, 'index'])->name('api.categories.index');
 
+
 // Pagamento
 Route::get('orders', [OrderController::class, 'index']);
 
@@ -29,4 +30,3 @@ Route::post('orders/make/payment', [OrderController::class, 'makePayment']);
 
 // PER LA MAIL DI RIEPILOGO ORDINE
 Route::post('guests/', [GuestController::class, 'store'])->name('api.guests.store');
-
