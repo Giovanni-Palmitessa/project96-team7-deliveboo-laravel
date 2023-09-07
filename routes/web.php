@@ -18,6 +18,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource('products', ProductController::class);
         Route::resource('categories', CategoryController::class);
         Route::resource('orders', OrderController::class);
+
         Route::post('/dashboard/products/toggle-visibility/{product_id}', [ProductController::class, 'toggleProductVisibility'])->name('products.toggleProductVisibility');
     });
 
@@ -29,4 +30,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

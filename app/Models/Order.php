@@ -13,13 +13,13 @@ class Order extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'total_price', 'restaurant_id', 'name', 'surname', 'email', 'message'
+        'total_price', 'restaurant_id', 'name', 'surname', 'email', 'message', 'payment_date'
     ];
 
 
     public function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class)->withPivot('product_quantity');
     }
 
     public function restaurant()

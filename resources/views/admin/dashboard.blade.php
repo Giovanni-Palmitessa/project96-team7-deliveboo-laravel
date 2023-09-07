@@ -19,56 +19,151 @@
 
 
 
-        <!-- Prodotti -->
-        <div class="bg-white rounded-lg shadow-lg p-6 w-3/4 mb-6">
-            <h2 class="text-4xl font-bold text-gray-800 mb-9 text-center">I tuoi prodotti</h2>
+            <!-- Prodotti -->
+            <div class="bg-white rounded-lg shadow-lg p-6 w-3/4 mb-6">
+                <h2 class="text-4xl font-bold text-gray-800 mb-9 text-center">I tuoi prodotti</h2>
 
-            <div class="flex flex-wrap gap-10">
-                @foreach ($products as $product)
-                    <div class="w-2/5 mx-auto bg-white border border-gray-200 rounded-lg shadow">
+                <div class="flex flex-wrap gap-10">
+                    @foreach ($products as $product)
+                        <div class="w-2/5 mx-auto bg-white border border-gray-200 rounded-lg shadow">
 
-                        <div class="p-5 flex justify-between flex-col">
-                            <div>
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                                    {{ $product->name }}
-                                </h5>
-                                
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $product->description }}</p>
-                            </div>
-                            
+                            <div class="p-5 flex justify-between flex-col">
+                                <div>
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                                        {{ $product->name }}
+                                    </h5>
 
-                            <div class="flex justify-between items-center">
-                                <form action="{{ route('admin.products.toggleProductVisibility', $product->id) }}" method="post">
-                                    @csrf
-                                    <input type="checkbox" name="visible" value="1" {{ $product->visible ? 'checked' : '' }} onChange="this.form.submit()">
-                                    <label for="visible">Prodotto disponibile</label>
-                                </form>
-        
-                                <a href="{{ route('admin.products.show', ['product' => $product]) }}" class="focus:outline-none text-white bg-secondary hover:bg-b_hover font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ">Mostra dettagli</a>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $product->description }}
+                                    </p>
+                                </div>
+
+
+                                <div class="flex justify-between items-center">
+                                    <form action="{{ route('admin.products.toggleProductVisibility', $product->id) }}"
+                                        method="post">
+                                        @csrf
+                                        <input type="checkbox" name="visible" value="1"
+                                            {{ $product->visible ? 'checked' : '' }} onChange="this.form.submit()">
+                                        <label for="visible">Prodotto disponibile</label>
+                                    </form>
+
+                                    <a href="{{ route('admin.products.show', ['product' => $product]) }}"
+                                        class="focus:outline-none text-white bg-secondary hover:bg-b_hover font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ">Mostra
+                                        dettagli</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
+
             </div>
-            
-        </div>
 
             <!-- Ordini -->
-            <div class="bg-white rounded-lg shadow-lg p-6 w-3/4 mb-6">
+            <div class="bg-white rounded-lg shadow-lg p-4 md:p-6 w-full md:w-3/4 mb-6">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Ordini</h2>
                 <ul>
-                    @foreach ($orders as $order)
-                        <li class="border-b border-gray-200 py-2 text-center">Totale ordine: €{{ $order->total_price }}
-                        </li>
-                    @endforeach
-                </ul>
+                    @if (count($orders) === 0)
+                        <div class="text-center mb-10">
+                            <h1 class="text-4xl font-bold text-gray-800 mb-4">Nessun ordine ricevuto</h1>
+                        </div>
+                    @else
+                        <div class="flex flex-col justify-center h-full">
+                            <!-- Table -->
+                            <header class="px-5 py-4 border-b border-gray-100">
+                                <h2 class="font-bold text-center md:text-left lg:text-left text-gray-800">Riepilogo ordini
+                                    ricevuti</h2>
+                            </header>
+                            <div class="p-3">
+                                <div class="overflow-x-auto">
+                                    <table class="min-w-full table-auto">
+                                        <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                                            <tr>
+                                                <th class="p-2 whitespace-nowrap">
+                                                    <span class="font-bold text-left">Id Ordine</span>
+                                                </th>
+                                                <th class="p-2 whitespace-nowrap lg:table-cell hidden">
+                                                    <span class="font-bold text-left">Name</span>
+                                                </th>
+                                                <th class="p-2 whitespace-nowrap lg:table-cell hidden">
+                                                    <span class="font-bold text-left">Cognome
+                                                    </span>
+                                                </th>
+                                                <th class="p-2 whitespace-nowrap lg:table-cell hidden">
+                                                    <span class="font-bold text-left">Email</span>
+                                                </th>
+                                                <th class="p-2 whitespace-nowrap lg:table-cell md:table-cell hidden">
+                                                    <span class="font-bold text-center">Totale Ordine</span>
+                                                </th>
+                                                <th class="p-2 whitespace-nowrap">
+                                                    <span class="font-bold text-center">Dettagli ordine</span>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        @foreach ($orders as $order)
+                                            <tbody class="text-sm divide-y divide-gray-100">
+                                                <tr>
+                                                    <td class="p-2 whitespace-nowrap">
+                                                        <div class="text-center">#{{ $order->id }}</div>
+                                                    </td>
+                                                    <td class="p-2 whitespace-nowrap lg:table-cell hidden">
+                                                        <div class="text-center">{{ $order->name }}</div>
+                                                    </td>
+                                                    <td class="p-2 whitespace-nowrap lg:table-cell hidden">
+                                                        <div class="text-center">
+                                                            {{ $order->surname }}
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-2 whitespace-nowrap lg:table-cell hidden">
+                                                        <div class="text-center">{{ $order->email }}
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-2 whitespace-nowrap lg:table-cell md:table-cell hidden">
+                                                        <div class="text-center">
+                                                            {{ $order->total_price }}€
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-2 whitespace-nowrap">
+                                                        <div class="text-center">
+                                                            <a href="{{ route('admin.orders.show', $order->id) }}"
+                                                                class="px-2 py-1 text-xs font-bold text-white bg-green-500 rounded-full hover:bg-green-700">
+                                                                Dettagli
+                                                            </a>
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        @endforeach
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
             </div>
+            {{-- <div class="text-center font-bold text-lg mb-2">Prodotti Ordinati</div>
+            <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                @foreach ($order->products as $product)
+                    <li class="font-semibold">{{ $product->name }}</li>
+                    <li>Prezzo: €{{ $product->price }}</li>
+                    <li>Quantità Ordinata: {{ $product->pivot->product_quantity }}</li>
+                @endforeach
+            </ul> --}}
+            {{-- <li>
+        <a href="{{ route('admin.restaurants.index') }}"
+            class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
+            aria-current="page">Ristorante</a>
+    </li> --}}
+            {{-- <div class="w-full md:w-1/5 text-center md:text-left p-1">
+    <span class="font-semibold">Messaggio:</span> {{ $order->message }}
+</div> --}}
+
         </div>
-    @else
-        <div class="text-center mb-10">
-            <h1 class="text-4xl font-bold text-gray-800 mb-4">Nessun ristorante trovato</h1>
-            <a href="{{ route('admin.restaurants.create') }}" class="bg-blue-500 text-white px-6 py-2 rounded-full">Crea
-                Ristorante</a>
-        </div>
+    @endif
+@else
+    <div class="text-center mb-10">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">Nessun ristorante trovato</h1>
+        <a href="{{ route('admin.restaurants.create') }}" class="bg-blue-500 text-white px-6 py-2 rounded-full">Crea
+            Ristorante</a>
+    </div>
     @endif
 @endsection

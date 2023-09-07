@@ -20,39 +20,45 @@ class OrderController extends Controller
     public function makePayment(PaymentRequest $request, Gateway $gateway)
     {
         $total_price = 0;
-        $data = $request->all();
-        $cart = $data['cart'];
+        $data        = $request->all();
+        $cart        = $data['cart'];
 
+        // foreach ($cart as $item) {
+        //     $product = Product::find($item['id']);
+
+        //     if (!$product) {
+        //         return response()->json(['success' => false, 'message' => 'Prodotto non trovato.'], 404);
+        //     }
+
+        //     $total_price += $product->price * $item['qnt'];
+        // }
         foreach ($cart as $item) {
-            $product = Product::find($item['id']);
-
-            if (!$product) {
-                return response()->json(['success' => false, 'message' => 'Prodotto non trovato.'], 404);
-            }
-
+            $product = Product::where('id', $item['id'])->first();
             $total_price += $product->price * $item['qnt'];
         }
 
         $result = $gateway->transaction()->sale([
-            'amount' => $total_price,
-            'paymentMethodNonce' => $request->token,
+            'amount'                    => $total_price,
+            'paymentMethodNonce'        => $request->token,
             'options' => [
-                'submitForSettlement' => true
+                'submitForSettlement'   => true
             ]
         ]);
-        // Log::info(json_encode($result)); cartella storage
+        // Log::info(json_encode($result)); cartella storage-log
         if ($result->success) {
             $order = Order::create([
-                'total_price' => $total_price,
-                'restaurant_id' => $data['restaurant_id'],
-                'name' => $data['name'],
-                'surname' => $data['surname'],
-                'email' => $data['email'],
-                'message' => $data['message'],
+                'total_price'       => $total_price,
+                'restaurant_id'     => $data['restaurant_id'],
+                'name'              => $data['name'],
+                'surname'           => $data['surname'],
+                'email'             => $data['email'],
+                'message'           => $data['message'],
+                'payment_date'      => now(),
             ]);
 
 
             foreach ($cart as $item) {
+
                 $orderProduct = OrderProduct::create([
                     'order_id' => $order->id,
                     'product_id' => $item['id'],
@@ -79,6 +85,12 @@ class OrderController extends Controller
             }
 
             // Optional: Queue up an email job, etc.
+
+              
+            }
+
+
+
 
             return response()->json(['success' => true, 'message' => 'Transazione eseguita con successo.'], 200);
         } else {
