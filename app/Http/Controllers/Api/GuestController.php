@@ -16,8 +16,7 @@ class GuestController extends Controller
         'email'                  => 'required|email|max:255',
         'name'                 => 'required|string|max:50|min:5' ,
         'surname'                 => 'required|string|max:50',
-        'phone'              => 'required|string|max:20',
-        'message'          => 'required|string|max:200',
+        'message'          => 'nullable|string|max:200',
     ];
 
     /**
@@ -42,14 +41,9 @@ class GuestController extends Controller
         $newGuest->email = $data['email'];
         $newGuest->name = $data['name'];
         $newGuest->surname = $data['surname'];
-        $newGuest->phone = $data['phone'];
         $newGuest->message = $data['message'];
 
         $newGuest->save();
-
-        Mail::to($newGuest->email)->send(new MailToGuest($newGuest));
-
-        Mail::to(env('ADMIN_ADDRESS', 'admin@deliveboo.com'))->send(new MailToAdmin($newGuest));
 
         return response()->json([
             'success' => true,

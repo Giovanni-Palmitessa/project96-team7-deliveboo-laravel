@@ -6,7 +6,6 @@
     <li>Nome: {{$lead->name}}</li>
     <li>Cognome: {{$lead->surname}}</li>
     <li>Email: {{$lead->email}}</li>
-    <li>Numero di Telefono: {{$lead->phone}}</li>
 </ul>
 
 <h2>Messaggio: {{$lead->message}}</h2>
