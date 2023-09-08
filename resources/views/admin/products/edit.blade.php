@@ -1,7 +1,7 @@
 @extends('admin.layouts.base')
 @section('contents')
 <h1 class="text-center text-3xl mb-2 text-secondary">MODIFICA IL TUO PRODOTTO</h1>
-<div class="container mx-auto max-w-screen-xl px-2">
+<div class="container mx-auto max-w-screen-xl px-2 mb-2">
     <form
     method="POST"
     action="{{ route('admin.products.update', ['product' => $product]) }}"

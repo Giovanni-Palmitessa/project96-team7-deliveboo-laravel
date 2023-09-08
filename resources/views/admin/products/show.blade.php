@@ -1,7 +1,7 @@
 @extends('admin.layouts.base')
 @section('contents')
 
-<div class="container mx-auto max-w-screen-xl px-2">
+<div class="container mx-auto max-w-screen-xl px-2 mt-[100px] mb-3">
     <div class="border border-gray-200 rounded-lg shadow bg-gray-50">
         <img class="rounded-md w-6/12 h-3/4 mx-auto" src="{{ asset('storage/' . $product->url_image) }}" alt="{{ $product->name }}" onerror="this.onerror=null; this.src='{{ Vite::asset('public/img/non-disponibile.jpg') }}';" />
 
