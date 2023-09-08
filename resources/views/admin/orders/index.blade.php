@@ -1,17 +1,17 @@
 @extends('admin.layouts.base')
 @section('contents')
     <div class="bg-white rounded-lg shadow-lg m-auto p-4 md:p-6 w-full md:w-3/4 mb-6">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Ordini</h2>
+        <h2 class="text-2xl font-bold mb-4 text-center text-secondary uppercase">Ordini</h2>
         <ul>
             @if (count($orders) === 0)
                 <div class="text-center mb-10">
-                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Nessun ordine ricevuto</h1>
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4 text-center">Nessun ordine ricevuto</h1>
                 </div>
             @else
                 <div class="flex flex-col justify-center h-full">
                     <!-- Table -->
                     <header class="px-5 py-4 border-b border-gray-100">
-                        <h2 class="font-bold text-center md:text-left lg:text-left text-gray-800">Riepilogo ordini
+                        <h2 class="font-bold text-center text-gray-800">Riepilogo ordini
                             ricevuti</h2>
                     </header>
                     <div class="p-3">
@@ -46,7 +46,7 @@
                                 @foreach ($orders as $order)
                                     <tbody class="text-sm divide-y divide-gray-100">
                                         <tr>
-                                            <td class="p-2 whitespace-nowrap">
+                                            <td class="p-2 whitespace-nowrap font-bold">
                                                 <div class="text-center">#{{ $order->id }}</div>
                                             </td>
                                             <td class="p-2 whitespace-nowrap lg:table-cell hidden">
