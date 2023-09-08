@@ -2,26 +2,27 @@
 
 namespace App\Mail;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class MailToAdmin extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $lead;
+    public $order;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($_lead)
+    public function __construct(Order $order)
     {
-        $this->lead = $_lead;
+        $this->order = $order;
     }
 
     /**
@@ -33,7 +34,7 @@ class MailToAdmin extends Mailable
     {
         return new Envelope(
             replyTo: env('ADMIN_ADDRESS', 'admin@deliveboo.com'), 
-            subject: 'Nuovo ordine ricevuto da ' . $this->lead->name,
+            subject: 'Nuovo ordine ricevuto da ' . $this->order->name,
         );
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -15,10 +16,14 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //
     public function index()
     {
-        //
-        $orders = Order::orderBy('payment_date', 'desc')->get();
+        $restaurantId = Auth::user()->restaurant->id;
+        $orders = Order::where('restaurant_id', $restaurantId)
+            ->orderBy('payment_date', 'desc')
+            ->get();
         return view('admin.orders.index', compact('orders'));
     }
 
