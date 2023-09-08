@@ -1,7 +1,7 @@
 <h1 style="text-align:center; font-family:sans-serif;font-size:2rem;padding-top:2rem;">Nuovo Ordine Ricevuto</h1>
 
 <div style="font-family:sans-serif;">
-    <h2 style="font-size:2rem;padding-bottom:1rem;">Dati Utente</h2>
+    <h2 style="font-size:2rem;padding-bottom:0.5rem;">Dati Utente</h2>
 
     <ul>
         <li>Nome Cliente: {{$order->name}}</li>

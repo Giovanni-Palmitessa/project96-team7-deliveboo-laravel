@@ -1,6 +1,6 @@
 <h1 style="text-align:center; font-family:sans-serif;font-size:2rem;padding-top:2rem;">Ciao {{$order->name}} il tuo ordine #{{$order->id}} sta per arrivare da te!</h1>
 
-<div style="text-align:center; font-family:sans-serif;padding-top:1rem;">
+<div style="font-family:sans-serif;padding-top:1rem;">
     <h3 style="text-align:center;">Riepilogo dei tuoi dati</h3>
 
     <ul>
@@ -17,7 +17,7 @@
 
     <p>Grazie per aver acquistato da noi &#x1F60D</p>
 
-    <p><a href="http://localhost:5173/">Deliveboo</a>Gusta i Sapori del Mondo Comodamente a Casa Tua!</p>
+    <p><a href="http://localhost:5173/">Deliveboo</a>: Gusta i Sapori del Mondo Comodamente a Casa Tua!</p>
 
 </div>
 
