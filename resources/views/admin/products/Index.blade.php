@@ -1,21 +1,21 @@
 @extends('admin.layouts.base')
 @section('contents')
-    <h1 class="text-center text-3xl mb-2 text-secondary mt-[120px]">PRODOTTI</h1>
+    <h1 class="text-center text-3xl font-bold mb-8 text-secondary mt-[120px]">PRODOTTI</h1>
 
     @if (session('delete_success'))
         @php
             $product = session('delete_success');
         @endphp
         <div class="container mx-auto max-w-screen-xl px-2">
-            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
                 <span class="font-medium">Il product "{{ $product->name }}" è stato eliminato per sempre</span>
             </div>
         </div>
     @endif
 
     <div class="container mx-auto max-w-screen-xl px-2">
-        <table class="w-full text-sm text-left text-black dark:text-gray-400">
-            <thead class="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table class="w-full text-sm text-left text-black">
+            <thead class="text-secondary uppercase bg-primary">
                 <tr>
                     {{-- <th scope="col">ID</th> --}}
                     <th scope="col" class="px-6 py-3">Nome</th>
@@ -30,7 +30,7 @@
             </thead>
             <tbody>
                 @foreach ($products as $product)
-                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                    <tr class="bg-white border-b">
                         {{-- <td scope="row">{{ $product->id }}</td> --}}
                         <td scope="row" class="px-6 py-4">{{ $product->name }}</td>
                         {{-- <td scope="row">{{ $product->slug }}</td> --}}
@@ -51,17 +51,17 @@
                         </td> --}}
                         <td class="px-6 py-4 flex gap-1">
                             <button
-                                class="rounded-lg bg-blue-500 hover:bg-blue-700 font-medium text-sm text-center text-white block py-2">
+                                class="rounded-lg bg-secondary hover:bg-b_hover font-medium text-sm text-center text-primary block py-1.5 shadow-md">
                                 <a href="{{ route('admin.products.show', ['product' => $product]) }}"
                                     class="px-5 py-2.5">Vista</a>
                             </button>
                             <button
-                                class="rounded-lg bg-yellow-300 hover:bg-yellow-500 font-medium text-sm text-center text-white hidden sm:block">
+                                class="rounded-lg bg-primary hover:bg-primary_hover font-medium text-sm text-center text-white hidden sm:block shadow-md">
                                 <a href="{{ route('admin.products.edit', ['product' => $product]) }}"
                                     class="px-5 py-2.5">Modifica</a>
                             </button>
                             <button data-modal-target="defaultModal" data-modal-toggle="defaultModal"
-                                class="hidden sm:block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+                                class="hidden sm:block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-1 text-center shadow-md"
                                 type="button">
                                 Elimina
                             </button>
@@ -111,7 +111,7 @@
                             </button>
                         </form>
                         <button data-modal-hide="defaultModal" type="button"
-                            class="text-primary hover:text-primary_hover bg-secondary hover:bg-b_hover focus:ring-4 focus:outline-none focus:ring-secondary rounded-lg border border-primary_hover text-sm font-medium px-5 py-2.5 focus:z-10">Torna
+                            class="text-primary bg-secondary hover:bg-b_hover focus:ring-4 focus:outline-none focus:ring-secondary rounded-lg border border-primary_hover text-sm font-medium px-5 py-2.5 focus:z-10">Torna
                             indietro</button>
                     </div>
                 </div>
