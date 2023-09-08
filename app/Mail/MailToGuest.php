@@ -2,27 +2,29 @@
 
 namespace App\Mail;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class MailToGuest extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $lead;
+    
+    public $order;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($_lead)
+    public function __construct(Order $order)
     {
-        $this->lead = $_lead;
+        $this->order = $order;
     }
 
     /**
@@ -33,7 +35,7 @@ class MailToGuest extends Mailable
     public function envelope()
     {
         return new Envelope(
-            replyTo: $this->lead->email, 
+            replyTo: $this->order->email, 
             subject: 'Il tuo ordine è stato ricevuto e sta per arrivare da te!',
         );
     }
