@@ -32,7 +32,7 @@
                                         <th class="p-2 whitespace-nowrap lg:table-cell hidden">
                                             <span class="font-bold text-left">Email</span>
                                         </th>
-                                        <th class="p-2 whitespace-nowrap lg:table-cell md:table-cell hidden">
+                                        <th class="p-2 whitespace-nowrap lg:table-cell md:table-cell sm:table-cell hidden">
                                             <span class="font-bold text-center">Totale Ordine</span>
                                         </th>
                                         <th class="p-2 whitespace-nowrap lg:table-cell md:table-cell hidden">
@@ -61,7 +61,7 @@
                                                 <div class="text-center">{{ $order->email }}
                                                 </div>
                                             </td>
-                                            <td class="p-2 whitespace-nowrap lg:table-cell md:table-cell hidden">
+                                            <td class="p-2 whitespace-nowrap lg:table-cell md:table-cell hidden sm:table-cell">
                                                 <div class="text-center">
                                                     {{ $order->total_price }}€
                                                 </div>
