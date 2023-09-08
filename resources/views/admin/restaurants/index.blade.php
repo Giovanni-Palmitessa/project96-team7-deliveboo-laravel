@@ -1,19 +1,19 @@
 @extends('admin.layouts.base')
 @section('contents')
-    <div class="container mx-auto max-w-screen-xl px-2">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <div class="container mx-auto max-w-screen-xl px-2 mt-[120px]">
+        <table class="w-full text-sm text-left text-black dark:text-gray-400">
             <thead class="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         Nome
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 hidden sm:table-cell">
                         Città
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 hidden md:table-cell">
                         Indirizzo
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 hidden sm:table-cell">
                         Prezzo medio
                     </th>
                     <th scope="col" class="px-6 py-3">
@@ -24,16 +24,16 @@
             <tbody>
                 @if ($restaurant)
                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                             {{ $restaurant->name }}
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 hidden sm:table-cell">
                             {{ $restaurant->city }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 hidden md:table-cell">
                             {{ $restaurant->address }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 hidden sm:table-cell">
                             {{ $restaurant->priceRange }}
                         </td>
                         <td class="px-6 py-4 flex gap-1">
