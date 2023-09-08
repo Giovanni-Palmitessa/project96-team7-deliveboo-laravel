@@ -11,7 +11,7 @@
 <body>
     <div class="container mx-auto">
         @include('admin.partials.header')
-        <main class="mt-32">
+        <main class="mt-[88px]">
             @yield('contents')
         </main>
     </div>
