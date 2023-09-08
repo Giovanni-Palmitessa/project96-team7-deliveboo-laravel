@@ -9,16 +9,15 @@
                 </div>
             @else
                 <div class="flex flex-col justify-center h-full">
-                    <div>{{ count($orders) }}</div>
                     <!-- Table -->
                     <header class="px-5 py-4 border-b border-gray-100">
-                        <h2 class="font-bold text-center text-gray-800">Riepilogo ordini
+                        <h2 class="font-bold text-center text-b_hover">Riepilogo ordini
                             ricevuti</h2>
                     </header>
                     <div class="p-3">
                         <div class="overflow-x-auto">
                             <table class="min-w-full table-auto">
-                                <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                                <thead class="text-xs font-semibold uppercase text-secondary bg-primary">
                                     <tr>
                                         <th class="p-2 whitespace-nowrap">
                                             <span class="font-bold text-left">Id Ordine</span>

@@ -7,7 +7,7 @@
 
         
         <div class="p-5">
-            <h5 class="my-5 text-3xl font-bold tracking-tight text-primary text-center">{{$product->name}}</h5>
+            <h5 class="my-5 text-3xl font-bold tracking-tight text-secondary text-center">{{$product->name}}</h5>
 
             <p class="my-5 font-normal text-gray-700"><span class="text-xl font-bold text-secondary">Info: </span>{{$product->description}}</p>
 
@@ -16,10 +16,10 @@
             <p class="my-5 font-bold text-gray-700 text-xl"><span class="text-xl font-bold text-secondary">Prezzo: </span>{{$product->price}} € </p>
 
             <div class="mx-auto flex justify-center gap-5">
-                <button class="rounded-lg bg-yellow-300 hover:bg-yellow-500 font-medium text-sm text-center text-white">
+                <button class="rounded-lg bg-primary hover:bg-primary_hover font-medium text-sm text-center text-white hidden sm:block shadow-md">
                     <a href="{{ route('admin.products.edit', ['product' => $product]) }}" class="px-8 py-2.5">Modifica</a>
                 </button>
-                <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" type="button">
+                <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-1 text-center shadow-md" type="button">
                 Elimina
                 </button>
             </div>
