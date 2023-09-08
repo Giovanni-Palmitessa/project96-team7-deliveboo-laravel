@@ -1,6 +1,6 @@
 @extends('admin.layouts.base')
 @section('contents')
-    <h1 class="text-center text-3xl mb-2 text-secondary">PRODOTTI</h1>
+    <h1 class="text-center text-3xl mb-2 text-secondary mt-[120px]">PRODOTTI</h1>
 
     @if (session('delete_success'))
         @php
@@ -20,9 +20,9 @@
                     {{-- <th scope="col">ID</th> --}}
                     <th scope="col" class="px-6 py-3">Nome</th>
                     {{-- <th scope="col">Slug</th> --}}
-                    <th scope="col" class="px-6 py-3">Ingredienti</th>
-                    <th scope="col" class="px-6 py-3">Prezzo</th>
-                    <th scope="col" class="px-6 py-3">Disponibilità</th>
+                    <th scope="col" class="px-6 py-3 hidden md:table-cell">Ingredienti</th>
+                    <th scope="col" class="px-6 py-3 hidden sm:table-cell">Prezzo</th>
+                    <th scope="col" class="px-6 py-3 hidden lg:table-cell">Disponibilità</th>
                     {{-- <th scope="col">Descrizione</th> --}}
                     {{-- <th scope="col">Immagine</th> --}}
                     <th scope="col" class="px-6 py-3">Azioni</th>
@@ -34,9 +34,9 @@
                         {{-- <td scope="row">{{ $product->id }}</td> --}}
                         <td scope="row" class="px-6 py-4">{{ $product->name }}</td>
                         {{-- <td scope="row">{{ $product->slug }}</td> --}}
-                        <td scope="row" class="px-6 py-4 max-w-lg">{{ $product->ingredients }}</td>
-                        <td scope="row" class="px-6 py-4 text-center">{{ $product->price }}</td>
-                        <td scope="row" class="px-6 py-4 max-w-lg">
+                        <td scope="row" class="px-6 py-4 max-w-lg hidden md:table-cell">{{ $product->ingredients }}</td>
+                        <td scope="row" class="px-6 py-4 text-center hidden sm:table-cell">{{ $product->price }}</td>
+                        <td scope="row" class="px-6 py-4 max-w-lg hidden lg:table-cell">
                             <form action="{{ route('admin.products.toggleProductVisibility', $product->id) }}"
                                 method="post">
                                 @csrf
@@ -51,17 +51,17 @@
                         </td> --}}
                         <td class="px-6 py-4 flex gap-1">
                             <button
-                                class="rounded-lg bg-blue-500 hover:bg-blue-700 font-medium text-sm text-center text-white">
+                                class="rounded-lg bg-blue-500 hover:bg-blue-700 font-medium text-sm text-center text-white block">
                                 <a href="{{ route('admin.products.show', ['product' => $product]) }}"
                                     class="px-5 py-2.5">Vista</a>
                             </button>
                             <button
-                                class="rounded-lg bg-yellow-300 hover:bg-yellow-500 font-medium text-sm text-center text-white">
+                                class="rounded-lg bg-yellow-300 hover:bg-yellow-500 font-medium text-sm text-center text-white hidden sm:block">
                                 <a href="{{ route('admin.products.edit', ['product' => $product]) }}"
                                     class="px-5 py-2.5">Modifica</a>
                             </button>
                             <button data-modal-target="defaultModal" data-modal-toggle="defaultModal"
-                                class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+                                class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 block"
                                 type="button">
                                 Elimina
                             </button>
