@@ -13,7 +13,11 @@
         <li>Messaggio per il ristoratore: {{$order->message}}</li>
     </ul>
 
-    <p>Totale ordine: {{$order->total_price}} €</p>
+    <p>Totale ordine: {{$order->total_price}} € effettuato il {{$order->payment_date}}.</p>
+
+    <p>Grazie per aver acquistato da noi &#x1F60D</p>
+
+    <p><a href="http://localhost:5173/">Deliveboo</a>Gusta i Sapori del Mondo Comodamente a Casa Tua!</p>
 
 </div>
 
