@@ -56,16 +56,16 @@
                             class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
                             aria-current="page">Prodotti</a>
                     </li>
+                    <li>
+                        <a href="{{ route('admin.orders.index') }}"
+                            class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
+                            aria-current="page">Ordini</a>
+                    </li>
                 @endif
                 <li>
                     <a href="{{ route('admin.restaurants.index') }}"
                         class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
                         aria-current="page">Ristorante</a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.orders.index') }}"
-                        class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
-                        aria-current="page">Ordini</a>
                 </li>
             </ul>
         </div>
