@@ -1,15 +1,17 @@
 <h1 style="text-align:center; font-family:sans-serif;font-size:2rem;padding-top:2rem;">Nuovo Ordine Ricevuto</h1>
 
 <div style="font-family:sans-serif;">
-    <h2 style="font-size:2rem;padding-bottom:2rem;">Dati Utente</h2>
+    <h2 style="font-size:2rem;padding-bottom:1rem;">Dati Utente</h2>
 
     <ul>
-        <li>Nome Cliente: {{$lead->name}}</li>
+        <li>Nome Cliente: {{$order->name}}</li>
         
-        <li>Cognome Cliente: {{$lead->surname}}</li>
+        <li>Cognome Cliente: {{$order->surname}}</li>
         
-        <li>Email Cliente: {{$lead->email}}</li>
+        <li>Email Cliente: {{$order->email}}</li>
+
+        <li>Messaggio Cliente: {{$order->message}}</li>
     </ul>
 
-    <h2>Messaggio Cliente: {{$lead->message}}</h2>
+    <h3>Totale Ordine: {{$order->total_price}} €, effettuato il: {{$order->payment_date}}</h3>
 </div>
