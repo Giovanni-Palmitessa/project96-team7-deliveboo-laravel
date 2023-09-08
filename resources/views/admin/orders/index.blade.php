@@ -9,6 +9,7 @@
                 </div>
             @else
                 <div class="flex flex-col justify-center h-full">
+                    <div>{{ count($orders) }}</div>
                     <!-- Table -->
                     <header class="px-5 py-4 border-b border-gray-100">
                         <h2 class="font-bold text-center md:text-left lg:text-left text-gray-800">Riepilogo ordini
