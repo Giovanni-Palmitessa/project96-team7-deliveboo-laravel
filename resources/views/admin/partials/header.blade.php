@@ -63,11 +63,6 @@
                         aria-current="page">Ristorante</a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.orders.index') }}"
-                        class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
-                        aria-current="page">Ordini</a>
-                </li>
-                <li>
                     <div>
                         <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover"
                             type="button" class="hover:text-secondary text-gray-900 font-semibold">Profilo</button>
