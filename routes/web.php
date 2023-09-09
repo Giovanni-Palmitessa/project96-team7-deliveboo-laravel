@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RestaurantController;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
-Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard', [PageController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
