@@ -42,9 +42,9 @@
 
         <div class="flex items-center justify-between mt-4 gap-2">
 
-            <x-primary-button class="bg-secondary">
-            <a href="{{ route('register') }}">REGISTRATI</a>
-            </x-primary-button>
+            <a href="{{ route('register') }}" class="bg-secondary inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest   active:bg-b_hover focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition ease-in-out duration-150">
+            REGISTRATI
+            </a>
 
             @if (Route::has('password.request'))
                 <a class="underline text-sm text-secondary hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
