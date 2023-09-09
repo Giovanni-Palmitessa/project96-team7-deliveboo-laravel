@@ -4,32 +4,32 @@
 
         <!-- Name -->
         <div>
-            <label for="reg_name" :value="__('Name')">Nome</label>
-            <input id="reg_name" class="block mt-1 w-full rounded-lg" type="text" name="name" :value="old('name')" autofocus autocomplete="name">
+            <label class="text-secondary" for="reg_name" :value="__('Name')">Nome</label>
+            <input id="reg_name" class="block mt-1 w-full rounded-lg bg-gray-50 border border-primary focus:ring-secondary focus:border-secondary" type="text" name="name" :value="old('name')" autofocus autocomplete="name">
         </div>
         <div class="mb-2 error text-sm" id="NameError"></div>
 
 
         <!-- Email Address -->
         <div class="mt-4">
-            <label for="reg_email" :value="__('Email')">Email</label>
-            <input id="reg_email" class="block mt-1 w-full rounded-lg" type="text" name="email" :value="old('email')" autofocus autocomplete="username">
+            <label class="text-secondary" for="reg_email" :value="__('Email')">Email</label>
+            <input id="reg_email" class="block mt-1 w-full rounded-lg bg-gray-50 border border-primary focus:ring-secondary focus:border-secondary" type="text" name="email" :value="old('email')" autofocus autocomplete="username">
         </div>
         <div class="mb-2 error text-sm" id="EmailError"></div>
 
 
         <!-- Password -->
         <div class="mt-4">
-            <label for="reg_password" :value="__('Password')">Password</label>
-            <input id="reg_password" class="block mt-1 w-full rounded-lg" type="password" name="password" autocomplete="new-password">
+            <label class="text-secondary" for="reg_password" :value="__('Password')">Password</label>
+            <input id="reg_password" class="block mt-1 w-full rounded-lg bg-gray-50 border border-primary focus:ring-secondary focus:border-secondary" type="password" name="password" autocomplete="new-password">
         </div>
         <div class="mb-2 error text-sm" id="PasswordError"></div>
 
 
         <!-- Confirm Password -->
         <div class="mt-4">
-            <label for="reg_password_confirmation" :value="__('Confirm Password')">Conferma Password</label>
-            <input id="reg_password_confirmation" class="block mt-1 w-full rounded-lg" type="password" name="password_confirmation" autocomplete="new-password">
+            <label class="text-secondary" for="reg_password_confirmation" :value="__('Confirm Password')">Conferma Password</label>
+            <input id="reg_password_confirmation" class="block mt-1 w-full rounded-lg bg-gray-50 border border-primary focus:ring-secondary focus:border-secondary" type="password" name="password_confirmation" autocomplete="new-password">
         </div>
         <div class="mb-2 error text-sm" id="PasswordConfirmationError"></div>
 
