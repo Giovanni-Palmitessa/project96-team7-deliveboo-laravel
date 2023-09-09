@@ -4,7 +4,6 @@
         <div class="min-h-screen bg-gray-100 p-6 flex flex-col items-center">
             <!-- Header del ristorante -->
             <div class="text-center mb-10">
-                {{-- <img src="{{ asset('storage/' . $restaurant->url_image) }}" alt="{{ $restaurant->name }}"> --}}
                 <h1 class="text-4xl font-bold text-secondary mb-4">{{ $restaurant->name }}</h1>
                 <div class="bg-white rounded-lg shadow-lg p-4 md:p-6 w-full md:w-3/4 mb-6 mx-auto">
                     <p class="text-gray-600">{{ $restaurant->description }}</p>
@@ -113,23 +112,6 @@
                             </div>
                         </div>
             </div>
-            {{-- <div class="text-center font-bold text-lg mb-2">Prodotti Ordinati</div>
-            <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                @foreach ($order->products as $product)
-                    <li class="font-semibold">{{ $product->name }}</li>
-                    <li>Prezzo: €{{ $product->price }}</li>
-                    <li>Quantità Ordinata: {{ $product->pivot->product_quantity }}</li>
-                @endforeach
-            </ul> --}}
-            {{-- <li>
-        <a href="{{ route('admin.restaurants.index') }}"
-            class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
-            aria-current="page">Ristorante</a>
-    </li> --}}
-            {{-- <div class="w-full md:w-1/5 text-center md:text-left p-1">
-    <span class="font-semibold">Messaggio:</span> {{ $order->message }}
-</div> --}}
-
         </div>
     @endif
 @else
