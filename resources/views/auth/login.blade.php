@@ -21,12 +21,15 @@
 
 
         <!-- Remember Me -->
-        <div class="block mt-4">
+        <div class="flex justify-between mt-4">
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox"
                     class="rounded border-gray-300 text-secondary shadow-sm focus:ring-secondary" name="remember">
                 <span class="text-sm text-gray-600 pl-2">{{ __('Ricordami') }}</span>
             </label>
+            <a href="http://localhost:5175/"
+            class="block text-sm underline py-2 pl-3 pr-4 text-secondary hover:text-gray-900 md:p-0 rounded md:bg-transparent"
+            aria-current="page">Torna alla sezione ospite</a>
         </div>
 
         <div class="flex items-center justify-between mt-4 gap-2">
