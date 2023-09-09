@@ -133,10 +133,12 @@
         </div>
     @endif
 @else
-    <div class="text-center mb-10">
-        <h1 class="text-4xl font-bold text-gray-800 mb-4">Nessun ristorante trovato</h1>
-        <a href="{{ route('admin.restaurants.create') }}" class="bg-blue-500 text-white px-6 py-2 rounded-full">Crea
-            Ristorante</a>
-    </div>
+        <div class="p-2 lg:p-0">
+            <div class="text-center mt-40 mb-10 p-12 bg-primary max-w-4xl mx-auto rounded-md">
+                <h1 class="text-4xl font-bold text-secondary mb-8 drop-shadow-md">Nessun ristorante trovato</h1>
+                <a href="{{ route('admin.restaurants.create') }}" class="bg-secondary hover:bg-b_hover text-primary px-6 py-2 rounded-md shadow-md">Crea
+                    Ristorante</a>
+            </div>
+        </div>
     @endif
 @endsection
