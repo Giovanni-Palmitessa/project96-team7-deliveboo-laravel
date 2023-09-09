@@ -57,10 +57,10 @@
         <div class="mb-2 error text-sm" id="url_imageError"></div>
         
 
-        <button class="rounded-lg bg-secondary hover:bg-b_hover font-medium text-sm px-5 py-2.5 mt-4 text-center text-primary">Salva</button>
+        <button class="rounded-lg bg-secondary hover:bg-b_hover font-medium text-sm px-5 py-2.5 mt-4 text-center text-white shadow-md">Salva</button>
     </form>
-    <div class="flex items-center justify-center">
-        <i class="fa-solid fa-pizza-slice text-9xl md:text-[10rem] lg:text-[17rem] text-b_hover"></i>
+    <div class="flex lg:items-center justify-center lg:mt-0">
+        <img class="h-52" src="{{ Vite::asset('public/img/favicon.png') }}" alt="favicon">
     </div>
 </div>
 @endsection
