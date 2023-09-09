@@ -10,10 +10,14 @@
                     <p class="text-gray-600">{{ $restaurant->description }}</p>
                     <p class="mt-4">{{ $restaurant->city }}, {{ $restaurant->address }}</p>
                     <p class="text-gray-500">Prezzo medio: {{ $restaurant->priceRange }}</p>
-                    <div class="mt-4 flex justify-center items-center space-x-2">
-                        <p class="text-yellow-500 font-bold text-xl">Voto medio: {{ $restaurant->rating_value }}</p>
-                        <p class="text-gray-500">({{ $restaurant->review_count }} recensioni)</p>
-                    </div>
+
+                    @if (isset($restaurant->rating_value) && isset($restaurant->review_count))
+                        <div class="mt-4 flex justify-center items-center space-x-2">
+                            <p class="text-yellow-500 font-bold text-xl">Voto medio: {{ $restaurant->rating_value }}</p>
+                            <p class="text-gray-500">({{ $restaurant->review_count }} recensioni)</p>
+                        </div>
+                    @endif
+
                 </div>
             </div>
 
@@ -30,7 +34,7 @@
                         <div class="flex flex-col justify-center h-full">
                             <!-- Table -->
                             <header class="px-5 py-4 border-b border-gray-100">
-                                <h2 class="font-bold text-center md:text-left lg:text-left text-b_hover">Riepilogo ordini
+                                <h2 class="font-bold text-center md:text-left lg:text-left text-b_hover">Ultimi ordini
                                     ricevuti
                                 </h2>
 

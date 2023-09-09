@@ -16,7 +16,7 @@
             {{ \Carbon\Carbon::parse($order->payment_date)->format('H:i') }}
         </p>
 
-        <h2 class="font-bold text-secondary text-3xl text-center mx-auto uppercase mb-3">Prodotti Ordinati:</h2>
+        <h2 class="font-bold mt-10 text-secondary text-3xl text-center mx-auto uppercase mb-3">Prodotti Ordinati:</h2>
         <div class="relative overflow-x-auto">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-secondary uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
@@ -25,7 +25,7 @@
                             Nome
                         </th>
                         <th scope="col" class="px-4 py-3">
-                            Prezzo Unitario    
+                            Prezzo Unitario
                         </th>
                         <th scope="col" class="px-4 py-3 rounded-r-lg">
                             Quantità
@@ -34,17 +34,17 @@
                 </thead>
                 <tbody>
                     @foreach ($order->products as $product)
-                    <tr class="bg-white dark:bg-gray-800">
-                        <th scope="row" class="px-4 py-4 font-medium">
-                            {{ $product->name }}
-                        </th>
-                        <td class="px-4 py-4">
-                            {{ $product->price }} €
-                        </td>
-                        <td class="px-4 py-4">
-                            {{ $product->pivot->product_quantity }}
-                        </td>
-                    </tr>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row" class="px-4 py-4 font-medium">
+                                {{ $product->name }}
+                            </th>
+                            <td class="px-4 py-4">
+                                {{ $product->price }} €
+                            </td>
+                            <td class="px-4 py-4">
+                                {{ $product->pivot->product_quantity }}
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
