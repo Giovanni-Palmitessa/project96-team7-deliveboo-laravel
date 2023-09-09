@@ -5,7 +5,7 @@
             <!-- Header del ristorante -->
             <div class="text-center mb-10">
                 {{-- <img src="{{ asset('storage/' . $restaurant->url_image) }}" alt="{{ $restaurant->name }}"> --}}
-                <h1 class="text-4xl font-bold text-gray-800 mb-4">{{ $restaurant->name }}</h1>
+                <h1 class="text-4xl font-bold text-secondary mb-4">{{ $restaurant->name }}</h1>
                 <div class="bg-white rounded-lg shadow-lg p-4 md:p-6 w-full md:w-3/4 mb-6 mx-auto">
                     <p class="text-gray-600">{{ $restaurant->description }}</p>
                     <p class="mt-4">{{ $restaurant->city }}, {{ $restaurant->address }}</p>
@@ -20,17 +20,17 @@
 
             <!-- Ordini -->
             <div class="bg-white rounded-lg shadow-lg p-4 md:p-6 w-full md:w-3/4 mb-6">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Ordini</h2>
+                <h2 class="text-2xl font-bold text-secondary mb-4 text-center">Ordini</h2>
                 <ul>
                     @if (count($orders) === 0)
                         <div class="text-center mb-10">
-                            <h1 class="text-4xl font-bold text-gray-800 mb-4">Nessun ordine ricevuto</h1>
+                            <h1 class="text-4xl font-bold text-secondary mb-4">Nessun ordine ricevuto</h1>
                         </div>
                     @else
                         <div class="flex flex-col justify-center h-full">
                             <!-- Table -->
                             <header class="px-5 py-4 border-b border-gray-100">
-                                <h2 class="font-bold text-center md:text-left lg:text-left text-gray-800">Riepilogo ordini
+                                <h2 class="font-bold text-center md:text-left lg:text-left text-b_hover">Riepilogo ordini
                                     ricevuti
                                 </h2>
 
@@ -38,7 +38,7 @@
                             <div class="p-3">
                                 <div class="overflow-x-auto">
                                     <table class="min-w-full table-auto">
-                                        <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                                        <thead class="text-xs font-semibold uppercase text-secondary bg-primary">
                                             <tr>
                                                 <th class="p-2 whitespace-nowrap">
                                                     <span class="font-bold text-left">Id Ordine</span>
