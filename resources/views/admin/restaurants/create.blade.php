@@ -2,7 +2,7 @@
 
 @section('contents')
 
-<h1 class="text-4xl font-bold text-secondary text-center mt-28 mb-8">Registra il tuo ristorante</h1>
+<h1 class="text-4xl font-bold text-secondary text-center mt-28 mb-8 uppercase">Registra il tuo ristorante</h1>
 <div class="container grid grid-cols-1 grid-rows-2 lg:grid-cols-3 lg:grid-rows-1 mx-auto max-w-screen-xl px-2 mb-5">
 
   <form method="POST" 

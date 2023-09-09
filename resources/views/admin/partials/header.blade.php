@@ -55,13 +55,14 @@
                             class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
                             aria-current="page">Ordini</a>
                     </li>
+                    <li>
+                        <a href="{{ route('admin.restaurants.show', ['restaurant' => $restaurant]) }}"
+                            class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
+                            aria-current="page">Ristorante
+                        </a>
+                    </li>
                 @endif
 
-                <li>
-                    <a href="{{ route('admin.restaurants.show', ['restaurant' => $restaurant]) }}"
-                        class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
-                        aria-current="page">Ristorante</a>
-                </li>
                 <li>
                     <div>
                         <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover"
