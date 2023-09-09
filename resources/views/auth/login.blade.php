@@ -7,26 +7,15 @@
 
         <!-- Email Address -->
         <div>
-            <label for="log_email" :value="__('Email')">Email</label>
-            <input id="log_email" class="block mt-1 w-full rounded-md" type="text" name="email" :value="old('email')" autofocus>
-
-            {{-- <x-input-label for="log_email" :value="__('Email')" />
-            <x-text-input id="log_email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
-                autofocus autocomplete="username" /> --}}
-            {{-- <x-input-error :messages="$errors->get('email')" class="mt-2 text-red-500" /> --}}
+            <label class="text-secondary" for="log_email" :value="__('Email')">Email</label>
+            <input id="log_email" class="bg-gray-50 border border-primary focus:ring-secondary focus:border-secondary block mt-1 w-full rounded-md" type="text" name="email" :value="old('email')" autofocus>
         </div>
         <div class="mb-2 error text-sm" id="EmailError"></div>
 
         <!-- Password -->
         <div class="mt-4">
-            <label for="log_password" :value="__('Password')">Password</label>
-            <input id="log_password" class="block mt-1 w-full rounded-md" type="password" name="password" autocomplete="current-password">
-            {{-- <x-input-label for="log_password" :value="__('Password')" />
-
-            <x-text-input id="log_password" class="block mt-1 w-full" type="password" name="password" required
-                autocomplete="current-password" /> --}}
-
-            {{-- <x-input-error :messages="$errors->get('password')" class="mt-2" /> --}}
+            <label class="text-secondary" for="log_password" :value="__('Password')">Password</label>
+            <input id="log_password" class="bg-gray-50 border border-primary focus:ring-secondary focus:border-secondary  block mt-1 w-full rounded-md" type="password" name="password" autocomplete="current-password">
         </div>
         <div class="mb-2 text-red-500 error text-sm" id="PasswordError"></div>
 
@@ -35,7 +24,7 @@
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox"
-                    class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+                    class="rounded border-gray-300 text-secondary shadow-sm focus:ring-secondary" name="remember">
                 <span class="text-sm text-gray-600 pl-2">{{ __('Ricordami') }}</span>
             </label>
         </div>
