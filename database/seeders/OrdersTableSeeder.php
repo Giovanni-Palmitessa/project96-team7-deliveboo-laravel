@@ -15,31 +15,10 @@ class OrdersTableSeeder extends Seeder
      *
      * @return void
      */
-    // public function run(Faker $faker)
-    // {
-
-    //     for ($i = 0; $i < 50; $i++) {
-    //         $orders = Order::create([
-    //             'total_price' => $faker->numberBetween(10, 150),
-    //             'name' => $faker->firstName(),
-    //             'surname' => $faker->lastName(),
-    //             'email' => $faker->email(),
-    //             'message' => $faker->text(200),
-    //             'payment_date' => $faker->dateTime(),
-    //             'restaurant_id' => $faker->numberBetween(1, 8),
-    //         ]);
-
-    //         $order_product = OrderProduct::create([
-    //             'order_id' => $orders->id,
-    //             'product_id' => $faker->numberBetween(1, 30), // Assicurati che questi IDs siano validi.
-    //             'product_quantity' => $faker->numberBetween(1, 10),
-    //         ]);
-    //     };
-    // }
     public function run(Faker $faker)
     {
         $numOfRestaurants = 8;
-        $ordersPerRestaurant = 30;
+        $ordersPerRestaurant = 200;
         $productsPerOrder = 3;
 
         for ($i = 1; $i <= $numOfRestaurants; $i++) {
@@ -50,7 +29,7 @@ class OrdersTableSeeder extends Seeder
                     'surname' => $faker->lastName(),
                     'email' => $faker->email(),
                     'message' => $faker->text(),
-                    'payment_date' => $faker->dateTimeInInterval('-2 week', '+14 days'),
+                    'payment_date' => $faker->dateTimeInInterval('-1 year', '+14 days'),
                     'restaurant_id' => $i,
                 ]);
 
