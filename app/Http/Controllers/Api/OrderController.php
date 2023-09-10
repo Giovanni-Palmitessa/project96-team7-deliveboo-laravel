@@ -56,7 +56,7 @@ class OrderController extends Controller
                 'surname'           => $data['surname'],
                 'email'             => $data['email'],
                 'message'           => $data['message'],
-                'payment_date'      => now(),
+                'payment_date'      => now()->addHours(2),
             ]);
 
             foreach ($cart as $item) {
@@ -67,14 +67,14 @@ class OrderController extends Controller
                 ]);
             }
 
-            if($order && $orderProduct) {
+            if ($order && $orderProduct) {
                 Guest::create([
                     'name' => $data['name'],
                     'surname' => $data['surname'],
                     'email' => $data['email'],
                     'message' => $data['message'],
                 ]);
-                
+
                 // Mail::to($order->email)->send(new MailToGuest($order));
 
                 // Mail::to(env('ADMIN_ADDRESS', 'admin@deliveboo.com'))->send(new MailToAdmin($order));
@@ -101,5 +101,3 @@ class OrderController extends Controller
         return response()->json($data, 200);
     }
 }
-
-
