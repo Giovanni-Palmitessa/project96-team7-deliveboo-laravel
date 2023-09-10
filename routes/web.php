@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RestaurantController;
+use App\Http\Controllers\Admin\StatisticsController;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/dashboard', [PageController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
@@ -19,6 +20,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource('categories', CategoryController::class);
         Route::resource('orders', OrderController::class);
         Route::post('/dashboard/products/toggle-visibility/{product_id}', [ProductController::class, 'toggleProductVisibility'])->name('products.toggleProductVisibility');
+        Route::get('orders/statistics', [StatisticsController::class, 'index'])->name('orders.statistics');
     });
 
 
