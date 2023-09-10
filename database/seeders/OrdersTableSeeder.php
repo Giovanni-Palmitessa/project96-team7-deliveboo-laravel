@@ -29,7 +29,7 @@ class OrdersTableSeeder extends Seeder
                     'surname' => $faker->lastName(),
                     'email' => $faker->email(),
                     'message' => $faker->text(),
-                    'payment_date' => $faker->dateTimeInInterval('-1 year', '+14 days'),
+                    'payment_date' => $faker->dateTimeInInterval('-1 year', '+1 year'),
                     'restaurant_id' => $i,
                 ]);
 
