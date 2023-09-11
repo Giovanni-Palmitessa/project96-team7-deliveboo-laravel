@@ -33,8 +33,8 @@
                         {{-- <td scope="row">{{ $product->id }}</td> --}}
                         <td scope="row" class="px-6 py-4">{{ $product->name }}</td>
                         {{-- <td scope="row">{{ $product->slug }}</td> --}}
-                        <td scope="row" class="px-6 py-4 text-center hidden sm:table-cell">{{ $product->price }}</td>
-                        <td scope="row" class="px-6 py-4 max-w-lg">
+                        <td scope="row" class="px-2 py-4 hidden sm:table-cell">{{ $product->price }} €</td>
+                        <td scope="row" class="px-2 py-4 max-w-lg">
                             <form action="{{ route('admin.products.toggleProductVisibility', $product->id) }}"
                                 method="post">
                                 @csrf
