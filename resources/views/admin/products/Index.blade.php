@@ -94,7 +94,7 @@
                     <!-- Modal body -->
                     <div class="p-6 space-y-6">
                         <p class="text-base leading-relaxed text-secondary">
-                            Cliccando su elimina il prodotto verrà eliminato per sempre. Sei sicuro di voler continuare?
+                            Cliccando su elimina il prodotto verrà eliminato definitivamente. Sei sicuro di voler continuare?
                         </p>
                     </div>
                     <!-- Modal footer -->
