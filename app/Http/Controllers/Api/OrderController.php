@@ -66,9 +66,9 @@ class OrderController extends Controller
                     'message' => $data['message'],
                 ]);
 
-                Mail::to($order->email)->send(new MailToGuest($order));
+                // Mail::to($order->email)->send(new MailToGuest($order));
 
-                Mail::to(env('ADMIN_ADDRESS', 'admin@deliveboo.com'))->send(new MailToAdmin($order));
+                // Mail::to(env('ADMIN_ADDRESS', 'admin@deliveboo.com'))->send(new MailToAdmin($order));
             }
 
 
