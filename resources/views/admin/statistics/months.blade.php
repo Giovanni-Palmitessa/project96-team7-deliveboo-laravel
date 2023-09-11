@@ -6,7 +6,7 @@
     <select class="bg-secondary rounded-md shadow-md text-primary" name="month" id="month" onchange="this.form.submit()">
         @for ($i = 1; $i <= 12; $i++)
             <option value="{{ $i }}" {{ $selectedMonth == $i ? 'selected' : '' }}>
-                {{ date('F', mktime(0, 0, 0, $i, 1)) }}
+                {{ $italianMonths[$i] }}
             </option>
         @endfor
     </select>
@@ -27,7 +27,7 @@ console.log(labels, data);
 const chartData = {
     labels: labels,
     datasets: [{
-        label: 'Total Orders',
+        label: 'Ordini del mese',
         data: data,
         backgroundColor: '#00A082',
         borderColor: '#00A082',

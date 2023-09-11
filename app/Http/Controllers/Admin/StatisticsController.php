@@ -13,6 +13,7 @@ class StatisticsController extends Controller
 {
     public function year(int $restaurantId) {
         $restaurant = Restaurant::findOrFail($restaurantId);
+        DB::statement("SET lc_time_names = 'it_IT'");
         $orders = Restaurant::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(orders.payment_date) as month_name"))
             ->where('restaurant_id', $restaurantId)
             ->leftJoin('orders', 'restaurants.id', '=', 'orders.restaurant_id')
@@ -34,6 +35,22 @@ class StatisticsController extends Controller
         $restaurant = Restaurant::findOrFail($restaurantId);
         $selectedMonth = $request->input('month');
         $year = date('Y'); // Ottieni l'anno corrente
+    
+        // Mappa i numeri dei mesi ai loro nomi in italiano
+        $italianMonths = [
+            1 => 'Gennaio',
+            2 => 'Febbraio',
+            3 => 'Marzo',
+            4 => 'Aprile',
+            5 => 'Maggio',
+            6 => 'Giugno',
+            7 => 'Luglio',
+            8 => 'Agosto',
+            9 => 'Settembre',
+            10 => 'Ottobre',
+            11 => 'Novembre',
+            12 => 'Dicembre',
+        ];
     
         $ordersQuery = DB::table('orders')
             ->select(DB::raw('DAY(payment_date) as day'), DB::raw('COUNT(*) as count'))
@@ -59,6 +76,9 @@ class StatisticsController extends Controller
             $data[] = $orders[$day] ?? 0;
         }
     
-        return view('admin.statistics.months', compact('restaurant', 'labels', 'data', 'selectedMonth'));
+        // Ottieni il nome del mese in italiano
+        $selectedMonthName = $italianMonths[$selectedMonth] ?? '';
+    
+        return view('admin.statistics.months', compact('restaurant', 'labels', 'data', 'selectedMonth', 'italianMonths'));
     }
 }

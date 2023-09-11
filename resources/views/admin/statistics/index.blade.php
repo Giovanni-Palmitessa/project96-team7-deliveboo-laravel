@@ -16,7 +16,7 @@
     const data = {
         labels: labels,
         datasets: [{
-            label: 'Orders in this year',
+            label: 'Ordini in quest\'anno',
             backgroundColor: '#00A082',
             borderColor: '#00A082',
             data: orders,
