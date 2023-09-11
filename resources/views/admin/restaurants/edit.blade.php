@@ -1,7 +1,7 @@
 @extends('admin.layouts.base')
 
 @section('contents')
-<h1 class="text-center text-3xl mb-2 text-secondary">MODIFICA IL TUO RISTORANTE</h1>
+<h1 class="text-center font-bold text-3xl mt-28 mb-2 text-secondary">MODIFICA IL TUO RISTORANTE</h1>
 
 <div class="container mx-auto max-w-screen-xl px-2 mb-5">
   <form method="POST" 
@@ -13,72 +13,72 @@
       @method('put')
 
       <div class="mb-6">
-        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
+        <label for="name" class="block mb-2 text-sm font-medium text-secondary">Nome</label>
         <input type="text" 
         name="name" 
         id="name-edit" 
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+        class="bg-gray-50 border border-primary text-gray-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5" 
         value="{{ old('name', $restaurant->name) }}"
         >
         <div class="mb-2 text-sm text-red-600" id="nameErrorEdit"></div>
       </div>
 
       <div class="mb-6">
-        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descrizione</label>
+        <label for="description" class="block mb-2 text-sm font-medium text-secondary">Descrizione</label>
         <input type="text" 
         name="description" 
         id="description-edit" 
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+        class="bg-gray-50 border border-primary text-gray-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5" 
         value="{{ old('description', $restaurant->description) }}"
         >
         <div class="mb-2 text-sm text-red-600" id="descriptionErrorEdit"></div>
       </div>
 
       <div class="mb-6">
-          <label for="city"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Città</label>
+          <label for="city"  class="block mb-2 text-sm font-medium text-secondary">Città</label>
           <input type="text" 
           name="city" 
           id="city-edit" 
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+          class="bg-gray-50 border border-primary text-gray-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5" 
           value="{{ old('city', $restaurant->city) }}"
           >
           <div class="mb-2 text-sm text-red-600" id="cityErrorEdit"></div>
         </div>
 
         <div class="mb-6">
-          <label for="address"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Indirizzo</label>
+          <label for="address"  class="block mb-2 text-sm font-medium text-secondary">Indirizzo</label>
           <input type="text" 
           name="address" 
           id="address-edit" 
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+          class="bg-gray-50 border border-primary text-gray-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5" 
           value="{{ old('address', $restaurant->address) }}"
           >
           <div class="mb-2 text-sm text-red-600" id="addressErrorEdit"></div>
         </div>
 
         <div class="mb-6">
-          <label for="vat"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">P. IVA</label>
+          <label for="vat"  class="block mb-2 text-sm font-medium text-secondary">P. IVA</label>
           <input type="text" 
           name="vat" 
           id="vat-edit" 
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+          class="bg-gray-50 border border-primary text-gray-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5" 
           value="{{ old('vat', $restaurant->vat) }}"
           >
           <div class="mb-2 text-sm text-red-600" id="vatErrorEdit"></div>
         </div>
 
         <div class="mb-6">
-          <label class="block mb-2 text-sm font-medium text-gray-900" for="url_image">Immagine</label>
+          <label class="block mb-2 text-sm font-medium text-secondary" for="url_image">Immagine</label>
           <input id="url_image-edit" type="file" name="url_image"  value="{{old('url_image')}}" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 " accept=".jpg, .jpeg, .png">
           <div class="mb-2 text-sm text-red-600" id="url_imageErrorEdit"></div>
         </div>
 
         <div class="mb-6">
-          <label for="priceRange" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prezzo medio</label>
+          <label for="priceRange" class="block mb-2 text-sm font-medium text-secondary">Prezzo medio</label>
           <input type="number" 
           name="priceRange" 
           id="priceRange-edit" 
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          class="bg-gray-50 border border-primary text-gray-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5"
           value="{{ old('priceRange', $restaurant->priceRange) }}"
           >
           <div class="mb-2 text-sm text-red-600" id="priceRangeErrorEdit"></div>
@@ -95,7 +95,7 @@
                       type="checkbox" 
                       value="{{$category->id}}"               
                       name="categories[]" 
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"  
+                      class="w-4 h-4 text-secondary bg-gray-100 border-gray-300 rounded focus:ring-secondary dark:focus:ring-b_hover"  
                       @if (in_array($category->id, old('categories', $restaurant->categories->pluck('id')->all())))
                           checked  
                       @endif
@@ -109,7 +109,7 @@
                   <div class="mb-2 text-sm text-red-600" id="categoryErrorEdit"></div>
         </div>
 
-      <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Salva</button>
+      <button type="submit" class="text-white bg-secondary hover:bg-b_hover focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center shadow-md">Salva</button>
   </form>
 </div>
 @endsection
