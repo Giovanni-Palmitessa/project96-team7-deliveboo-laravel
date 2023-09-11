@@ -1,8 +1,10 @@
 @extends('admin.layouts.base');
 @section('contents')
 
+<div class="p-2 md:p-0">
 <canvas id="myChart" height="100px"></canvas>
-    
+</div>
+
 @endsection
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
