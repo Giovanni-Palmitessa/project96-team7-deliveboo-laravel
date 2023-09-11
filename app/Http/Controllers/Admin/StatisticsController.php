@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Order;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
@@ -22,12 +23,16 @@ class StatisticsController extends Controller
         $labels = $orders->keys();
         $data = $orders->values();
 
-        return view('admin.statistics.index', compact('restaurant', 'labels', 'data'));
+        return view('admin.statistics.index', [
+            'restaurant' => $restaurant,
+            'labels'     => $labels,
+            'data'       => $data,
+        ]);
     }
 
     public function months(int $restaurantId, Request $request) {
         $restaurant = Restaurant::findOrFail($restaurantId);
-        $month = $request->input('month');
+        $selectedMonth = $request->input('month');
         $year = date('Y'); // Ottieni l'anno corrente
     
         $ordersQuery = DB::table('orders')
@@ -35,21 +40,25 @@ class StatisticsController extends Controller
             ->where('restaurant_id', $restaurantId)
             ->whereYear('payment_date', $year);
     
-        if ($month) {
-            $ordersQuery->whereMonth('payment_date', $month);
+        if ($selectedMonth) {
+            $ordersQuery->whereMonth('payment_date', $selectedMonth);
         }
     
         $orders = $ordersQuery->groupBy(DB::raw('DAY(payment_date)'))
             ->orderBy(DB::raw('DAY(payment_date)'))
             ->pluck('count', 'day');
     
-        $labels = $orders->keys();
-        $data = $orders->values();
-
-        dd($labels, $data);
+        // Crea un array di etichette con i giorni del mese selezionato
+        $labels = [];
+        $data = [];
     
-        return view('admin.statistics.months', compact('restaurant', 'labels', 'data'));
+        $lastDayOfMonth = Carbon::createFromDate($year, $selectedMonth, 1)->endOfMonth()->day;
+    
+        for ($day = 1; $day <= $lastDayOfMonth; $day++) {
+            $labels[] = $day;
+            $data[] = $orders[$day] ?? 0;
+        }
+    
+        return view('admin.statistics.months', compact('restaurant', 'labels', 'data', 'selectedMonth'));
     }
-    
-
 }

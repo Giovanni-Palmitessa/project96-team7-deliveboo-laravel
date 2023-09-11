@@ -20,7 +20,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource('categories', CategoryController::class);
         Route::resource('orders', OrderController::class);
         Route::post('/dashboard/products/toggle-visibility/{product_id}', [ProductController::class, 'toggleProductVisibility'])->name('products.toggleProductVisibility');
-        Route::get('restaurant/{id}/statistics', [StatisticsController::class, 'year'])->name('restaurant.statistics');
+        Route::get('restaurant/{id}/statistics', [StatisticsController::class, 'year'])->name('restaurant.statistics.year');
         Route::get('restaurant/{id}/statistics/months', [StatisticsController::class, 'months'])->name('restaurant.statistics.months');
     });
 

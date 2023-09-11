@@ -1,17 +1,6 @@
-@extends('admin.layouts.base')
-
+@extends('admin.layouts.base');
 @section('contents')
 
-
-{{-- <form action="{{ route('admin.restaurant.statistics', ['id' => $restaurant->id]) }}" method="GET">
-    <label for="month">Seleziona un mese:</label>
-    <select name="month" id="month" onchange="this.form.submit()">
-        <option selected value="">Seleziona un mese:</option>
-        @foreach ($labels as $index => $nomeMese)
-            <option value="{{ $index + 1 }}">{{ $nomeMese }}</option>
-        @endforeach
-    </select>
-</form> --}}
 <canvas id="myChart" height="100px"></canvas>
     
 @endsection
@@ -28,8 +17,8 @@
         labels: labels,
         datasets: [{
             label: 'Orders in this year',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: '#00A082',
+            borderColor: '#00A082',
             data: orders,
         }]
     };

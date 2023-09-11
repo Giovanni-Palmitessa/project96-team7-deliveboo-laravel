@@ -1,14 +1,15 @@
 @extends('admin.layouts.base')
 @section('contents')
 
-<form action="{{ route('admin.restaurant.statistics.months', ['id' => $restaurant->id]) }}" method="GET">
-<label for="month">Seleziona un mese:</label>
-<select name="month" id="month" onchange="this.form.submit()">
-    <option selected value="">Seleziona un mese:</option>
-    @foreach ($labels as $index => $nomeMese)
-        <option value="{{ $index + 1 }}">{{ $nomeMese }}</option>
-    @endforeach
-</select>
+<form class="mt-28" action="{{ route('admin.restaurant.statistics.months', ['id' => $restaurant->id]) }}" method="GET">
+    <label class="text-semibold text-secondary" for="month">Seleziona un mese:</label>
+    <select class="bg-secondary rounded-md shadow-md text-primary" name="month" id="month" onchange="this.form.submit()">
+        @for ($i = 1; $i <= 12; $i++)
+            <option value="{{ $i }}" {{ $selectedMonth == $i ? 'selected' : '' }}>
+                {{ date('F', mktime(0, 0, 0, $i, 1)) }}
+            </option>
+        @endfor
+    </select>
 </form>
 
 <canvas id="chartMonths" height="100px"></canvas>
@@ -28,8 +29,8 @@ const chartData = {
     datasets: [{
         label: 'Total Orders',
         data: data,
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: '#00A082',
+        borderColor: '#00A082',
         borderWidth: 1,
     }],
 };
@@ -47,14 +48,11 @@ const config = {
     },
 };
 
-
-    // Wait for the DOM to be fully loaded
-    document.addEventListener("DOMContentLoaded", function() {
-        const myChart = new Chart(
-            document.getElementById('chartMonths'),
-            config
-        );
-    });
-    
+document.addEventListener("DOMContentLoaded", function() {
+    const myChart = new Chart(
+        document.getElementById('chartMonths'),
+        config
+    );
+});
 
 </script>
