@@ -16,7 +16,7 @@ class ProductController extends Controller
     private $validations = [
         'name' => 'required|string|min:2|max:50',
         'ingredients' => 'required|string',
-        'price' => 'required|integer',
+        'price' => 'required|numeric',
         'description' => 'required|string',
         // 'url_image' => 'required|image|2048',
     ];
