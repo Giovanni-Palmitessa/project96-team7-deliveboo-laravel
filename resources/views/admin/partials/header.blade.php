@@ -26,11 +26,6 @@
             <ul
                 class="flex flex-col lg:items-center text-center p-4 md:p-0 mt-4 font-medium border bg-primary border-secondary rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
                 <li>
-                    <a href="http://localhost:5175/"
-                        class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent"
-                        aria-current="page">Ospite</a>
-                </li>
-                <li>
                     <a href="{{ route('dashboard') }}" class="block py-2 pl-3 pr-4 text-gray-900 hover:text-secondary md:p-0 rounded md:bg-transparent">
                         Home
                     </a>
@@ -68,16 +63,18 @@
                         <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover"
                             type="button" class="hover:text-secondary text-gray-900 font-semibold">Profilo</button>
                         <!-- Dropdown menu -->
-                        <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                        <div id="dropdownHover" class="z-10 hidden bg-secondary divide-y divide-gray-100 rounded-lg shadow w-44">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 flex flex-col gap-2 items-center"
                                 aria-labelledby="dropdownHoverButton">
                                 <li>
-                                    <a class="dropdown-item font-medium" href="{{ route('profile.edit') }}">Modifica Profilo</a>
+                                    <a href="http://localhost:5175/"
+                                    class="block py-2 pl-3 pr-4 md:p-0 text-white rounded md:bg-transparent"
+                                    aria-current="page">Ospite</a>
                                 </li>
                                 <li>
                                     <form action="{{ route('logout') }}" method="post">
                                         @csrf
-                                        <button class="font-medium">Logout</button>
+                                        <button class="font-medium text-white">Logout</button>
                                     </form>
                                 </li>
                             </ul>
