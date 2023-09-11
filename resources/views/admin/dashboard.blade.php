@@ -8,7 +8,7 @@
                 <div class="bg-white rounded-lg shadow-lg p-4 md:p-6 w-full md:w-3/4 mb-6 mx-auto">
                     <p class="text-gray-600">{{ $restaurant->description }}</p>
                     <p class="mt-4">{{ $restaurant->city }}, {{ $restaurant->address }}</p>
-                    <p class="text-gray-500">Prezzo medio: {{ $restaurant->priceRange }}</p>
+                    <p class="text-gray-500">Prezzo medio: {{ $restaurant->priceRange }} €</p>
 
                     @if (isset($restaurant->rating_value) && isset($restaurant->review_count))
                         <div class="mt-4 flex justify-center items-center space-x-2">
