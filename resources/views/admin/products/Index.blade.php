@@ -20,7 +20,6 @@
                     {{-- <th scope="col">ID</th> --}}
                     <th scope="col" class="px-6 py-3">Nome</th>
                     {{-- <th scope="col">Slug</th> --}}
-                    <th scope="col" class="px-2 py-3 hidden md:table-cell">Ingredienti</th>
                     <th scope="col" class="px-2 py-3 hidden sm:table-cell">Prezzo</th>
                     <th scope="col" class="px-2 py-3">Disponibilità</th>
                     {{-- <th scope="col">Descrizione</th> --}}
@@ -34,7 +33,6 @@
                         {{-- <td scope="row">{{ $product->id }}</td> --}}
                         <td scope="row" class="px-6 py-4">{{ $product->name }}</td>
                         {{-- <td scope="row">{{ $product->slug }}</td> --}}
-                        <td scope="row" class="px-6 py-4 max-w-lg hidden md:table-cell">{{ $product->ingredients }}</td>
                         <td scope="row" class="px-6 py-4 text-center hidden sm:table-cell">{{ $product->price }}</td>
                         <td scope="row" class="px-6 py-4 max-w-lg">
                             <form action="{{ route('admin.products.toggleProductVisibility', $product->id) }}"
