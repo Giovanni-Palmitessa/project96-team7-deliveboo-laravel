@@ -24,15 +24,6 @@ class OrderController extends Controller
         $cart        = $data['cart'];
         $shipping    = 4.9;
 
-        // foreach ($cart as $item) {
-        //     $product = Product::find($item['id']);
-
-        //     if (!$product) {
-        //         return response()->json(['success' => false, 'message' => 'Prodotto non trovato.'], 404);
-        //     }
-
-        //     $total_price += $product->price * $item['qnt'];
-        // }
         foreach ($cart as $item) {
             $product = Product::where('id', $item['id'])->first();
             $total_price += $product->price * $item['qnt'];
