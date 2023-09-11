@@ -1,18 +1,20 @@
 @extends('admin.layouts.base')
 @section('contents')
 
-<form class="mt-28" action="{{ route('admin.restaurant.statistics.months', ['id' => $restaurant->id]) }}" method="GET">
-    <label class="text-semibold text-secondary" for="month">Seleziona un mese:</label>
-    <select class="bg-secondary rounded-md shadow-md text-primary" name="month" id="month" onchange="this.form.submit()">
-        @for ($i = 1; $i <= 12; $i++)
-            <option value="{{ $i }}" {{ $selectedMonth == $i ? 'selected' : '' }}>
-                {{ $italianMonths[$i] }}
-            </option>
-        @endfor
-    </select>
-</form>
-
-<canvas id="chartMonths" height="100px"></canvas>
+<div class="p-2 md:p-0">
+    <form class="mt-28" action="{{ route('admin.restaurant.statistics.months', ['id' => $restaurant->id]) }}" method="GET">
+        <label class="text-semibold text-secondary" for="month">Seleziona un mese:</label>
+        <select class="bg-secondary rounded-md shadow-md text-primary" name="month" id="month" onchange="this.form.submit()">
+            @for ($i = 1; $i <= 12; $i++)
+                <option value="{{ $i }}" {{ $selectedMonth == $i ? 'selected' : '' }}>
+                    {{ $italianMonths[$i] }}
+                </option>
+            @endfor
+        </select>
+    </form>
+    
+    <canvas id="chartMonths" height="100px"></canvas>
+</div>
     
 @endsection
 
