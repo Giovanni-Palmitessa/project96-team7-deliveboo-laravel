@@ -70,6 +70,23 @@ if (productCreateForm) {
             priceError.textContent =
                 "Il campo 'Prezzo' può essere al massimo di 254.";
             isValid = false;
+        } else if (!isNaN(price)) {
+            var number = parseFloat(price);
+
+            if (
+                isFinite(number) &&
+                Number((number * 100).toFixed(2)) % 1 === 0
+            ) {
+                // Il numero è valido con due decimali
+            } else {
+                priceError.textContent =
+                    "Il campo 'Prezzo' deve essere decimale con due cifre decimali.";
+                isValid = false;
+            }
+        } else {
+            priceError.textContent =
+                "Inserisci un valore numerico valido nel campo 'Prezzo'.";
+            isValid = false;
         }
 
         if (description.trim() === "") {
